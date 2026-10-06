@@ -1,0 +1,250 @@
+[
+  {
+    "id": "u3_w1",
+    "french": "un thermomètre",
+    "arabic": "ميزان حرارة",
+    "category": "MASCULINE",
+    "page": 62,
+    "emoji": "🌡️"
+  },
+  {
+    "id": "u3_w2",
+    "french": "un médicament",
+    "arabic": "دواء",
+    "category": "MASCULINE",
+    "page": 62,
+    "emoji": "💊"
+  },
+  {
+    "id": "u3_w3",
+    "french": "un pansement",
+    "arabic": "رباط طبي (ضمادة)",
+    "category": "MASCULINE",
+    "page": 62,
+    "emoji": "🩹"
+  },
+  {
+    "id": "u3_w4",
+    "french": "un rapport",
+    "arabic": "تقرير",
+    "category": "MASCULINE",
+    "page": 62,
+    "emoji": "📋"
+  },
+  {
+    "id": "u3_w5",
+    "french": "un calmant",
+    "arabic": "مهدىء / مسكن",
+    "category": "MASCULINE",
+    "page": 62,
+    "emoji": "💉"
+  },
+  {
+    "id": "u3_w6",
+    "french": "l'alcool",
+    "arabic": "الكحول",
+    "category": "MASCULINE",
+    "page": 62,
+    "emoji": "🧴"
+  },
+  {
+    "id": "u3_w7",
+    "french": "des ciseaux",
+    "arabic": "مقص",
+    "category": "MASCULINE",
+    "page": 62,
+    "emoji": "✂️"
+  },
+  {
+    "id": "u3_w8",
+    "french": "un accident",
+    "arabic": "حادثة",
+    "category": "MASCULINE",
+    "page": 62,
+    "emoji": "🚗💥"
+  },
+  {
+    "id": "u3_w9",
+    "french": "un conseil",
+    "arabic": "نصيحة",
+    "category": "MASCULINE",
+    "page": 62,
+    "emoji": "💡"
+  },
+  {
+    "id": "u3_w10",
+    "french": "une seringue",
+    "arabic": "سرنجة",
+    "category": "FEMININE",
+    "page": 62,
+    "emoji": "💉"
+  },
+  {
+    "id": "u3_w11",
+    "french": "une piqûre",
+    "arabic": "حقنة",
+    "category": "FEMININE",
+    "page": 62,
+    "emoji": "💉"
+  },
+  {
+    "id": "u3_w12",
+    "french": "une ordonnance",
+    "arabic": "روشتة",
+    "category": "FEMININE",
+    "page": 62,
+    "emoji": "📝"
+  },
+  {
+    "id": "u3_w13",
+    "french": "une radiographie",
+    "arabic": "أشعة",
+    "category": "FEMININE",
+    "page": 62,
+    "emoji": "🩻"
+  },
+  {
+    "id": "u3_w14",
+    "french": "une ambulance",
+    "arabic": "سيارة إسعاف",
+    "category": "FEMININE",
+    "page": 62,
+    "emoji": "🚑"
+  },
+  {
+    "id": "u3_w15",
+    "french": "la santé",
+    "arabic": "الصحة",
+    "category": "FEMININE",
+    "page": 62,
+    "emoji": "❤️"
+  },
+  {
+    "id": "u3_w16",
+    "french": "des affaires",
+    "arabic": "أغراض - أمتعة",
+    "category": "FEMININE",
+    "page": 62,
+    "emoji": "🧳"
+  },
+  {
+    "id": "u3_w17",
+    "french": "la tête",
+    "arabic": "الرأس",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "🗣️"
+  },
+  {
+    "id": "u3_w18",
+    "french": "le front",
+    "arabic": "الجبهة",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "🧑"
+  },
+  {
+    "id": "u3_w19",
+    "french": "l'oeil",
+    "arabic": "العين",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "👁️"
+  },
+  {
+    "id": "u3_w20",
+    "french": "le nez",
+    "arabic": "الأنف",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "👃"
+  },
+  {
+    "id": "u3_w21",
+    "french": "la bouche",
+    "arabic": "الفم",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "👄"
+  },
+  {
+    "id": "u3_w22",
+    "french": "l'oreille",
+    "arabic": "الأذن",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "👂"
+  },
+  {
+    "id": "u3_w23",
+    "french": "la gorge",
+    "arabic": "الحلق",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "🧣"
+  },
+  {
+    "id": "u3_w24",
+    "french": "le ventre",
+    "arabic": "البطن",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "🤰"
+  },
+  {
+    "id": "u3_w25",
+    "french": "l'estomac",
+    "arabic": "المعدة",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "🫁"
+  },
+  {
+    "id": "u3_w26",
+    "french": "le bras",
+    "arabic": "الذراع",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "💪"
+  },
+  {
+    "id": "u3_w27",
+    "french": "la main",
+    "arabic": "اليد",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "✋"
+  },
+  {
+    "id": "u3_w28",
+    "french": "le dos",
+    "arabic": "الظهر",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "🥋"
+  },
+  {
+    "id": "u3_w29",
+    "french": "la jambe",
+    "arabic": "الساق",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "🦵"
+  },
+  {
+    "id": "u3_w30",
+    "french": "le genou",
+    "arabic": "الركبة",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "🧎"
+  },
+  {
+    "id": "u3_w31",
+    "french": "le pied",
+    "arabic": "القدم",
+    "category": "CORPS",
+    "page": 62,
+    "emoji": "🦶"
+  }
+]

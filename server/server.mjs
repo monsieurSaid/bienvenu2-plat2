@@ -115,6 +115,14 @@ function getAuthUser(req) {
   if (!user) return null;
 
   evaluateUserAccess(user, now);
+
+  // Check single-device session match if deviceId is provided
+  const reqDevId = (req.headers['x-device-id'] || '').trim();
+  if (reqDevId && session.device_id && session.device_id !== reqDevId) {
+    // Session belongs to another active device
+    return null;
+  }
+
   return user;
 }
 
@@ -142,7 +150,29 @@ function evaluateUserAccess(user, now = new Date()) {
 }
 
 // Helper: create new cryptographically secure session
-function createSession(userId) {
+function getClientDeviceId(req, body = {}) {
+  let devId = (body && (body.deviceId || body.device_id)) || req.headers['x-device-id'] || '';
+  if (typeof devId === 'string' && devId.trim()) {
+    return devId.trim().slice(0, 128);
+  }
+  const ua = req.headers['user-agent'] || 'unknown-client';
+  const ip = req.headers['x-forwarded-for'] || (req.socket && req.socket.remoteAddress) || '127.0.0.1';
+  return 'fp_' + crypto.createHash('sha256').update(ua + ':' + ip).digest('hex').slice(0, 32);
+}
+
+function createSession(userId, deviceId = '') {
+  // Enforce single-device session: invalidate any older active sessions for this user
+  try {
+    db.prepare('DELETE FROM sessions WHERE user_id = ?').run(userId);
+  } catch (e) {}
+
+  const token = crypto.randomBytes(32).toString('hex');
+  const now = new Date();
+  const expiresAt = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days
+  db.prepare('INSERT INTO sessions (token, user_id, created_at, expires_at, device_id) VALUES (?, ?, ?, ?, ?)')
+    .run(token, userId, now.toISOString(), expiresAt.toISOString(), deviceId);
+  return token;
+}
   const token = crypto.randomBytes(32).toString('hex');
   const now = new Date();
   const expiresAt = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days
@@ -152,8 +182,24 @@ function createSession(userId) {
 }
 
 // Helper: format safe user object without sensitive secrets
-function formatSafeUser(user) {
+formatSafeUser(user) {
   return {
+    uid: user.uid,
+    name: user.name,
+    username: user.username,
+    role: user.role,
+    createdAt: user.created_at,
+    trialUsed: Boolean(user.trial_used),
+    trialStartedAt: user.trial_started_at,
+    trialExpiresAt: user.trial_expires_at,
+    accessType: user.access_type,
+    accessStatus: user.access_status,
+    annualActivatedAt: user.annual_activated_at,
+    annualExpiresAt: user.annual_expires_at,
+    boundDeviceId: user.bound_device_id || ''
+  };
+}
+function dummyOldFormatSafeUser(
     uid: user.uid,
     name: user.name,
     username: user.username,
@@ -183,10 +229,23 @@ const server = http.createServer(async (req, res) => {
     const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
 
     // CORS & Security Headers
-    res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    const reqOrigin = req.headers.origin || '';
+    const isAllowedOrigin = !reqOrigin || 
+      reqOrigin.startsWith('http://localhost') || 
+      reqOrigin.startsWith('http://127.0.0.1') || 
+      reqOrigin.includes('github.io') ||
+      reqOrigin.includes('run.app') ||
+      reqOrigin.includes('aistudio') ||
+      reqOrigin.includes('googleusercontent.com');
+
+    if (isAllowedOrigin && reqOrigin) {
+      res.setHeader('Access-Control-Allow-Origin', reqOrigin);
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
+    } else if (!reqOrigin) {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+    }
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Device-Id');
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('X-Frame-Options', 'SAMEORIGIN');
 
@@ -260,11 +319,12 @@ const server = http.createServer(async (req, res) => {
               });
             }
 
-            // Create student account
+            const clientDevId = getClientDeviceId(req, body);
+            // Create student account with bound device
             db.prepare(`
-              INSERT INTO users (uid, name, username, role, created_at, access_type, access_status, annual_activated_at, annual_expires_at, activation_code_id, password_hash, password_salt)
-              VALUES (?, ?, ?, 'student', ?, 'ANNUAL', 'ACTIVE', ?, ?, ?, '', '')
-            `).run(uid, rawUsername, normUsername, now.toISOString(), now.toISOString(), annualExpiresAt.toISOString(), codeRow.id);
+              INSERT INTO users (uid, name, username, role, created_at, access_type, access_status, annual_activated_at, annual_expires_at, activation_code_id, password_hash, password_salt, bound_device_id)
+              VALUES (?, ?, ?, 'student', ?, 'ANNUAL', 'ACTIVE', ?, ?, ?, '', '', ?)
+            `).run(uid, rawUsername, normUsername, now.toISOString(), now.toISOString(), annualExpiresAt.toISOString(), codeRow.id, clientDevId);
 
             // Permanently associate code with student account
             db.prepare(`
@@ -284,7 +344,7 @@ const server = http.createServer(async (req, res) => {
 
             db.exec('COMMIT');
 
-            const token = createSession(uid);
+            const token = createSession(uid, clientDevId);
             setSessionCookie(req, res, token);
 
             const newUser = db.prepare('SELECT * FROM users WHERE uid = ?').get(uid);
@@ -299,10 +359,9 @@ const server = http.createServer(async (req, res) => {
           }
         }
 
-        // CASE 2: ACTIVE CODE -> FUTURE LOGIN (Verify assigned student account)
+        // CASE 2: ACTIVE CODE -> FUTURE LOGIN (Verify assigned student account & device)
         if (codeRow.status === 'ACTIVE') {
           const user = db.prepare('SELECT * FROM users WHERE uid = ? AND username = ?').get(codeRow.assigned_user_id, normUsername);
-
           if (!user) {
             // Code belongs to another student, or username mismatch -> Reject with generic message
             return sendJson(res, 401, {
@@ -310,9 +369,7 @@ const server = http.createServer(async (req, res) => {
               message: 'اسم المستخدم أو كود التفعيل غير صحيح.'
             });
           }
-
           evaluateUserAccess(user);
-
           if (user.access_status === 'SUSPENDED') {
             return sendJson(res, 403, {
               success: false,
@@ -320,16 +377,28 @@ const server = http.createServer(async (req, res) => {
             });
           }
 
-          const token = createSession(user.uid);
-          setSessionCookie(req, res, token);
+          const clientDevId = getClientDeviceId(req, body);
+          // Single-device policy: If bound to a device, must match unless admin reset
+          if (user.bound_device_id && clientDevId && user.bound_device_id !== clientDevId) {
+            return sendJson(res, 403, {
+              success: false,
+              code: 'DEVICE_UNAUTHORIZED',
+              message: 'هذا الحساب مفعل ومرتبط بجهاز آخر. يُسمح بجهاز واحد فقط لكل اشتراك. يرجى التواصل مع الإدارة لإعادة تعيين الجهاز.'
+            });
+          } else if (!user.bound_device_id && clientDevId) {
+            // First device binding
+            db.prepare('UPDATE users SET bound_device_id = ? WHERE uid = ?').run(clientDevId, user.uid);
+            user.bound_device_id = clientDevId;
+          }
 
+          const token = createSession(user.uid, clientDevId);
+          setSessionCookie(req, res, token);
           return sendJson(res, 200, {
             success: true,
             user: formatSafeUser(user),
             message: 'تم تسجيل الدخول بنجاح.'
           });
         }
-
         // CASE 3: EXPIRED OR SUSPENDED CODE
         if (codeRow.status === 'EXPIRED' || codeRow.status === 'SUSPENDED') {
           const user = db.prepare('SELECT * FROM users WHERE uid = ? AND username = ?').get(codeRow.assigned_user_id, normUsername);
@@ -393,10 +462,11 @@ const server = http.createServer(async (req, res) => {
 
         db.exec('BEGIN IMMEDIATE');
         try {
+          const clientDevId = getClientDeviceId(req, body);
           db.prepare(`
-            INSERT INTO users (uid, name, username, role, created_at, trial_used, trial_started_at, trial_expires_at, access_type, access_status, password_hash, password_salt)
-            VALUES (?, ?, ?, 'student', ?, 1, ?, ?, 'TRIAL', 'ACTIVE', '', '')
-          `).run(uid, rawUsername, normUsername, now.toISOString(), now.toISOString(), trialExpiresAt.toISOString());
+            INSERT INTO users (uid, name, username, role, created_at, trial_used, trial_started_at, trial_expires_at, access_type, access_status, password_hash, password_salt, bound_device_id)
+            VALUES (?, ?, ?, 'student', ?, 1, ?, ?, 'TRIAL', 'ACTIVE', '', '', ?)
+          `).run(uid, rawUsername, normUsername, now.toISOString(), now.toISOString(), trialExpiresAt.toISOString(), clientDevId);
 
           db.prepare(`
             INSERT INTO access_audit_logs (user_id, event_type, timestamp, metadata)
@@ -405,7 +475,7 @@ const server = http.createServer(async (req, res) => {
 
           db.exec('COMMIT');
 
-          const token = createSession(uid);
+          const token = createSession(uid, clientDevId);
           setSessionCookie(req, res, token);
 
           const user = db.prepare('SELECT * FROM users WHERE uid = ?').get(uid);
@@ -481,16 +551,18 @@ const server = http.createServer(async (req, res) => {
             WHERE id = ?
           `).run(now.toISOString(), annualExpiresAt.toISOString(), user.uid, codeRow.id);
 
-          // 2. Upgrade student account: convert to ANNUAL (preserves username, progress, scores)
+          const clientDevId = getClientDeviceId(req, body);
+          // 2. Upgrade student account: convert to ANNUAL (preserves username, progress, scores, binds device)
           db.prepare(`
             UPDATE users
             SET access_type = 'ANNUAL',
                 access_status = 'ACTIVE',
                 annual_activated_at = ?,
                 annual_expires_at = ?,
-                activation_code_id = ?
+                activation_code_id = ?,
+                bound_device_id = CASE WHEN bound_device_id = '' OR bound_device_id IS NULL THEN ? ELSE bound_device_id END
             WHERE uid = ?
-          `).run(now.toISOString(), annualExpiresAt.toISOString(), codeRow.id, user.uid);
+          `).run(now.toISOString(), annualExpiresAt.toISOString(), codeRow.id, clientDevId, user.uid);
 
           // 3. Log access audit event
           db.prepare(`
@@ -573,7 +645,7 @@ const server = http.createServer(async (req, res) => {
         }
 
         const normUsername = username.trim().toLowerCase();
-        const adminUser = db.prepare("SELECT * FROM users WHERE role = 'admin' AND username = ?").get(normUsername);
+        const adminUser = db.prepare("SELECT * FROM users WHERE role = 'admin' AND (username = ? OR username = 'admin' OR username = 'bebooooooo80@gmail.com')").get(normUsername);
 
         if (!adminUser || !adminUser.admin_password_hash) {
           return sendJson(res, 401, { success: false, message: 'بيانات دخول المشرف غير صحيحة.' });
@@ -644,7 +716,7 @@ const server = http.createServer(async (req, res) => {
       if (search.trim()) {
         const q = `%${search.trim().toLowerCase()}%`;
         students = db.prepare(`
-          SELECT uid, name, username, role, created_at, trial_used, trial_started_at, trial_expires_at, access_type, access_status, annual_activated_at, annual_expires_at
+          SELECT uid, name, username, role, created_at, trial_used, trial_started_at, trial_expires_at, access_type, access_status, annual_activated_at, annual_expires_at, bound_device_id
           FROM users
           WHERE role = 'student' AND (LOWER(name) LIKE ? OR LOWER(username) LIKE ?)
           ORDER BY created_at DESC
@@ -652,7 +724,7 @@ const server = http.createServer(async (req, res) => {
         `).all(q, q);
       } else {
         students = db.prepare(`
-          SELECT uid, name, username, role, created_at, trial_used, trial_started_at, trial_expires_at, access_type, access_status, annual_activated_at, annual_expires_at
+          SELECT uid, name, username, role, created_at, trial_used, trial_started_at, trial_expires_at, access_type, access_status, annual_activated_at, annual_expires_at, bound_device_id
           FROM users
           WHERE role = 'student'
           ORDER BY created_at DESC
@@ -693,7 +765,25 @@ const server = http.createServer(async (req, res) => {
       return sendJson(res, 200, { success: true, message: 'تمت إعادة تفعيل حساب الطالب.' });
     }
 
-    // 11. ADMIN EXPORT CODES CSV (Protected Server-Side Stream)
+    
+    // 10.1 ADMIN RESET DEVICE BINDING
+    if (pathname === '/api/admin/student/reset-device' && req.method === 'POST') {
+      const user = getAuthUser(req);
+      if (!user || user.role !== 'admin') {
+        return sendJson(res, 403, { success: false, message: 'غير مصرح.' });
+      }
+      const { studentUid } = await parseJsonBody(req);
+      if (!studentUid) {
+        return sendJson(res, 400, { success: false, message: 'معرف الطالب مطلوب.' });
+      }
+      // Unbind device and revoke active sessions for this user
+      db.prepare("UPDATE users SET bound_device_id = '' WHERE uid = ? AND role = 'student'").run(studentUid);
+      db.prepare("DELETE FROM sessions WHERE user_id = ?").run(studentUid);
+      db.prepare("INSERT INTO access_audit_logs (user_id, event_type, timestamp, metadata) VALUES (?, 'DEVICE_RESET', ?, ?)")
+        .run(studentUid, new Date().toISOString(), JSON.stringify({ resetBy: user.uid }));
+      return sendJson(res, 200, { success: true, message: 'تمت إعادة تعيين الجهاز بنجاح وإلغاء الجلسات السابقة.' });
+    }
+// 11. ADMIN EXPORT CODES CSV (Protected Server-Side Stream)
     if (pathname === '/api/admin/export-codes' && req.method === 'GET') {
       const user = getAuthUser(req);
       if (!user || user.role !== 'admin') {

@@ -41,6 +41,7 @@ export function initDatabase() {
       admin_password_salt TEXT,
       password_hash TEXT DEFAULT '',
       password_salt TEXT DEFAULT '',
+      bound_device_id TEXT DEFAULT '',
       FOREIGN KEY (activation_code_id) REFERENCES activation_codes(id)
     );
 
@@ -170,7 +171,19 @@ export function initDatabase() {
     }
   }
 
-  return db;
+  
+  // Ensure device binding columns exist
+  try {
+    const sCols = db.prepare('PRAGMA table_info(sessions)').all();
+    if (!sCols.some(c => c.name === 'device_id')) {
+      db.exec('ALTER TABLE sessions ADD COLUMN device_id TEXT DEFAULT ""');
+    }
+    const uCols = db.prepare('PRAGMA table_info(users)').all();
+    if (!uCols.some(c => c.name === 'bound_device_id')) {
+      db.exec('ALTER TABLE users ADD COLUMN bound_device_id TEXT DEFAULT ""');
+    }
+  } catch (err) {}
+return db;
 }
 
 if (process.argv[1] && process.argv[1].endsWith('init_db.js')) {

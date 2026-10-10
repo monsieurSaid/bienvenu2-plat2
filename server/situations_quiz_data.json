@@ -1,0 +1,554 @@
+{
+  "u1Situations": [
+    {
+      "id": "u1_sit_1",
+      "number": 1,
+      "promptFr": "Ton ami t'invite à une fête, tu acceptes l'invitation; tu dis:",
+      "promptAr": "صديقك يدعوك إلى حفلة، وأنت تقبل الدعوة؛ ماذا تقول؟",
+      "categoryAr": "قبول الدعوة ✅",
+      "categoryFr": "Accepter une invitation",
+      "goldenRule": "عند قبول الدعوة (Tu acceptes l'invitation) نستخدم تعبيرات القبول مثل: Avec plaisir ! (بكل سرور) أو D'accord ! أو Pourquoi pas !",
+      "rolePlaySpeaker": "Ton ami Gamal",
+      "rolePlayMessage": "« Je t'invite à ma fête ce soir, tu peux venir ? »",
+      "options": [
+        {
+          "textFr": "avec plaisir !",
+          "textAr": "بكل سرور ! (قبول الدعوة)",
+          "isCorrect": true,
+          "explanation": "صحيح! (Avec plaisir) هو التعبير الصريح والمباشر لقبول أي دعوة."
+        },
+        {
+          "textFr": "Désolé, je ne peux pas venir",
+          "textAr": "آسف، لا أستطيع المجيء (رفض)",
+          "isCorrect": false,
+          "explanation": "خطأ! هذا تعبير لرفض الدعوة والاعتذار وليس لقبولها."
+        },
+        {
+          "textFr": "Pardon, j'ai un examen",
+          "textAr": "عذراً، لدي امتحان (اعتذار)",
+          "isCorrect": false,
+          "explanation": "خطأ! هذا اعتذار وتبرير لعدم الحضور."
+        }
+      ]
+    },
+    {
+      "id": "u1_sit_2",
+      "number": 2,
+      "promptFr": "Tu invites ton ami à la fête de ton anniversaire; tu dis:",
+      "promptAr": "أنت تدعو صديقك إلى حفلة عيد ميلادك؛ ماذا تقول له؟",
+      "categoryAr": "توجيه الدعوة ✉️",
+      "categoryFr": "Inviter un ami",
+      "goldenRule": "عند توجيه الدعوة (Tu invites... tu dis) تبدأ بجملة دعوة مثل: « Je t'invite à... » (أدعوك إلى...) أو صيغة اقتراح.",
+      "rolePlaySpeaker": "Toi (أنت)",
+      "rolePlayMessage": "ماذا ستقول لصديقك لتدعوه لحفلة عيد ميلادك؟",
+      "options": [
+        {
+          "textFr": "je t'invite à la fête de mon anniversaire.",
+          "textAr": "أدعوك إلى حفلة عيد ميلادي.",
+          "isCorrect": true,
+          "explanation": "صحيح! تبدأ بـ (Je t'invite à) لأنك أنت صاحب الدعوة وأنت من يتكلم."
+        },
+        {
+          "textFr": "Je ne peux pas venir.",
+          "textAr": "أنا لا أستطيع المجيء.",
+          "isCorrect": false,
+          "explanation": "خطأ! أنت هنا صاحب الدعوة ولست المدعو المعتذر."
+        },
+        {
+          "textFr": "Désolé, j'ai un rendez-vous.",
+          "textAr": "آسف، لدي موعد.",
+          "isCorrect": false,
+          "explanation": "خطأ! هذا اعتذار عند تلقي دعوة، بينما المطلوب أن توجه أنت الدعوة."
+        }
+      ]
+    },
+    {
+      "id": "u1_sit_3",
+      "number": 3,
+      "promptFr": "Ton ami te demande ce qu'on fait à la fête; tu dis:",
+      "promptAr": "صديقك يسألك عما نفعله في الحفلة؛ ماذا تقول له؟",
+      "categoryAr": "أنشطة الحفلة 🎂",
+      "categoryFr": "Activités de la fête",
+      "goldenRule": "عند السؤال عن أنشطة الحفلة (ce qu'on fait à la fête) نذكر أنشطة الاحتفال مثل: أكل الجاتوه (manger des gâteaux)، وسماع الموسيقى والرقص.",
+      "rolePlaySpeaker": "Ton ami Jean",
+      "rolePlayMessage": "« Qu'est-ce qu'on fait pendant la fête d'anniversaire ? »",
+      "options": [
+        {
+          "textFr": "On écrit des lettres.",
+          "textAr": "نكتب خطابات.",
+          "isCorrect": false,
+          "explanation": "خطأ! في الحفلات لا نكتب خطابات بريدية."
+        },
+        {
+          "textFr": "On va manger des gâteaux.",
+          "textAr": "سوف نأكل الجاتوه والحلويات.",
+          "isCorrect": true,
+          "explanation": "ممتاز! أكل الجاتوه والحلوى وسماع الموسيقى هي الأنشطة الأساسية في الحفلات."
+        },
+        {
+          "textFr": "On part à Alex.",
+          "textAr": "نسافر إلى الإسكندرية.",
+          "isCorrect": false,
+          "explanation": "خطأ! هذا نشاط سفر وإجازة وليس داخل الحفلة."
+        }
+      ]
+    },
+    {
+      "id": "u1_sit_4",
+      "number": 4,
+      "promptFr": "Tu félicites ton ami pour son anniversaire; tu dis:",
+      "promptAr": "أنت تهنئ صديقك بمناسبة عيد ميلاده؛ ماذا تقول؟",
+      "categoryAr": "التهنئة بعيد الميلاد 🎉",
+      "categoryFr": "Féliciter pour l'anniversaire",
+      "goldenRule": "عند التهنئة بعيد الميلاد (Tu félicites... pour son anniversaire) نستخدم العبارة الرسمية الشهيرة: Bon anniversaire ! أو Joyeux anniversaire !",
+      "rolePlaySpeaker": "Ton ami Moustafa",
+      "rolePlayMessage": "« Aujourd'hui c'est le 14 mai, c'est mon anniversaire ! »",
+      "options": [
+        {
+          "textFr": "Bon anniversaire !",
+          "textAr": "عيد ميلاد سعيد !",
+          "isCorrect": true,
+          "explanation": "أحسنت! (Bon anniversaire !) هي عبارة التهنئة المباشرة بعيد الميلاد."
+        },
+        {
+          "textFr": "Pardon, je suis fatigué.",
+          "textAr": "عذراً، أنا مرهق.",
+          "isCorrect": false,
+          "explanation": "خطأ! هذا اعتذار وشعور بالتعب، ولا يعبر عن تهنئة."
+        },
+        {
+          "textFr": "Je t'invite chez moi.",
+          "textAr": "أدعوك إلى منزلي.",
+          "isCorrect": false,
+          "explanation": "خطأ! هذه دعوة وليست تهنئة بعيد ميلاده."
+        }
+      ]
+    },
+    {
+      "id": "u1_sit_5",
+      "number": 5,
+      "promptFr": "Tu invites ton ami à déjeuner, mais il n'accepte pas; il dit:",
+      "promptAr": "تدعو صديقك لتناول الغداء، لكنه لا يقبل (يرفض)؛ ماذا يقول هو؟",
+      "categoryAr": "رفض الدعوة والاعتذار ❌",
+      "categoryFr": "Refuser une invitation",
+      "goldenRule": "لاحظ الفاعل في نهاية الموقف: « il dit » (هو يقول) + « il n'accepte pas » (هو لا يقبل) ➔ المطلوب جملة اعتذار ورفض بأدب: Désolé / Pardon...",
+      "rolePlaySpeaker": "Ton ami (qui refuse)",
+      "rolePlayMessage": "تدعوه: « Viens déjeuner avec moi ! » وهو يعتذر، فماذا يقول؟",
+      "options": [
+        {
+          "textFr": "Avec plaisir.",
+          "textAr": "بكل سرور. (قبول)",
+          "isCorrect": false,
+          "explanation": "خطأ! هذا قبول، بينما الموقف يحدد أنه لا يقبل (il n'accepte pas)."
+        },
+        {
+          "textFr": "Désolé, je vais sortir avec mes parents.",
+          "textAr": "آسف، سأخرج مع والديّ. (رفض بأدب واعتذار)",
+          "isCorrect": true,
+          "explanation": "صحيح جداً! بدأ بـ (Désolé) وقدم سبباً مقنعاً لعدم القدوم."
+        },
+        {
+          "textFr": "Pourquoi pas.",
+          "textAr": "لِمَ لا. (قبول)",
+          "isCorrect": false,
+          "explanation": "خطأ! (Pourquoi pas) تعني الموافقة والقبول."
+        }
+      ]
+    },
+    {
+      "id": "u1_sit_6",
+      "number": 6,
+      "promptFr": "Ton ami te demande ce que tu achètes pour ta mère à l'occasion de son anniversaire: tu dis:",
+      "promptAr": "يسألك صديقك عما تشتريه لوالدتك بمناسبة عيد ميلادها؛ ماذا تقول؟",
+      "categoryAr": "هدية عيد الأم / الميلاد 💐",
+      "categoryFr": "Cadeau d'anniversaire",
+      "goldenRule": "صديقك يسألك ماذا تشتري (ce que tu achètes) وأنت تجيب (tu dis) ➔ نذكر شيئاً مادياً مناسباً يُهدى للأم، مثل: Un bouquet de fleurs (باقة ورد) أو Un cadeau.",
+      "rolePlaySpeaker": "Ton ami Jean",
+      "rolePlayMessage": "« Qu'est-ce que tu achètes comme cadeau pour ta mère ? »",
+      "options": [
+        {
+          "textFr": "J'ai un examen.",
+          "textAr": "لدي امتحان.",
+          "isCorrect": false,
+          "explanation": "خطأ! هذا اعتذار لا علاقة له بالسؤال عن الهدية."
+        },
+        {
+          "textFr": "Un bouquet de fleurs.",
+          "textAr": "باقة من الزهور الجميلة. (هدية)",
+          "isCorrect": true,
+          "explanation": "رائع! باقة الزهور (Un bouquet de fleurs) هي الهدية النموذجية والمثالية."
+        },
+        {
+          "textFr": "Bon anniversaire.",
+          "textAr": "عيد ميلاد سعيد.",
+          "isCorrect": false,
+          "explanation": "خطأ! هذه جملة تهنئة تقال للأم، وليست الشيء الذي تشتريه كهدية."
+        }
+      ]
+    }
+  ],
+  "u2Situations": [
+    {
+      "id": 1,
+      "promptFr": "1. Tu veux manger, tu dis :",
+      "promptAr": "تريد أن تأكل، فماذا تقول؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "je vais au club.",
+          "arabic": "أذهب إلى النادي."
+        },
+        {
+          "key": "b",
+          "french": "Mon frère préfère le poisson",
+          "arabic": "أخي يفضل السمك."
+        },
+        {
+          "key": "c",
+          "french": "j'ai faim.",
+          "arabic": "أنا جائع."
+        }
+      ],
+      "correctKey": "c",
+      "explanation": "عندما تريد أن تأكل تعبر عن الجوع قائلاً: J'ai faim (أنا جائع)."
+    },
+    {
+      "id": 2,
+      "promptFr": "2. Avant de prendre un repas, le garçon te dit :",
+      "promptAr": "قبل تناول الوجبة، ماذا يقول لك النادل (الجرسون)؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "Qu'est-ce que vous voulez comme dessert?",
+          "arabic": "ماذا تريد كحلوى؟"
+        },
+        {
+          "key": "b",
+          "french": "je prends de la glace.",
+          "arabic": "أنا أتناول الآيس كريم."
+        },
+        {
+          "key": "c",
+          "french": "Bon appétit !",
+          "arabic": "شهية طيبة! / بالهناء والشفاء!"
+        }
+      ],
+      "correctKey": "c",
+      "explanation": "قبل بدء الوجبة يتمنى لك الجرسون شهية طيبة: Bon appétit !"
+    },
+    {
+      "id": 3,
+      "promptFr": "3. Tu demandes au garçon l'addition, tu dis :",
+      "promptAr": "تطلب الحساب (الفاتورة) من النادل، فماذا تقول؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "l'addition, s.v.p !",
+          "arabic": "الحساب، من فضلك!"
+        },
+        {
+          "key": "b",
+          "french": "Que voulez-vous",
+          "arabic": "ماذا تريد؟"
+        },
+        {
+          "key": "c",
+          "french": "Vous voulez autre chose?",
+          "arabic": "هل تريد شيئاً آخر؟"
+        }
+      ],
+      "correctKey": "a",
+      "explanation": "لطلب الفاتورة تقول للنادل بتهذيب: L'addition, s.v.p !"
+    },
+    {
+      "id": 4,
+      "promptFr": "4. Tu demandes à ton ami le nombre des repas qu'il prend, il te dit :",
+      "promptAr": "تسأل صديقك عن عدد الوجبات التي يتناولها، فماذا يقول لك (هو يجيب)؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "Tu prends trois repas?",
+          "arabic": "هل تتناول 3 وجبات؟"
+        },
+        {
+          "key": "b",
+          "french": "Combien de repas prends-tu?",
+          "arabic": "كم وجبة تتناول؟"
+        },
+        {
+          "key": "c",
+          "french": "Je prends trois repas par jour.",
+          "arabic": "أتناول ثلاث وجبات في اليوم."
+        }
+      ],
+      "correctKey": "c",
+      "explanation": "انتبه لصيغة الموقف: (il te dit هو يقول لك)، إذن المطلوب إجابته هو: Je prends trois repas par jour."
+    },
+    {
+      "id": 5,
+      "promptFr": "5. Au restaurant, tu demandes le menu au garçon, tu dis :",
+      "promptAr": "في المطعم، تطلب قائمة الطعام (المنيو) من النادل، فماذا تقول؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "Apportez-moi le menu, s.v.p!",
+          "arabic": "أحضر لي قائمة الطعام، من فضلك!"
+        },
+        {
+          "key": "b",
+          "french": "Voilà le menu !",
+          "arabic": "ها هي قائمة الطعام!"
+        },
+        {
+          "key": "c",
+          "french": "Que voulez-vous",
+          "arabic": "ماذا تريد؟"
+        }
+      ],
+      "correctKey": "a",
+      "explanation": "لطلب المنيو تقول للنادل: Apportez-moi le menu, s.v.p !"
+    },
+    {
+      "id": 6,
+      "promptFr": "6. Tu demandes à ton ami pourquoi il va au marché, il dit :",
+      "promptAr": "تسأل صديقك لماذا يذهب إلى السوق، فماذا يقول؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "Pour acheter une maison.",
+          "arabic": "لكي أشتري منزلاً."
+        },
+        {
+          "key": "b",
+          "french": "Pour acheter des légumes et des fruits.",
+          "arabic": "لكي أشتري خضروات وفواكه."
+        },
+        {
+          "key": "c",
+          "french": "Pour acheter un médicament.",
+          "arabic": "لكي أشتري دواءً."
+        }
+      ],
+      "correctKey": "b",
+      "explanation": "الذهاب إلى السوق (au marché) يكون لشراء الخضار والفاكهة: Pour acheter des légumes et des fruits."
+    },
+    {
+      "id": 7,
+      "promptFr": "7. Ton ami te demande combien de repas tu prends par jour, tu dis :",
+      "promptAr": "صديقك يسألك كم وجبة تتناول في اليوم، فماذا تقول له؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "j'étudie 3 heures par jour.",
+          "arabic": "أنا أذاكر 3 ساعات يومياً."
+        },
+        {
+          "key": "b",
+          "french": "Ce repas n'est pas bon.",
+          "arabic": "هذه الوجبة ليست جيدة."
+        },
+        {
+          "key": "c",
+          "french": "je prends 3 repas chaque jour.",
+          "arabic": "أنا أتناول 3 وجبات كل يوم."
+        }
+      ],
+      "correctKey": "c",
+      "explanation": "صديقك يسألك وأنت ترد: Je prends 3 repas chaque jour."
+    }
+  ],
+  "u3Situations": [
+    {
+      "id": 1,
+      "promptFr": "1. Tu as très mal au bras, le médecin te dit :",
+      "promptAr": "تشعر بألم شديد في ذراعك، ماذا يقول لك الطبيب؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "fais une radiographie.",
+          "arabic": "قم بعمل أشعة."
+        },
+        {
+          "key": "b",
+          "french": "fais un plat de salade !",
+          "arabic": "اصنع طبق سلطة!"
+        },
+        {
+          "key": "c",
+          "french": "fais tes devoirs !",
+          "arabic": "اعمل واجباتك!"
+        }
+      ],
+      "correctKey": "a",
+      "explanation": "عندما يكون هناك ألم شديد أو كسر في الذراع، يطلب الطبيب عمل أشعة: fais une radiographie."
+    },
+    {
+      "id": 2,
+      "promptFr": "2. Ton père te demande pourquoi tu vas aller à l'hôpital, tu lui dis :",
+      "promptAr": "والدك يسألك لماذا ستذهب إلى المستشفى، فماذا تقول له؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "pour acheter des mouchoirs en papier.",
+          "arabic": "لكي أشتري مناديل ورقية."
+        },
+        {
+          "key": "b",
+          "french": "pour visiter mon ami malade.",
+          "arabic": "لكي أزور صديقي المريض."
+        },
+        {
+          "key": "c",
+          "french": "pour jouer avec mes amis.",
+          "arabic": "لكي ألعب مع أصدقائي."
+        }
+      ],
+      "correctKey": "b",
+      "explanation": "الذهاب إلى المستشفى يكون لعيادة وزيارة مريض: pour visiter mon ami malade."
+    },
+    {
+      "id": 3,
+      "promptFr": "3. Le médecin donne un conseil à un malade, le médecin lui dit :",
+      "promptAr": "الطبيب يقدم نصيحة لمريض، فماذا يقول له؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "Repose-toi bien !",
+          "arabic": "استرح جيداً!"
+        },
+        {
+          "key": "b",
+          "french": "Étudie bien !",
+          "arabic": "ذاكر جيداً!"
+        },
+        {
+          "key": "c",
+          "french": "Fais attention en classe !",
+          "arabic": "انتبه في الفصل!"
+        }
+      ],
+      "correctKey": "a",
+      "explanation": "نصيحة الطبيب للمريض هي أخذ قسط من الراحة والتعافي: Repose-toi bien !"
+    },
+    {
+      "id": 4,
+      "promptFr": "4. Ton ami te demande ce que l'ambulancier fait, tu dis :",
+      "promptAr": "صديقك يسألك عما يفعله المسعف (سائق الإسعاف)، فماذا تقول؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "Il examine les malades.",
+          "arabic": "يفحص المرضى."
+        },
+        {
+          "key": "b",
+          "french": "Il transporte les malades.",
+          "arabic": "ينقل المرضى."
+        },
+        {
+          "key": "c",
+          "french": "Il soigne les malades.",
+          "arabic": "يعالج المرضى."
+        }
+      ],
+      "correctKey": "b",
+      "explanation": "مهمة المسعف وسائق الإسعاف هي نقل المرضى والمصابين إلى المستشفى: Il transporte les malades."
+    },
+    {
+      "id": 5,
+      "promptFr": "5. Tu demandes à ton ami où il a mal, tu dis :",
+      "promptAr": "تسأل صديقك أين يشعر بالألم، فماذا تقول؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "Où as-tu mal ?",
+          "arabic": "أين تشعر بالألم؟"
+        },
+        {
+          "key": "b",
+          "french": "Comment vas-tu ?",
+          "arabic": "كيف حالك؟"
+        },
+        {
+          "key": "c",
+          "french": "Quel est ton nom ?",
+          "arabic": "ما اسمك؟"
+        }
+      ],
+      "correctKey": "a",
+      "explanation": "للسؤال عن مكان الألم في الجسم نستخدم: Où as-tu mal ?"
+    },
+    {
+      "id": 6,
+      "promptFr": "6. Tu exprimes une douleur physique, tu dis :",
+      "promptAr": "تعبر عن ألم جسدي تشعر به، فماذا تقول؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "J'ai mal au ventre.",
+          "arabic": "أشعر بألم في بطني."
+        },
+        {
+          "key": "b",
+          "french": "Je vais au restaurant.",
+          "arabic": "أنا أذهب إلى المطعم."
+        },
+        {
+          "key": "c",
+          "french": "J'aime le français.",
+          "arabic": "أنا أحب اللغة الفرنسية."
+        }
+      ],
+      "correctKey": "a",
+      "explanation": "للتعبير عن الألم نستخدم تعبير Avoir mal à + عضو الجسم: J'ai mal au ventre."
+    },
+    {
+      "id": 7,
+      "promptFr": "7. Ton ami te demande ce que fait le médecin, tu dis :",
+      "promptAr": "صديقك يسألك ماذا يفعل الطبيب، فماذا تقول؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "Il examine et soigne les malades.",
+          "arabic": "يفحص ويعالج المرضى."
+        },
+        {
+          "key": "b",
+          "french": "Il conduit l'autobus.",
+          "arabic": "يقود الأتوبيس."
+        },
+        {
+          "key": "c",
+          "french": "Il explique la leçon.",
+          "arabic": "يشرح الدرس."
+        }
+      ],
+      "correctKey": "a",
+      "explanation": "عمل الطبيب هو فحص وعلاج المرضى: Il examine et soigne les malades."
+    },
+    {
+      "id": 8,
+      "promptFr": "8. Tu as très mal aux dents, tu dis :",
+      "promptAr": "تشعر بألم شديد في أسنانك، فماذا تقول؟",
+      "options": [
+        {
+          "key": "a",
+          "french": "Je vais chez le dentiste.",
+          "arabic": "أذهب إلى طبيب الأسنان."
+        },
+        {
+          "key": "b",
+          "french": "Je vais au stade.",
+          "arabic": "أذهب إلى الاستاد."
+        },
+        {
+          "key": "c",
+          "french": "Je mange des bonbons.",
+          "arabic": "أتناول حلوى."
+        }
+      ],
+      "correctKey": "a",
+      "explanation": "عند الشعور بألم في الأسنان نذهب إلى طبيب الأسنان: Je vais chez le dentiste."
+    }
+  ]
+}

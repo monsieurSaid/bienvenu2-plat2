@@ -1,0 +1,776 @@
+{
+  "u2Words": [
+    {
+      "id": "m1",
+      "french": "un tableau",
+      "arabic": "سبورة",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m2",
+      "french": "le matin",
+      "arabic": "في الصباح",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m3",
+      "french": "le soir",
+      "arabic": "في المساء",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m4",
+      "french": "un téléphone",
+      "arabic": "تليفون",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m5",
+      "french": "un hôtel",
+      "arabic": "فندق",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m6",
+      "french": "un café",
+      "arabic": "قهوة (كافيه)",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m7",
+      "french": "un an",
+      "arabic": "عام",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m8",
+      "french": "un uniforme",
+      "arabic": "زي موحد",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m9",
+      "french": "un devoir",
+      "arabic": "واجب",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m10",
+      "french": "un réfrigérateur",
+      "arabic": "ثلاجة",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m11",
+      "french": "un micro",
+      "arabic": "ميكرفون (مكبر صوت)",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m12",
+      "french": "un lavabo",
+      "arabic": "حوض",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m13",
+      "french": "l'après-midi",
+      "arabic": "بعد الظهر",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m14",
+      "french": "un oreiller",
+      "arabic": "وسادة / مخدة",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m15",
+      "french": "un timbre",
+      "arabic": "طابع بريد",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m16",
+      "french": "un rendez-vous",
+      "arabic": "ميعاد",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m17",
+      "french": "un âge",
+      "arabic": "عمر",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "m18",
+      "french": "un drapeau",
+      "arabic": "علم",
+      "category": "MASCULINE",
+      "page": 51
+    },
+    {
+      "id": "f1",
+      "french": "une table",
+      "arabic": "منضدة",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f2",
+      "french": "une nappe",
+      "arabic": "مفرش",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f3",
+      "french": "une tasse",
+      "arabic": "فنجان",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f4",
+      "french": "une assiette",
+      "arabic": "طبق",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f5",
+      "french": "une carafe d'eau",
+      "arabic": "دورق مياه",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f6",
+      "french": "une cuillère",
+      "arabic": "ملعقة",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f7",
+      "french": "une fourchette",
+      "arabic": "شوكة",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f8",
+      "french": "une boisson",
+      "arabic": "مشروب",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f9",
+      "french": "une fenêtre",
+      "arabic": "شباك",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f10",
+      "french": "l'addition",
+      "arabic": "الحساب",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f11",
+      "french": "une commande",
+      "arabic": "طلب",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f12",
+      "french": "la journée",
+      "arabic": "فترة نهارية",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f13",
+      "french": "une monnaie",
+      "arabic": "عملة",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f14",
+      "french": "une sorte",
+      "arabic": "نوع",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "f15",
+      "french": "une serviette",
+      "arabic": "فوطة",
+      "category": "FEMININE",
+      "page": 51
+    },
+    {
+      "id": "a1",
+      "french": "viande d'agneau",
+      "arabic": "لحم ضأن",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a2",
+      "french": "viande de veau",
+      "arabic": "لحمة بتلو",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a3",
+      "french": "viande de boeuf",
+      "arabic": "لحمة بقرى",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a4",
+      "french": "un poulet",
+      "arabic": "فرخة",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a5",
+      "french": "un canard",
+      "arabic": "بطة",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a6",
+      "french": "une dinde",
+      "arabic": "فرخة رومى",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a7",
+      "french": "du poisson",
+      "arabic": "سمك",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a8",
+      "french": "des frites",
+      "arabic": "بطاطس مقلية",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a9",
+      "french": "des poires",
+      "arabic": "كمثرى",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a10",
+      "french": "des fraises",
+      "arabic": "فراولة",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a11",
+      "french": "un steak",
+      "arabic": "بفتيك",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a12",
+      "french": "un dindon",
+      "arabic": "ديك رومى",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a13",
+      "french": "des oeufs",
+      "arabic": "بيض",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a14",
+      "french": "des pâtes",
+      "arabic": "معجنات (مكرونة)",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a15",
+      "french": "du riz",
+      "arabic": "الأرز",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a16",
+      "french": "du fromage",
+      "arabic": "الجبنة",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a17",
+      "french": "des haricots verts",
+      "arabic": "فاصوليا خضراء",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a18",
+      "french": "des petits pois",
+      "arabic": "بسلة",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a19",
+      "french": "la salade-du laitue",
+      "arabic": "خسة",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a20",
+      "french": "la purée",
+      "arabic": "بطاطس مهروسة",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a21",
+      "french": "un crème caramel",
+      "arabic": "كريم كراميل",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a22",
+      "french": "des pommes",
+      "arabic": "تفاح",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a23",
+      "french": "des bananes",
+      "arabic": "موز",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a24",
+      "french": "un pâté",
+      "arabic": "فطيرة محشوة (باتيه)",
+      "category": "FOOD",
+      "page": 52
+    },
+    {
+      "id": "a25",
+      "french": "des légumes",
+      "arabic": "خضروات",
+      "category": "FOOD",
+      "page": 53
+    },
+    {
+      "id": "a26",
+      "french": "de la volaille",
+      "arabic": "لحم طيور",
+      "category": "FOOD",
+      "page": 53
+    },
+    {
+      "id": "a27",
+      "french": "de l'huile",
+      "arabic": "زيت",
+      "category": "FOOD",
+      "page": 53
+    },
+    {
+      "id": "a28",
+      "french": "des fruits",
+      "arabic": "فواكه",
+      "category": "FOOD",
+      "page": 53
+    },
+    {
+      "id": "a29",
+      "french": "de la viande",
+      "arabic": "لحمة",
+      "category": "FOOD",
+      "page": 53
+    },
+    {
+      "id": "a30",
+      "french": "des crudités",
+      "arabic": "خضروات غير مطهية",
+      "category": "FOOD",
+      "page": 53
+    },
+    {
+      "id": "v1",
+      "french": "préparer",
+      "arabic": "يعد / يجهز",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v2",
+      "french": "mettre",
+      "arabic": "يضع / يرتدى",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v3",
+      "french": "noter",
+      "arabic": "يدون / يسجل",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v4",
+      "french": "chercher",
+      "arabic": "يبحث عن",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v5",
+      "french": "aider",
+      "arabic": "يساعد",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v6",
+      "french": "laisser",
+      "arabic": "يترك",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v7",
+      "french": "commander",
+      "arabic": "يطلب",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v8",
+      "french": "manger",
+      "arabic": "يأكل",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v9",
+      "french": "prendre",
+      "arabic": "يتناول / يأخذ",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v10",
+      "french": "commencer",
+      "arabic": "يبدأ",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v11",
+      "french": "conseiller",
+      "arabic": "ينصح",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v12",
+      "french": "manquer",
+      "arabic": "ينقص",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v13",
+      "french": "proposer",
+      "arabic": "يقترح",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v14",
+      "french": "réserver",
+      "arabic": "يحجز",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v15",
+      "french": "payer",
+      "arabic": "يدفع",
+      "category": "VERBS",
+      "page": 53
+    },
+    {
+      "id": "v16",
+      "french": "servir",
+      "arabic": "يخدم",
+      "category": "VERBS",
+      "page": 53
+    }
+  ],
+  "u3Words": [
+    {
+      "id": "u3_w1",
+      "french": "un thermomètre",
+      "arabic": "ميزان حرارة",
+      "category": "MASCULINE",
+      "page": 62
+    },
+    {
+      "id": "u3_w2",
+      "french": "un médicament",
+      "arabic": "دواء",
+      "category": "MASCULINE",
+      "page": 62
+    },
+    {
+      "id": "u3_w3",
+      "french": "un pansement",
+      "arabic": "رباط طبي (ضمادة)",
+      "category": "MASCULINE",
+      "page": 62
+    },
+    {
+      "id": "u3_w4",
+      "french": "un rapport",
+      "arabic": "تقرير",
+      "category": "MASCULINE",
+      "page": 62
+    },
+    {
+      "id": "u3_w5",
+      "french": "un calmant",
+      "arabic": "مهدىء / مسكن",
+      "category": "MASCULINE",
+      "page": 62
+    },
+    {
+      "id": "u3_w6",
+      "french": "l'alcool",
+      "arabic": "الكحول",
+      "category": "MASCULINE",
+      "page": 62
+    },
+    {
+      "id": "u3_w7",
+      "french": "des ciseaux",
+      "arabic": "مقص",
+      "category": "MASCULINE",
+      "page": 62
+    },
+    {
+      "id": "u3_w8",
+      "french": "un accident",
+      "arabic": "حادثة",
+      "category": "MASCULINE",
+      "page": 62
+    },
+    {
+      "id": "u3_w9",
+      "french": "un conseil",
+      "arabic": "نصيحة",
+      "category": "MASCULINE",
+      "page": 62
+    },
+    {
+      "id": "u3_w10",
+      "french": "une seringue",
+      "arabic": "سرنجة",
+      "category": "FEMININE",
+      "page": 62
+    },
+    {
+      "id": "u3_w11",
+      "french": "une piqûre",
+      "arabic": "حقنة",
+      "category": "FEMININE",
+      "page": 62
+    },
+    {
+      "id": "u3_w12",
+      "french": "une ordonnance",
+      "arabic": "روشتة",
+      "category": "FEMININE",
+      "page": 62
+    },
+    {
+      "id": "u3_w13",
+      "french": "une radiographie",
+      "arabic": "أشعة",
+      "category": "FEMININE",
+      "page": 62
+    },
+    {
+      "id": "u3_w14",
+      "french": "une ambulance",
+      "arabic": "سيارة إسعاف",
+      "category": "FEMININE",
+      "page": 62
+    },
+    {
+      "id": "u3_w15",
+      "french": "la santé",
+      "arabic": "الصحة",
+      "category": "FEMININE",
+      "page": 62
+    },
+    {
+      "id": "u3_w16",
+      "french": "des affaires",
+      "arabic": "أغراض - أمتعة",
+      "category": "FEMININE",
+      "page": 62
+    },
+    {
+      "id": "u3_w17",
+      "french": "la tête",
+      "arabic": "الرأس",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w18",
+      "french": "le front",
+      "arabic": "الجبهة",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w19",
+      "french": "l'oeil",
+      "arabic": "العين",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w20",
+      "french": "le nez",
+      "arabic": "الأنف",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w21",
+      "french": "la bouche",
+      "arabic": "الفم",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w22",
+      "french": "l'oreille",
+      "arabic": "الأذن",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w23",
+      "french": "la gorge",
+      "arabic": "الحلق",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w24",
+      "french": "le ventre",
+      "arabic": "البطن",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w25",
+      "french": "l'estomac",
+      "arabic": "المعدة",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w26",
+      "french": "le bras",
+      "arabic": "الذراع",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w27",
+      "french": "la main",
+      "arabic": "اليد",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w28",
+      "french": "le dos",
+      "arabic": "الظهر",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w29",
+      "french": "la jambe",
+      "arabic": "الساق",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w30",
+      "french": "le genou",
+      "arabic": "الركبة",
+      "category": "CORPS",
+      "page": 62
+    },
+    {
+      "id": "u3_w31",
+      "french": "le pied",
+      "arabic": "القدم",
+      "category": "CORPS",
+      "page": 62
+    }
+  ]
+}

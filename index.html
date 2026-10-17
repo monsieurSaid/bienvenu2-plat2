@@ -1583,15 +1583,24 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
         this.render(unitId);
       },
 
-      selectOption(unitId, qId, chosenKey, correctKey, explanation) {
+      selectOption(unitId, qId, oIdx) {
         const s = this.ensureState(unitId);
         const qKey = String(qId);
         if (s.userAnswers[qKey] !== undefined || s.userAnswers[qId] !== undefined) return;
+
+        const sitList = this.getSituationsList(unitId);
+        const item = sitList.find(it => String(it.id || it.number) === qKey);
+        if (!item || !item.options || !item.options[oIdx]) return;
+
+        const optObj = item.options[oIdx];
+        const chosenKey = optObj.key || String.fromCharCode(97 + oIdx);
+        const correctKey = (item.correctKey || item.correctOption || 'c').toString().toLowerCase().trim();
+
         s.userAnswers[qKey] = chosenKey;
         s.userAnswers[qId] = chosenKey;
         s.showExplanation[qKey] = true;
 
-        const isCorrect = String(chosenKey).toLowerCase().trim() === String(correctKey).toLowerCase().trim();
+        const isCorrect = String(chosenKey).toLowerCase().trim() === correctKey;
         if (isCorrect) {
           playSuccessSound();
           s.score += 5;
@@ -2122,7 +2131,37 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
       if (trans) trans.classList.toggle('hidden');
     }
 
-    function renderQuizQuestionsList(questions) {
+    
+    function extractBookAnswer(q) {
+      if (!q || typeof q !== 'object') return '';
+      let ans = q.fullSentenceFr || q.modelSentenceFr || q.transformedSentenceFr || q.expectedAnswerFr || q.correctAnswer || q.onSentenceFr || q.modelAnswer;
+      if (!ans && q.targetBlanks && q.targetBlanks.length) ans = q.targetBlanks.join(' / ');
+      if (!ans && Array.isArray(q.options)) {
+        const correctOpt = q.options.find(o => typeof o === 'object' && (o.isCorrect === true || (q.correctKey && (o.key || '').toLowerCase() === q.correctKey.toLowerCase())));
+        if (correctOpt) {
+          ans = correctOpt.french || correctOpt.text || JSON.stringify(correctOpt);
+        } else if (q.correctIndex !== undefined && q.correctIndex >= 0 && q.options[q.correctIndex]) {
+          const opt = q.options[q.correctIndex];
+          ans = typeof opt === 'object' ? (opt.french || opt.text || JSON.stringify(opt)) : opt;
+        }
+      }
+      if (!ans && q.isTrue !== undefined) {
+        ans = q.isTrue ? 'Vrai (صح)' : 'Faux (خطأ)';
+      }
+      return ans || '';
+    }
+
+    function escapeAttr(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+function renderQuizQuestionsList(questions) {
       if (!questions || !questions.length) return '';
       return questions.map((q, idx) => {
         const qId = q.id || ('quiz_q_' + idx);
@@ -2135,8 +2174,9 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
         }
 
         let qAr = q.arabicTranslation || q.questionAr || q.sentenceAr || q.translationAr || q.onSentenceAr || q.promptAr || '';
-        const expl = (q.explanation || q.explanationAr || q.ruleExplanationAr || '').replace(/['"\n]/g, ' ');
+        const expl = q.explanation || q.explanationAr || q.ruleExplanationAr || '';
         const page = q.pageReference || q.page || '';
+        const bookAnswer = extractBookAnswer(q);
         
         let opts = q.options;
         if (!opts || !opts.length) {
@@ -2170,35 +2210,60 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
               <div class="space-y-1 flex-1">
                 <div class="flex items-center gap-2 flex-wrap">
                   <span class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-700 text-xs font-black flex items-center justify-center shrink-0">${idx + 1}</span>
-                  <p class="font-french font-bold text-slate-900 text-sm sm:text-base leading-snug" dir="ltr">${qFr}</p>
+                  <p class="font-french font-bold text-slate-900 text-sm sm:text-base leading-snug" dir="ltr">${escapeAttr(qFr)}</p>
                 </div>
-                ${qAr ? `<div class="quiz-ar-trans hidden pr-8 text-xs text-slate-500 font-sans">${qAr}</div>` : ''}
+                ${qAr ? `<div class="quiz-ar-trans hidden pr-8 text-xs text-slate-500 font-sans">${escapeAttr(qAr)}</div>` : ''}
               </div>
               <div class="flex items-center gap-1.5 shrink-0">
                 ${qAr ? `<button type="button" onclick="toggleQuizTrans(this)" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-xs transition" title="ترجمة"><i class="fa-solid fa-language"></i></button>` : ''}
-                ${qFr ? `<button type="button" onclick="speakText('${qFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs transition" title="استمع"><i class="fa-solid fa-volume-high"></i></button>` : ''}
-                ${page ? `<span class="px-2 py-0.5 rounded-md bg-amber-50 border border-amber-200 text-amber-900 text-[10px] font-bold shrink-0 font-french">${page}</span>` : ''}
+                ${qFr ? `<button type="button" onclick="speakText('${escapeAttr(qFr).replace(/'/g, "\\'")}')" class="w-8 h-8 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs transition" title="استمع"><i class="fa-solid fa-volume-high"></i></button>` : ''}
+                ${page ? `<span class="px-2 py-0.5 rounded-md bg-amber-50 border border-amber-200 text-amber-900 text-[10px] font-bold shrink-0 font-french">${escapeAttr(page)}</span>` : ''}
               </div>
             </div>
 
             <div class="grid grid-cols-1 ${opts.length === 2 ? 'sm:grid-cols-2' : (opts.length <= 4 ? 'sm:grid-cols-2' : 'sm:grid-cols-3')} gap-2 pt-1" dir="ltr">
-              ${opts.map((opt, oIdx) => `
-                <button type="button" onclick="checkQuizOption(this, ${oIdx === correctIdx}, '${expl}')" class="quiz-opt-btn p-2.5 sm:p-3 rounded-xl border border-slate-200 bg-slate-50/80 hover:bg-white hover:border-indigo-300 text-xs sm:text-sm font-french font-semibold text-slate-800 text-left transition flex items-center justify-between gap-2 active:scale-[0.99]">
-                  <span>${typeof opt === 'object' ? (opt.french || opt.text || JSON.stringify(opt)) : opt}</span>
-                  <span class="quiz-opt-icon hidden text-sm shrink-0"></span>
-                </button>
-              `).join('')}
+              ${opts.map((opt, oIdx) => {
+                const optText = typeof opt === 'object' ? (opt.french || opt.text || JSON.stringify(opt)) : opt;
+                const isCorrect = (oIdx === correctIdx);
+                return `
+                  <button type="button" 
+                          data-is-correct="${isCorrect}" 
+                          data-expl="${escapeAttr(expl)}" 
+                          data-answer="${escapeAttr(bookAnswer)}"
+                          onclick="checkQuizOption(this)" 
+                          class="quiz-opt-btn p-2.5 sm:p-3 rounded-xl border border-slate-200 bg-slate-50/80 hover:bg-white hover:border-indigo-300 text-xs sm:text-sm font-french font-semibold text-slate-800 text-left transition flex items-center justify-between gap-2 active:scale-[0.99]">
+                    <span>${escapeAttr(optText)}</span>
+                    <span class="quiz-opt-icon hidden text-sm shrink-0"></span>
+                  </button>
+                `;
+              }).join('')}
             </div>
+
+            <!-- Book Answer Box (Always accessible toggle) -->
+            ${bookAnswer ? `
+              <details class="quiz-book-answer group pt-2 border-t border-slate-100">
+                <summary class="cursor-pointer text-xs font-black text-indigo-700 hover:text-indigo-900 select-none inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-50/90 border border-indigo-200/80 hover:bg-indigo-100 transition shadow-xs">
+                  <i class="fa-solid fa-book-open text-indigo-600"></i>
+                  <span>📖 إجابة الكتاب النموذجية (انقر للعرض)</span>
+                  <i class="fa-solid fa-chevron-down text-[10px] transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-2 p-3 rounded-2xl bg-gradient-to-r from-amber-50/80 to-indigo-50/80 border border-indigo-100 text-xs space-y-1.5 shadow-inner">
+                  <p class="font-french font-extrabold text-slate-900 leading-snug flex items-start gap-1.5" dir="ltr">
+                    <span class="text-indigo-700 shrink-0">📘 Réponse officielle :</span>
+                    <span class="text-indigo-950 bg-white px-2.5 py-1 rounded-lg border border-indigo-200 font-bold shadow-xs">${escapeAttr(bookAnswer)}</span>
+                  </p>
+                  ${qAr ? `<p class="text-slate-600 font-sans text-xs"><strong>الترجمة العربية:</strong> ${escapeAttr(qAr)}</p>` : ''}
+                  ${expl ? `<p class="text-slate-600 font-sans text-[11px]"><strong>💡 القاعدة والشرح:</strong> ${escapeAttr(expl)}</p>` : ''}
+                </div>
+              </details>
+            ` : ''}
+
             <div class="quiz-feedback hidden text-xs font-bold pt-1"></div>
           </div>
         `;
       }).join('');
     }
 
-    // ==============================================================
-    // 2. PAGE 26 INTERACTIVE SUITE (Unit 1 Exercices Officiels p.26)
-    // Matches Unit1ExercicesPage26Section.kt (15 Questions: Où vas-tu, Qui parle, Qui peut faire)
-    // ==============================================================
     const Page26Suite = window.Page26Suite = {
       state: {
         activeTab: 0, // 0: All, 1: Ou vas-tu, 2: Qui parle, 3: Qui travail
@@ -2210,8 +2275,17 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
         this.state.activeTab = idx;
         this.render();
       },
-      selectOption(qId, chosenOpt, correctOpt, points) {
+      selectOption(qId, oIdx, section, itemIdx, points) {
         if (this.state.userAnswers[qId] !== undefined) return;
+        const b = DATA.bookletLieux || {};
+        let item = null;
+        if (section === 'ou') item = (b.ouVasTuItems || [])[itemIdx];
+        else if (section === 'qui') item = (b.quiParleItems || [])[itemIdx];
+        else if (section === 'trav') item = (b.quiFaitCeTravailItems || [])[itemIdx];
+        if (!item || !item.options || !item.options[oIdx]) return;
+
+        const chosenOpt = item.options[oIdx];
+        const correctOpt = item.expectedAnswerFr || item.speakerFr || item.professionFr || '';
         const isCorrect = chosenOpt.trim().toLowerCase() === correctOpt.trim().toLowerCase();
         this.state.userAnswers[qId] = { chosen: chosenOpt, isCorrect };
         if (isCorrect) {
@@ -2311,7 +2385,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                         <button onclick="speakText('Pour ${item.activityFr.replace(/['"\\n]/g, ' ')} Je vais ${item.expectedAnswerFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
                       </div>
                       <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" dir="ltr">
-                        ${item.options.map(opt => {
+                        ${item.options.map((opt, optIdx) => {
                           const isChosen = answered && answered.chosen === opt;
                           const isTarget = opt.trim().toLowerCase() === item.expectedAnswerFr.trim().toLowerCase();
                           let cls = 'bg-white border-slate-200 text-slate-800 hover:border-teal-300';
@@ -2321,7 +2395,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                             else cls = 'bg-slate-100 text-slate-400 border-slate-200';
                           }
                           return `
-                            <button onclick="Page26Suite.selectOption('${qId}', '${opt}', '${item.expectedAnswerFr}', 1)" ${answered ? 'disabled' : ''} class="p-2.5 rounded-xl border text-xs sm:text-sm font-french font-semibold transition text-left ${cls}">
+                            <button onclick="Page26Suite.selectOption('${qId}', ${optIdx}, 'ou', ${idx}, 1)" ${answered ? 'disabled' : ''} class="p-2.5 rounded-xl border text-xs sm:text-sm font-french font-semibold transition text-left ${cls}">
                               ${opt}
                             </button>
                           `;
@@ -2369,7 +2443,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                         <button onclick="speakText('${item.quoteFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
                       </div>
                       <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" dir="ltr">
-                        ${item.options.map(opt => {
+                        ${item.options.map((opt, optIdx) => {
                           const isChosen = answered && answered.chosen === opt;
                           const isTarget = opt.trim().toLowerCase() === item.speakerFr.trim().toLowerCase();
                           let cls = 'bg-white border-slate-200 text-slate-800 hover:border-indigo-300';
@@ -2379,7 +2453,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                             else cls = 'bg-slate-100 text-slate-400 border-slate-200';
                           }
                           return `
-                            <button onclick="Page26Suite.selectOption('${qId}', '${opt}', '${item.speakerFr}', 1)" ${answered ? 'disabled' : ''} class="p-2.5 rounded-xl border text-xs sm:text-sm font-french font-semibold transition text-left ${cls}">
+                            <button onclick="Page26Suite.selectOption('${qId}', ${optIdx}, 'qui', ${idx}, 1)" ${answered ? 'disabled' : ''} class="p-2.5 rounded-xl border text-xs sm:text-sm font-french font-semibold transition text-left ${cls}">
                               ${opt}
                             </button>
                           `;
@@ -2427,7 +2501,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                         <button onclick="speakText('${item.actionFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
                       </div>
                       <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" dir="ltr">
-                        ${item.options.map(opt => {
+                        ${item.options.map((opt, optIdx) => {
                           const isChosen = answered && answered.chosen === opt;
                           const isTarget = opt.trim().toLowerCase() === item.professionFr.trim().toLowerCase();
                           let cls = 'bg-white border-slate-200 text-slate-800 hover:border-purple-300';
@@ -2437,7 +2511,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                             else cls = 'bg-slate-100 text-slate-400 border-slate-200';
                           }
                           return `
-                            <button onclick="Page26Suite.selectOption('${qId}', '${opt}', '${item.professionFr}', 1)" ${answered ? 'disabled' : ''} class="p-2.5 rounded-xl border text-xs sm:text-sm font-french font-semibold transition text-left ${cls}">
+                            <button onclick="Page26Suite.selectOption('${qId}', ${optIdx}, 'trav', ${idx}, 1)" ${answered ? 'disabled' : ''} class="p-2.5 rounded-xl border text-xs sm:text-sm font-french font-semibold transition text-left ${cls}">
                               ${opt}
                             </button>
                           `;
@@ -2948,24 +3022,34 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
         this.state.activeTab = idx;
         this.render();
       },
-      selectQuiParle(qId, chosenOpt, correctOpt) {
-        if (this.state.quiParleAnswers[qId] !== undefined) return;
+      selectQuiParle(qId, oIdx, itemIdx) {
+        if (this.state.userAnswers[qId] !== undefined) return;
+        const quiList = (DATA.course || {}).unit2QuiParleItems || [];
+        const item = quiList[itemIdx];
+        if (!item || !item.options || !item.options[oIdx]) return;
+        const chosenOpt = item.options[oIdx];
+        const correctOpt = item.speakerFr || '';
         const isCorrect = chosenOpt.trim().toLowerCase() === correctOpt.trim().toLowerCase();
-        this.state.quiParleAnswers[qId] = { chosen: chosenOpt, isCorrect };
+        this.state.userAnswers[qId] = { chosen: chosenOpt, isCorrect };
         if (isCorrect) {
-          this.state.score += 5;
+          this.state.score += 1;
           playSuccessSound();
         } else {
           playErrorSound();
         }
         this.render();
       },
-      selectOuVasTu(qId, chosenOpt, correctOpt) {
-        if (this.state.ouVasTuAnswers[qId] !== undefined) return;
+      selectOuVasTu(qId, oIdx, itemIdx) {
+        if (this.state.userAnswers[qId] !== undefined) return;
+        const ouList = (DATA.course || {}).unit2OuVasTuItems || [];
+        const item = ouList[itemIdx];
+        if (!item || !item.options || !item.options[oIdx]) return;
+        const chosenOpt = item.options[oIdx];
+        const correctOpt = item.expectedAnswerFr || '';
         const isCorrect = chosenOpt.trim().toLowerCase() === correctOpt.trim().toLowerCase();
-        this.state.ouVasTuAnswers[qId] = { chosen: chosenOpt, isCorrect };
+        this.state.userAnswers[qId] = { chosen: chosenOpt, isCorrect };
         if (isCorrect) {
-          this.state.score += 5;
+          this.state.score += 1;
           playSuccessSound();
         } else {
           playErrorSound();
@@ -3058,7 +3142,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                         <button onclick="speakText('${item.quoteFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
                       </div>
                       <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" dir="ltr">
-                        ${item.options.map(opt => {
+                        ${item.options.map((opt, optIdx) => {
                           const isChosen = answered && answered.chosen === opt;
                           const isTarget = opt.trim().toLowerCase() === item.speakerFr.trim().toLowerCase();
                           let cls = 'bg-white border-slate-200 text-slate-800 hover:border-indigo-300';
@@ -3068,7 +3152,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                             else cls = 'bg-slate-100 text-slate-400 border-slate-200';
                           }
                           return `
-                            <button onclick="Unit2ProductionSuite.selectQuiParle('${qId}', '${opt}', '${item.speakerFr}')" ${answered ? 'disabled' : ''} class="p-2.5 rounded-xl border text-xs sm:text-sm font-french font-semibold transition text-left ${cls}">${opt}</button>
+                            <button onclick="Unit2ProductionSuite.selectQuiParle('${qId}', ${optIdx}, ${idx})" ${answered ? 'disabled' : ''} class="p-2.5 rounded-xl border text-xs sm:text-sm font-french font-semibold transition text-left ${cls}">${opt}</button>
                           `;
                         }).join('')}
                       </div>
@@ -3111,7 +3195,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                         <button onclick="speakText('Pour ${item.activityFr.replace(/['"\\n]/g, ' ')} Je vais ${item.expectedAnswerFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
                       </div>
                       <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" dir="ltr">
-                        ${item.options.map(opt => {
+                        ${item.options.map((opt, optIdx) => {
                           const isChosen = answered && answered.chosen === opt;
                           const isTarget = opt.trim().toLowerCase() === item.expectedAnswerFr.trim().toLowerCase();
                           let cls = 'bg-white border-slate-200 text-slate-800 hover:border-teal-300';
@@ -3121,7 +3205,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                             else cls = 'bg-slate-100 text-slate-400 border-slate-200';
                           }
                           return `
-                            <button onclick="Unit2ProductionSuite.selectOuVasTu('${qId}', '${opt}', '${item.expectedAnswerFr}')" ${answered ? 'disabled' : ''} class="p-2.5 rounded-xl border text-xs sm:text-sm font-french font-semibold transition text-left ${cls}">${opt}</button>
+                            <button onclick="Unit2ProductionSuite.selectOuVasTu('${qId}', ${optIdx}, ${idx})" ${answered ? 'disabled' : ''} class="p-2.5 rounded-xl border text-xs sm:text-sm font-french font-semibold transition text-left ${cls}">${opt}</button>
                           `;
                         }).join('')}
                       </div>
@@ -6539,28 +6623,69 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
     }
 
     // --- Quiz Answer Checker ---
-    function checkQuizOption(btn, isCorrect, explanation) {
+    function checkQuizOption(btn) {
       const parent = btn.closest('.quiz-card');
+      if (!parent) return;
+
+      const isCorrect = btn.getAttribute('data-is-correct') === 'true';
+      const explanation = btn.getAttribute('data-expl') || '';
+      const bookAnswer = btn.getAttribute('data-answer') || '';
+
       const allButtons = parent.querySelectorAll('.quiz-opt-btn');
       const feedback = parent.querySelector('.quiz-feedback');
+      const bookAnsDetails = parent.querySelector('.quiz-book-answer');
+
       allButtons.forEach(b => {
         b.disabled = true;
-        b.classList.remove('hover:bg-slate-50', 'hover:border-indigo-300');
+        b.classList.remove('hover:bg-slate-50', 'hover:border-indigo-300', 'hover:border-violet-300', 'hover:border-blue-300', 'hover:border-amber-300', 'hover:border-emerald-300', 'hover:border-rose-300');
+        if (b.getAttribute('data-is-correct') === 'true') {
+          b.classList.add('bg-emerald-100', 'text-emerald-950', 'border-emerald-500', 'font-bold');
+          const icon = b.querySelector('.quiz-opt-icon');
+          if (icon) {
+            icon.textContent = '✓';
+            icon.classList.remove('hidden');
+            icon.classList.add('text-emerald-700');
+          }
+        }
       });
+
       if (isCorrect) {
-        btn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+        btn.classList.remove('bg-emerald-100');
+        btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-700');
         playSuccessSound();
         if (feedback) {
-          feedback.innerHTML = '<span class="text-emerald-600">✓ أحسنت! ' + (explanation || 'إجابة صحيحة') + '</span>';
+          feedback.innerHTML = `
+            <div class="p-3.5 rounded-2xl bg-emerald-50 text-emerald-900 border border-emerald-200 mt-2 space-y-1.5 shadow-sm">
+              <p class="font-black text-sm flex items-center gap-1.5"><span>🎉 ممتازة! إجابة صحيحة</span></p>
+              ${explanation ? `<p class="text-xs text-emerald-800 font-medium">💡 ${explanation}</p>` : ''}
+              ${bookAnswer ? `<div class="mt-2 pt-2 border-t border-emerald-200/80 text-xs font-french" dir="ltr"><span class="font-bold text-emerald-900">📘 Réponse officielle du livre :</span> <span class="bg-white px-2 py-0.5 rounded border border-emerald-300 text-emerald-950 font-bold">${bookAnswer}</span></div>` : ''}
+            </div>
+          `;
           feedback.classList.remove('hidden');
         }
       } else {
-        btn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+        btn.classList.add('bg-rose-600', 'text-white', 'border-rose-700');
+        const icon = btn.querySelector('.quiz-opt-icon');
+        if (icon) {
+          icon.textContent = '✗';
+          icon.classList.remove('hidden');
+          icon.classList.add('text-white');
+        }
         playErrorSound();
         if (feedback) {
-          feedback.innerHTML = '<span class="text-rose-500">✗ إجابة غير صحيحة. ' + (explanation || '') + '</span>';
+          feedback.innerHTML = `
+            <div class="p-3.5 rounded-2xl bg-rose-50 text-rose-900 border border-rose-200 mt-2 space-y-1.5 shadow-sm">
+              <p class="font-black text-sm flex items-center gap-1.5"><span>❌ إجابة غير صحيحة</span></p>
+              ${explanation ? `<p class="text-xs text-rose-800 font-medium">💡 ${explanation}</p>` : ''}
+              ${bookAnswer ? `<div class="mt-2 pt-2 border-t border-rose-200/80 text-xs font-french" dir="ltr"><span class="font-bold text-rose-900">📘 الإجابة النموذجية من الكتاب :</span> <span class="bg-white px-2 py-0.5 rounded border border-rose-300 text-rose-950 font-bold">${bookAnswer}</span></div>` : ''}
+            </div>
+          `;
           feedback.classList.remove('hidden');
         }
+      }
+
+      if (bookAnsDetails) {
+        bookAnsDetails.open = true;
       }
     }
 

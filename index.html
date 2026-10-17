@@ -1585,11 +1585,13 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
 
       selectOption(unitId, qId, chosenKey, correctKey, explanation) {
         const s = this.ensureState(unitId);
-        if (s.userAnswers[qId] !== undefined) return;
+        const qKey = String(qId);
+        if (s.userAnswers[qKey] !== undefined || s.userAnswers[qId] !== undefined) return;
+        s.userAnswers[qKey] = chosenKey;
         s.userAnswers[qId] = chosenKey;
-        s.showExplanation[qId] = true;
+        s.showExplanation[qKey] = true;
 
-        const isCorrect = chosenKey === correctKey;
+        const isCorrect = String(chosenKey).toLowerCase().trim() === String(correctKey).toLowerCase().trim();
         if (isCorrect) {
           playSuccessSound();
           s.score += 5;
@@ -1672,14 +1674,15 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
               <div class="space-y-4">
                 ${items.map((it, idx) => {
                   const qId = it.id || (idx + 1);
+                  const qKey = String(qId);
                   const pFr = it.promptFr || it.situationFr || it.frenchPrompt || '';
                   const pAr = it.promptAr || it.situationAr || it.arabicPrompt || '';
                   const opts = it.options || [];
                   const cKey = (it.correctKey || it.correctOption || 'c').toString().toLowerCase().trim();
                   const exp = it.explanation || it.explanationAr || it.ruleTip || '';
-                  const userChoice = s.userAnswers[qId];
+                  const userChoice = s.userAnswers[qKey] !== undefined ? s.userAnswers[qKey] : s.userAnswers[qId];
                   const hasAnswered = userChoice !== undefined;
-                  const isUserCorrect = hasAnswered && (userChoice.toLowerCase() === cKey);
+                  const isUserCorrect = hasAnswered && (String(userChoice).toLowerCase().trim() === cKey);
 
                   return `
                     <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-3.5 transition">
@@ -1718,7 +1721,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                           }
 
                           return `
-                            <button ${hasAnswered ? 'disabled' : ''} onclick="SituationsSuite.selectOption('${unitId}', ${qId}, '${oKey}', '${cKey}', '${exp.replace(/'/g, "\\'")}')" class="w-full p-3 rounded-2xl border text-left text-xs transition flex items-start gap-2.5 ${btnCls}">
+                            <button ${hasAnswered ? 'disabled' : ''} onclick="SituationsSuite.selectOption('${unitId}', '${qId}', '${oKey}', '${cKey}', '${exp.replace(/'/g, "\\'")}')" class="w-full p-3 rounded-2xl border text-left text-xs transition flex items-start gap-2.5 ${btnCls}">
                               <span class="w-6 h-6 rounded-full ${isThisChosen && isThisCorrect ? 'bg-white text-emerald-700' : (isThisChosen && !isThisCorrect ? 'bg-white text-rose-700' : 'bg-slate-200 text-slate-700')} flex items-center justify-center font-bold font-french shrink-0 text-xs uppercase">${oKey}</span>
                               <div class="flex-1 space-y-0.5">
                                 <p class="font-french font-bold">${oFr}</p>
@@ -1758,8 +1761,10 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                 ${items.map((it, idx) => {
                   const pFr = it.promptFr || it.situationFr || it.frenchPrompt || '';
                   const pAr = it.promptAr || it.situationAr || it.arabicPrompt || '';
-                  const ansFr = it.correctAnswerFr || it.modelAnswerFr || (it.options ? (it.options.find(o => (o.key || '').toLowerCase() === (it.correctKey || '').toLowerCase())?.french || '') : '');
-                  const ansAr = it.correctAnswerAr || it.modelAnswerAr || (it.options ? (it.options.find(o => (o.key || '').toLowerCase() === (it.correctKey || '').toLowerCase())?.arabic || '') : '');
+                  const cKey = (it.correctKey || it.correctOption || 'c').toString().toLowerCase().trim();
+                  const matchedOpt = it.options ? it.options.find(o => (o.key || '').toString().toLowerCase().trim() === cKey) : null;
+                  const ansFr = it.correctAnswerFr || it.modelAnswerFr || (matchedOpt ? (matchedOpt.french || matchedOpt.textFr || matchedOpt.text || '') : '');
+                  const ansAr = it.correctAnswerAr || it.modelAnswerAr || (matchedOpt ? (matchedOpt.arabic || matchedOpt.textAr || matchedOpt.translation || '') : '');
                   const exp = it.explanation || it.explanationAr || '';
 
                   return `

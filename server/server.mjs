@@ -860,7 +860,13 @@ const server = http.createServer(async (req, res) => {
         return;
       }
       if (!res.headersSent) {
-        res.writeHead(200, { 'Content-Type': contentType });
+        const headers = { 'Content-Type': contentType };
+        if (ext === '.html') {
+          headers['Cache-Control'] = 'no-cache, no-store, must-revalidate, max-age=0';
+          headers['Pragma'] = 'no-cache';
+          headers['Expires'] = '0';
+        }
+        res.writeHead(200, headers);
         res.end(data);
       }
     });

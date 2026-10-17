@@ -1568,6 +1568,9 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
         return this.state[unitId];
       },
 
+      getSituationsList(unitId) {
+        return this.getItems(unitId);
+      },
       getItems(unitId) {
         const c = DATA.course;
         if (unitId === 'u1') return c.unit1Situations || [];
@@ -1588,8 +1591,8 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
         const qKey = String(qId);
         if (s.userAnswers[qKey] !== undefined || s.userAnswers[qId] !== undefined) return;
 
-        const sitList = this.getSituationsList(unitId);
-        const item = sitList.find(it => String(it.id || it.number) === qKey);
+        const sitList = this.getItems(unitId);
+        const item = sitList.find((it, idx) => String(it.id || it.number || (idx + 1)) === qKey);
         if (!item || !item.options || !item.options[oIdx]) return;
 
         const optObj = item.options[oIdx];
@@ -1903,9 +1906,14 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
         renderIntroScreen();
       },
 
-      answerQuestion(qId, oIdx, isCorrect, explanation) {
+      answerQuestion(qId, oIdx) {
         if (this.userAnswers[qId] !== undefined) return;
+        const allQuestions = this.getAllQuestions();
+        const q = allQuestions.find((item, idx) => (item.id || ('intro_' + idx)) === qId);
+        if (!q) return;
+
         this.userAnswers[qId] = oIdx;
+        const isCorrect = (oIdx === q.correctIndex);
         if (isCorrect) {
           playSuccessSound();
           this.score += 5;
@@ -2035,7 +2043,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                     }
 
                     return `
-                      <button ${hasAnswered ? 'disabled' : ''} onclick="IntroSuite.answerQuestion('${qId}', ${oIdx}, ${isThisCorrect}, '${exp.replace(/'/g, "\\'")}')" class="p-3 rounded-2xl border text-left text-xs font-french font-semibold transition ${btnCls}">
+                      <button ${hasAnswered ? 'disabled' : ''} onclick="IntroSuite.answerQuestion('${qId}', ${oIdx})" class="p-3 rounded-2xl border text-left text-xs font-french font-semibold transition ${btnCls}">
                         ${opt}
                       </button>
                     `;

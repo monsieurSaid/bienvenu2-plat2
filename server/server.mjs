@@ -4,7 +4,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { initDatabase, hashPassword, hashCode } from './init_db.js';
 
-const PORT = process.env.PORT || 3000;
+const PORT = (process.env.PORT && process.env.PORT !== "8080") ? Number(process.env.PORT) : 3000;
 const db = initDatabase();
 
 // In-memory rate limiter
@@ -151,38 +151,31 @@ function evaluateUserAccess(user, now = new Date()) {
 
 // Helper: create new cryptographically secure session
 function getClientDeviceId(req, body = {}) {
-  let devId = (body && (body.deviceId || body.device_id)) || req.headers['x-device-id'] || '';
-  if (typeof devId === 'string' && devId.trim()) {
+  let devId = (body && (body.deviceId || body.device_id)) || req.headers["x-device-id"] || "";
+  if (typeof devId === "string" && devId.trim()) {
     return devId.trim().slice(0, 128);
   }
-  const ua = req.headers['user-agent'] || 'unknown-client';
-  const ip = req.headers['x-forwarded-for'] || (req.socket && req.socket.remoteAddress) || '127.0.0.1';
-  return 'fp_' + crypto.createHash('sha256').update(ua + ':' + ip).digest('hex').slice(0, 32);
+  const ua = req.headers["user-agent"] || "unknown-client";
+  const ip = req.headers["x-forwarded-for"] || (req.socket && req.socket.remoteAddress) || "127.0.0.1";
+  return "fp_" + crypto.createHash("sha256").update(ua + ":" + ip).digest("hex").slice(0, 32);
 }
 
-function createSession(userId, deviceId = '') {
+function createSession(userId, deviceId = "") {
   // Enforce single-device session: invalidate any older active sessions for this user
   try {
-    db.prepare('DELETE FROM sessions WHERE user_id = ?').run(userId);
+    db.prepare("DELETE FROM sessions WHERE user_id = ?").run(userId);
   } catch (e) {}
 
-  const token = crypto.randomBytes(32).toString('hex');
+  const token = crypto.randomBytes(32).toString("hex");
   const now = new Date();
   const expiresAt = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days
-  db.prepare('INSERT INTO sessions (token, user_id, created_at, expires_at, device_id) VALUES (?, ?, ?, ?, ?)')
+  db.prepare("INSERT INTO sessions (token, user_id, created_at, expires_at, device_id) VALUES (?, ?, ?, ?, ?)")
     .run(token, userId, now.toISOString(), expiresAt.toISOString(), deviceId);
-  return token;
-}
-  const token = crypto.randomBytes(32).toString('hex');
-  const now = new Date();
-  const expiresAt = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days
-  db.prepare('INSERT INTO sessions (token, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)')
-    .run(token, userId, now.toISOString(), expiresAt.toISOString());
   return token;
 }
 
 // Helper: format safe user object without sensitive secrets
-formatSafeUser(user) {
+function formatSafeUser(user) {
   return {
     uid: user.uid,
     name: user.name,
@@ -196,22 +189,7 @@ formatSafeUser(user) {
     accessStatus: user.access_status,
     annualActivatedAt: user.annual_activated_at,
     annualExpiresAt: user.annual_expires_at,
-    boundDeviceId: user.bound_device_id || ''
-  };
-}
-function dummyOldFormatSafeUser(
-    uid: user.uid,
-    name: user.name,
-    username: user.username,
-    role: user.role,
-    createdAt: user.created_at,
-    trialUsed: Boolean(user.trial_used),
-    trialStartedAt: user.trial_started_at,
-    trialExpiresAt: user.trial_expires_at,
-    accessType: user.access_type,
-    accessStatus: user.access_status,
-    annualActivatedAt: user.annual_activated_at,
-    annualExpiresAt: user.annual_expires_at
+    boundDeviceId: user.bound_device_id || ""
   };
 }
 

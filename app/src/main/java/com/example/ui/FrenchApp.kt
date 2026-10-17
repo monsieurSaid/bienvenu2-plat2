@@ -289,7 +289,9 @@ fun FrenchApp(audioHelper: AudioHelper) {
                         audioHelper = audioHelper,
                         onScoreEarned = {}
                     )
-                    AppNavModule.WEB_SITE -> com.example.ui.screens.WebViewScreen()
+                    AppNavModule.WEB_SITE -> com.example.ui.screens.WebViewScreen(
+                        audioHelper = audioHelper
+                    )
                 }
             }
         }

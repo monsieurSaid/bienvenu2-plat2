@@ -2,6 +2,7 @@ package com.example.ui.screens
 
 import android.annotation.SuppressLint
 import android.view.View
+import android.webkit.JavascriptInterface
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
@@ -11,10 +12,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.viewinterop.AndroidView
+import com.example.audio.AudioHelper
+
+private class AndroidAudioBridge(private val audioHelper: AudioHelper?) {
+    @JavascriptInterface
+    fun speak(text: String) {
+        audioHelper?.speak(text)
+    }
+}
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
 fun WebViewScreen(
+    audioHelper: AudioHelper? = null,
     modifier: Modifier = Modifier
 ) {
     AndroidView(
@@ -37,6 +47,7 @@ fun WebViewScreen(
                     builtInZoomControls = false
                     displayZoomControls = false
                 }
+                addJavascriptInterface(AndroidAudioBridge(audioHelper), "AndroidAudio")
                 webViewClient = object : WebViewClient() {
                     override fun onReceivedError(
                         view: WebView?,
@@ -51,9 +62,10 @@ fun WebViewScreen(
                 loadUrl("file:///android_asset/index.html")
             }
         },
-        update = { webView ->
+        update = { _ ->
             // Keep active state
         }
     )
 }
+
 

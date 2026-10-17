@@ -408,7 +408,7 @@ const server = http.createServer(async (req, res) => {
       }
     }
 
-    // 2. 24-HOUR FREE TRIAL (Username only)
+    // 2. 7-DAY FREE TRIAL (Username only)
     if ((pathname === '/api/student/trial' || pathname === '/api/access/start-trial') && req.method === 'POST') {
       if (!checkRateLimit(`stud_trial_${clientIp}`, 10, 60000)) {
         return sendJson(res, 429, { success: false, message: 'محاولات كثيرة، يرجى الانتظار دقيقة.' });
@@ -425,6 +425,19 @@ const server = http.createServer(async (req, res) => {
           });
         }
 
+        const clientDevId = getClientDeviceId(req, body);
+
+        // Check if device has already used a trial
+        if (clientDevId) {
+          const devTrialUsed = db.prepare('SELECT uid FROM users WHERE bound_device_id = ? AND trial_used = 1').get(clientDevId);
+          if (devTrialUsed) {
+            return sendJson(res, 403, {
+              success: false,
+              message: 'عذراً، تم استخدام الفترة التجريبية المجانية على هذا الجهاز من قبل. لا يمكنك بدء تجربة مجانية جديدة على نفس الجهاز، ولكن يمكنك تسجيل الدخول باستخدام كود تفعيل مدفوع.'
+            });
+          }
+        }
+
         const normUsername = rawUsername.toLowerCase();
         const existing = db.prepare('SELECT uid FROM users WHERE username = ?').get(normUsername);
         if (existing) {
@@ -436,11 +449,10 @@ const server = http.createServer(async (req, res) => {
 
         const uid = 'std_' + crypto.randomBytes(8).toString('hex');
         const now = new Date();
-        const trialExpiresAt = new Date(now.getTime() + 24 * 60 * 60 * 1000); // 24 hours
+        const trialExpiresAt = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000); // 7 days (1 week)
 
         db.exec('BEGIN IMMEDIATE');
         try {
-          const clientDevId = getClientDeviceId(req, body);
           db.prepare(`
             INSERT INTO users (uid, name, username, role, created_at, trial_used, trial_started_at, trial_expires_at, access_type, access_status, password_hash, password_salt, bound_device_id)
             VALUES (?, ?, ?, 'student', ?, 1, ?, ?, 'TRIAL', 'ACTIVE', '', '', ?)
@@ -460,7 +472,7 @@ const server = http.createServer(async (req, res) => {
           return sendJson(res, 200, {
             success: true,
             user: formatSafeUser(user),
-            message: 'تم تفعيل الفترة التجريبية المجانية لمدة 24 ساعة بنجاح! 🎁'
+            message: 'تم تفعيل الفترة التجريبية المجانية لمدة أسبوع (7 أيام) بنجاح! 🎁'
           });
         } catch (txErr) {
           db.exec('ROLLBACK');

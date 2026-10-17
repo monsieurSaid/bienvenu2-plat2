@@ -1678,11 +1678,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
             <div class="space-y-4">
               <div class="flex items-center justify-between text-xs text-slate-600 bg-white p-3 rounded-2xl border border-slate-200">
                 <span>اختر الإجابة الصحيحة لكل موقف، وسيقوم النظام بالتصحيح الفوري وشرح القاعدة.</span>
-                <button type="button" onclick="toggleGlobalTranslations()" class="global-trans-btn px-3 py-1 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 text-xs font-bold transition flex items-center gap-1">
-    <i class="fa-solid fa-language text-indigo-600"></i>
-    <span>إظهار التراجم</span>
-  </button>
-  <button onclick="SituationsSuite.resetQuiz('${unitId}')" class="px-3 py-1 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold transition flex items-center gap-1">
+                <button onclick="SituationsSuite.resetQuiz('${unitId}')" class="px-3 py-1 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold transition flex items-center gap-1">
                   <i class="fa-solid fa-rotate-right"></i> <span>إعادة الاختبار</span>
                 </button>
               </div>
@@ -1704,24 +1700,14 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
                     <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-3.5 transition">
                       <div class="flex items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
                         <span class="px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 font-bold text-xs">الموقف ${idx + 1}</span>
-                        ${pAr ? `
-    <button type="button" onclick="toggleCardTranslation(this)" class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center gap-1 transition text-xs font-bold" title="ترجمة">
-      <i class="fa-solid fa-language text-indigo-600"></i>
-      <span>ترجمة</span>
-    </button>
-  ` : ''}
-  <button onclick="speakText('${pFr.replace(/'/g, "\\'")}')" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 flex items-center gap-1.5 transition text-xs font-bold font-french">
+                        <button onclick="speakText('${pFr.replace(/'/g, "\\'")}')" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 flex items-center gap-1.5 transition text-xs font-bold font-french">
                           <i class="fa-solid fa-volume-high"></i> <span>نطق الموقف</span>
                         </button>
                       </div>
 
                       <div class="space-y-1">
                         <h4 class="text-xs sm:text-sm font-black font-french text-slate-900 leading-snug" dir="ltr">${pFr}</h4>
-                        ${pAr ? `
-    <div class="card-translation hidden mt-1.5 p-2 rounded-xl bg-amber-50/90 border border-amber-200/80 text-xs text-slate-700 font-sans leading-relaxed">
-      <span class="font-bold text-amber-900">الترجمة:</span> ${pAr}
-    </div>
-  ` : ''}
+                        <p class="text-xs text-slate-500 font-sans">${pAr}</p>
                       </div>
 
                       <!-- Options -->
@@ -1912,7 +1898,8 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
       setCategory(cat) {
         playClickSound();
         this.activeCategory = cat;
-        renderIntroScreen();
+        renderPortalScreen();
+      renderIntroScreen();
       },
 
       toggleTranslate(qId) {
@@ -1949,6 +1936,173 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
         renderIntroScreen();
       }
     };
+
+    
+    window.renderPortalScreen = renderPortalScreen;
+    function renderPortalScreen() {
+      const container = document.getElementById('screen-portal');
+      if (!container) return;
+
+      container.innerHTML = `
+        <!-- HERO HEADER CARD -->
+        <div class="relative overflow-hidden bg-gradient-to-r from-indigo-900 via-indigo-800 to-violet-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl space-y-4">
+          <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 rounded-full bg-indigo-500/30 text-indigo-200 text-xs font-bold border border-indigo-400/30 font-french">Bienvenu 2 • 2ème Prep</span>
+              <span class="px-2.5 py-1 rounded-full bg-emerald-500/30 text-emerald-300 text-xs font-bold border border-emerald-400/30">المحتوى التفاعلي المعتمد 100%</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-bold text-indigo-200">
+              <i class="fa-solid fa-graduation-cap text-amber-300 text-sm"></i>
+              <span>منهج اللغة الفرنسية الرسمي • الفصل الدراسي الأول</span>
+            </div>
+          </div>
+          <div class="space-y-1">
+            <h2 class="text-xl sm:text-2xl font-black leading-snug">منصة التعلم التفاعلي والتدريبات الرسمية 📚</h2>
+            <p class="text-xs sm:text-sm text-indigo-150 font-medium">اختر الوحدة أو القسم المطلوب للبدء في التدريبات التفاعلية مع النطق الصوتي والتصحيح الفوري وإجابات الكتاب المدرسي.</p>
+          </div>
+        </div>
+
+        <!-- MAIN SECTIONS GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          <!-- INTRO CARD -->
+          <div onclick="navigateTo('intro')" class="cursor-pointer bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 rounded-2xl p-5 text-white shadow-md hover:shadow-xl transition transform active:scale-[0.99] space-y-3 border border-amber-400/40 group">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-[11px] font-bold font-french">Bienvenu 2 • Pages 4-6</span>
+              <span class="text-xs bg-amber-300 text-slate-900 font-black px-2.5 py-0.5 rounded-full shadow-sm">💡 أساسيات رسمية</span>
+            </div>
+            <div>
+              <h3 class="text-base sm:text-lg font-black flex items-center gap-2 group-hover:translate-x-1 transition">
+                <i class="fa-solid fa-lightbulb text-amber-200"></i>
+                <span>الأسئلة التمهيدية ومراجعة القواعد</span>
+              </h3>
+              <p class="text-xs text-amber-100 font-medium mt-1 leading-relaxed">تدريبات تفاعلية شاملة على زمن المضارع، أدوات الاستفهام، حروف جر الأماكن، والنفي البسيط المقررة في التمهيد.</p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-2 border-t border-white/20 font-bold">
+              <span class="text-amber-100">5 فئات تفاعلية شاملة</span>
+              <span class="flex items-center gap-1 text-white">ابدأ التدريب ➔</span>
+            </div>
+          </div>
+
+          <!-- UNIT 1 CARD -->
+          <div onclick="navigateTo('unit1')" class="cursor-pointer bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-800 rounded-2xl p-5 text-white shadow-md hover:shadow-xl transition transform active:scale-[0.99] space-y-3 border border-indigo-400/40 group">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-[11px] font-bold font-french">Unité 1 • Pages 11-34</span>
+              <span class="text-xs bg-indigo-300 text-slate-900 font-black px-2.5 py-0.5 rounded-full shadow-sm">🎉 Une fête</span>
+            </div>
+            <div>
+              <h3 class="text-base sm:text-lg font-black flex items-center gap-2 group-hover:translate-x-1 transition">
+                <i class="fa-solid fa-cake-candles text-indigo-200"></i>
+                <span>الوحدة 1: الدعوة وحفلة عيد الميلاد</span>
+              </h3>
+              <p class="text-xs text-indigo-150 font-medium mt-1 leading-relaxed">المفردات، الوثائق، المواقف الرسمية، القواعد (صفات الملكية، صفات الإشارة، أفعال المجموعة الأولى والثانية)، وتدريبات ص 26.</p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-2 border-t border-white/20 font-bold">
+              <span class="text-indigo-200">شاملة التدريبات وحلول الكتاب</span>
+              <span class="flex items-center gap-1 text-white">دخول الوحدة ➔</span>
+            </div>
+          </div>
+
+          <!-- UNIT 2 CARD -->
+          <div onclick="navigateTo('unit2')" class="cursor-pointer bg-gradient-to-br from-teal-600 via-emerald-700 to-teal-800 rounded-2xl p-5 text-white shadow-md hover:shadow-xl transition transform active:scale-[0.99] space-y-3 border border-teal-400/40 group">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-[11px] font-bold font-french">Unité 2 • Pages 35-58</span>
+              <span class="text-xs bg-emerald-300 text-slate-900 font-black px-2.5 py-0.5 rounded-full shadow-sm">🏨 À l'hôtel</span>
+            </div>
+            <div>
+              <h3 class="text-base sm:text-lg font-black flex items-center gap-2 group-hover:translate-x-1 transition">
+                <i class="fa-solid fa-hotel text-emerald-200"></i>
+                <span>الوحدة 2: في الفندق والمطعم</span>
+              </h3>
+              <p class="text-xs text-emerald-100 font-medium mt-1 leading-relaxed">المفردات الفندقية، حجز الغرفة، المواقف الرسمية، أدوات التجزئة، أفعال المطعم، والتطبيق العملي ص 39.</p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-2 border-t border-white/20 font-bold">
+              <span class="text-emerald-200">شاملة تمارين الصوت والجرامر</span>
+              <span class="flex items-center gap-1 text-white">دخول الوحدة ➔</span>
+            </div>
+          </div>
+
+          <!-- UNIT 3 CARD -->
+          <div onclick="navigateTo('unit3')" class="cursor-pointer bg-gradient-to-br from-sky-600 via-blue-700 to-indigo-800 rounded-2xl p-5 text-white shadow-md hover:shadow-xl transition transform active:scale-[0.99] space-y-3 border border-sky-400/40 group">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-[11px] font-bold font-french">Unité 3 • Pages 59-67</span>
+              <span class="text-xs bg-sky-300 text-slate-900 font-black px-2.5 py-0.5 rounded-full shadow-sm">🛍️ Les achats</span>
+            </div>
+            <div>
+              <h3 class="text-base sm:text-lg font-black flex items-center gap-2 group-hover:translate-x-1 transition">
+                <i class="fa-solid fa-bag-shopping text-sky-200"></i>
+                <span>الوحدة 3: التسوق والتسوق في المحلات</span>
+              </h3>
+              <p class="text-xs text-sky-100 font-medium mt-1 leading-relaxed">مفردات الملابس والمحلات، السؤال عن السعر، الأعداد حتى 1000، أدوات الاستفهامية وتعبير Il faut.</p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-2 border-t border-white/20 font-bold">
+              <span class="text-sky-200">تمارين المحادثة والمواقف</span>
+              <span class="flex items-center gap-1 text-white">دخول الوحدة ➔</span>
+            </div>
+          </div>
+
+          <!-- REVISION CARD -->
+          <div onclick="navigateTo('revision')" class="cursor-pointer bg-gradient-to-br from-purple-600 via-violet-700 to-purple-900 rounded-2xl p-5 text-white shadow-md hover:shadow-xl transition transform active:scale-[0.99] space-y-3 border border-purple-400/40 group">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-[11px] font-bold font-french">Révision • Pages 67-77</span>
+              <span class="text-xs bg-purple-300 text-slate-900 font-black px-2.5 py-0.5 rounded-full shadow-sm">📖 الأنشطة المعتمدة</span>
+            </div>
+            <div>
+              <h3 class="text-base sm:text-lg font-black flex items-center gap-2 group-hover:translate-x-1 transition">
+                <i class="fa-solid fa-book-open-reader text-purple-200"></i>
+                <span>المراجعة العامة وتدريبات الأنشطة</span>
+              </h3>
+              <p class="text-xs text-purple-150 font-medium mt-1 leading-relaxed">حلول وتدريبات كتيّب الأنشطة المعتمد كاملاً، تمارين الوثائق، المواقف الشاملة، والإنتاج اللغوي.</p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-2 border-t border-white/20 font-bold">
+              <span class="text-purple-200">شاملة جميع التدريبات</span>
+              <span class="flex items-center gap-1 text-white">بدء المراجعة ➔</span>
+            </div>
+          </div>
+
+          <!-- GRAMMAR CARD -->
+          <div onclick="navigateTo('grammar')" class="cursor-pointer bg-gradient-to-br from-slate-700 via-slate-800 to-zinc-900 rounded-2xl p-5 text-white shadow-md hover:shadow-xl transition transform active:scale-[0.99] space-y-3 border border-slate-600/40 group">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-[11px] font-bold font-french">Grammaire & Exercices</span>
+              <span class="text-xs bg-indigo-400 text-slate-900 font-black px-2.5 py-0.5 rounded-full shadow-sm">📐 ملخص القواعد</span>
+            </div>
+            <div>
+              <h3 class="text-base sm:text-lg font-black flex items-center gap-2 group-hover:translate-x-1 transition">
+                <i class="fa-solid fa-ruler-combined text-indigo-300"></i>
+                <span>بنك القواعد والأسئلة التفاعلية</span>
+              </h3>
+              <p class="text-xs text-slate-300 font-medium mt-1 leading-relaxed">قواعد المنهج كاملاً مقسمة بالفئات مع فلترة فورية، شرح مبسط، وإجابات نموذجية تفاعلية.</p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-2 border-t border-white/20 font-bold">
+              <span class="text-slate-300">جميع قواعد الفصل الأول</span>
+              <span class="flex items-center gap-1 text-white">فتح بنك القواعد ➔</span>
+            </div>
+          </div>
+
+          <!-- EXAM CARD -->
+          <div onclick="navigateTo('exam')" class="cursor-pointer bg-gradient-to-br from-rose-600 via-red-700 to-rose-900 rounded-2xl p-5 text-white shadow-md hover:shadow-xl transition transform active:scale-[0.99] space-y-3 border border-rose-400/40 group md:col-span-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-[11px] font-bold font-french">Examen Officiel • 20 Points</span>
+              <span class="text-xs bg-yellow-300 text-slate-900 font-black px-2.5 py-0.5 rounded-full shadow-sm">📝 امتحان نصف العام</span>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+              <div>
+                <h3 class="text-base sm:text-xl font-black flex items-center gap-2 group-hover:translate-x-1 transition">
+                  <i class="fa-solid fa-file-signature text-rose-200"></i>
+                  <span>امتحان نصف العام المعتمد والتقييم الآلي</span>
+                </h3>
+                <p class="text-xs sm:text-sm text-rose-150 font-medium mt-1 leading-relaxed">اختبار محاكي للامتحان الرسمي بالنظام الجديد، يشمل وثائق الفهم، المواقف، القواعد، والتعبير مع حساب الدرجات الفوري وتوليد الشهادة.</p>
+              </div>
+              <button class="px-5 py-2.5 rounded-xl bg-white text-rose-900 font-black text-xs hover:bg-rose-50 transition shrink-0 shadow-md">
+                بدء الامتحان الرسمي ➔
+              </button>
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
 
     function renderIntroScreen() {
       const container = document.getElementById('screen-intro');
@@ -2234,7 +2388,7 @@ function renderQuizQuestionsList(questions) {
                   <span class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-700 text-xs font-black flex items-center justify-center shrink-0">${idx + 1}</span>
                   <p class="font-french font-bold text-slate-900 text-sm sm:text-base leading-snug" dir="ltr">${escapeAttr(qFr)}</p>
                 </div>
-                ${qAr ? `<div class="quiz-ar-trans hidden pr-8 text-xs text-slate-500 font-sans">${escapeAttr(qAr)}</div>` : ''}
+                ${qAr ? `<div class="quiz-ar-trans pr-8 text-xs text-slate-500 font-sans">${escapeAttr(qAr)}</div>` : ''}
               </div>
               <div class="flex items-center gap-1.5 shrink-0">
                 ${qAr ? `<button type="button" onclick="toggleQuizTrans(this)" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-xs transition" title="ترجمة"><i class="fa-solid fa-language"></i></button>` : ''}
@@ -2359,10 +2513,6 @@ function renderQuizQuestionsList(questions) {
                   <span class="text-teal-900">النقاط:</span>
                   <span class="font-black text-teal-700 text-sm">${s.score} / ${totalCount}</span>
                 </div>
-                <button type="button" onclick="toggleGlobalTranslations()" class="global-trans-btn px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 text-xs font-bold transition flex items-center gap-1.5">
-                  <i class="fa-solid fa-language text-indigo-600"></i>
-                  <span>إظهار التراجم</span>
-                </button>
                 <button onclick="Page26Suite.reset()" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition flex items-center gap-1.5">
                   <i class="fa-solid fa-rotate-right"></i>
                   <span>إعادة</span>
@@ -2406,19 +2556,9 @@ function renderQuizQuestionsList(questions) {
                       <div class="flex items-start justify-between gap-3">
                         <div class="space-y-0.5">
                           <p class="font-french font-black text-slate-900 text-sm" dir="ltr">Pour ${item.activityFr} ➔</p>
-                          ${item.activityAr ? `
-    <div class="card-translation hidden mt-1.5 p-2 rounded-xl bg-amber-50/90 border border-amber-200/80 text-xs text-slate-700 font-sans leading-relaxed">
-      <span class="font-bold text-amber-900">الترجمة:</span> ${item.activityAr}
-    </div>
-  ` : ''}
+                          <p class="text-xs text-slate-500 font-sans">${item.activityAr}</p>
                         </div>
-                        ${item.activityAr ? `
-    <button type="button" onclick="toggleCardTranslation(this)" class="px-2.5 py-1 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center gap-1.5 transition text-xs font-bold shrink-0" title="ترجمة">
-      <i class="fa-solid fa-language text-indigo-600"></i>
-      <span>ترجمة</span>
-    </button>
-  ` : ''}
-  <button onclick="speakText('Pour ${item.activityFr.replace(/['"\\n]/g, ' ')} Je vais ${item.expectedAnswerFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
+                        <button onclick="speakText('Pour ${item.activityFr.replace(/['"\\n]/g, ' ')} Je vais ${item.expectedAnswerFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
                       </div>
                       <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" dir="ltr">
                         ${item.options.map((opt, optIdx) => {
@@ -2474,19 +2614,9 @@ function renderQuizQuestionsList(questions) {
                       <div class="flex items-start justify-between gap-3">
                         <div class="space-y-0.5">
                           <p class="font-french font-black text-slate-900 text-sm" dir="ltr">${item.quoteFr}</p>
-                          ${item.quoteAr ? `
-    <div class="card-translation hidden mt-1.5 p-2 rounded-xl bg-amber-50/90 border border-amber-200/80 text-xs text-slate-700 font-sans leading-relaxed">
-      <span class="font-bold text-amber-900">الترجمة:</span> ${item.quoteAr}
-    </div>
-  ` : ''}
+                          <p class="text-xs text-slate-500 font-sans">${item.quoteAr}</p>
                         </div>
-                        ${item.quoteAr ? `
-    <button type="button" onclick="toggleCardTranslation(this)" class="px-2.5 py-1 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center gap-1.5 transition text-xs font-bold shrink-0" title="ترجمة">
-      <i class="fa-solid fa-language text-indigo-600"></i>
-      <span>ترجمة</span>
-    </button>
-  ` : ''}
-  <button onclick="speakText('${item.quoteFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
+                        <button onclick="speakText('${item.quoteFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
                       </div>
                       <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" dir="ltr">
                         ${item.options.map((opt, optIdx) => {
@@ -2542,19 +2672,9 @@ function renderQuizQuestionsList(questions) {
                       <div class="flex items-start justify-between gap-3">
                         <div class="space-y-0.5">
                           <p class="font-french font-black text-slate-900 text-sm" dir="ltr">${item.actionFr}</p>
-                          ${item.actionAr ? `
-    <div class="card-translation hidden mt-1.5 p-2 rounded-xl bg-amber-50/90 border border-amber-200/80 text-xs text-slate-700 font-sans leading-relaxed">
-      <span class="font-bold text-amber-900">الترجمة:</span> ${item.actionAr}
-    </div>
-  ` : ''}
+                          <p class="text-xs text-slate-500 font-sans">${item.actionAr}</p>
                         </div>
-                        ${item.actionAr ? `
-    <button type="button" onclick="toggleCardTranslation(this)" class="px-2.5 py-1 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center gap-1.5 transition text-xs font-bold shrink-0" title="ترجمة">
-      <i class="fa-solid fa-language text-indigo-600"></i>
-      <span>ترجمة</span>
-    </button>
-  ` : ''}
-  <button onclick="speakText('${item.actionFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
+                        <button onclick="speakText('${item.actionFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
                       </div>
                       <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" dir="ltr">
                         ${item.options.map((opt, optIdx) => {
@@ -4589,15 +4709,7 @@ function renderQuizQuestionsList(questions) {
                   ${(doc.mcqQuestions || []).map(q => `
                     <div class="quiz-card p-3 rounded-xl border border-slate-200 bg-slate-50 text-xs space-y-1.5">
                       <p class="font-bold text-slate-900 font-french" dir="ltr">${q.questionFr}</p>
-                      ${q.questionAr ? `
-    <div class="flex items-center gap-2">
-      <button type="button" onclick="toggleCardTranslation(this)" class="px-2 py-0.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 text-slate-600 text-[11px] font-bold transition inline-flex items-center gap-1 shadow-2xs">
-        <i class="fa-solid fa-language text-indigo-600"></i>
-        <span>ترجمة</span>
-      </button>
-    </div>
-    <p class="card-translation hidden text-xs text-slate-600 font-sans mt-1 p-2 rounded-xl bg-amber-50/90 border border-amber-200/80">${q.questionAr}</p>
-  ` : ''}
+                      <p class="text-slate-500">${q.questionAr}</p>
                       <div class="grid grid-cols-1 sm:grid-cols-3 gap-1.5" dir="ltr">
                         ${q.options.map((opt, oIdx) => `
                           <button onclick="checkQuizOption(this, ${oIdx === q.correctIndex}, '${(q.explanationAr || '').replace(/['"]/g, ' ')}')" class="quiz-opt-btn p-2 rounded-lg border border-slate-200 bg-white text-xs font-french font-semibold text-slate-800 text-left hover:border-violet-300 transition">
@@ -4618,15 +4730,7 @@ function renderQuizQuestionsList(questions) {
                   ${(doc.trueFalseQuestions || []).map(q => `
                     <div class="quiz-card p-3 rounded-xl border border-slate-200 bg-slate-50 text-xs space-y-1.5">
                       <p class="font-bold text-slate-900 font-french" dir="ltr">${q.statementFr}</p>
-                      ${q.statementAr ? `
-    <div class="flex items-center gap-2">
-      <button type="button" onclick="toggleCardTranslation(this)" class="px-2 py-0.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 text-slate-600 text-[11px] font-bold transition inline-flex items-center gap-1 shadow-2xs">
-        <i class="fa-solid fa-language text-indigo-600"></i>
-        <span>ترجمة</span>
-      </button>
-    </div>
-    <p class="card-translation hidden text-xs text-slate-600 font-sans mt-1 p-2 rounded-xl bg-amber-50/90 border border-amber-200/80">${q.statementAr}</p>
-  ` : ''}
+                      <p class="text-slate-500">${q.statementAr}</p>
                       <div class="grid grid-cols-2 gap-2" dir="ltr">
                         <button onclick="checkQuizOption(this, ${q.isTrue === true}, '${(q.explanationAr || '').replace(/['"]/g, ' ')}')" class="quiz-opt-btn p-2 rounded-lg border border-slate-200 bg-white text-xs font-french font-bold text-slate-800 text-center hover:border-emerald-300 transition">
                           Vrai (صح)
@@ -4649,13 +4753,7 @@ function renderQuizQuestionsList(questions) {
                     ${doc.completionQuestions.map(cQ => `
                       <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 text-xs space-y-1.5">
                         <p class="font-bold text-slate-900 font-french" dir="ltr">${cQ.promptFr}</p>
-                        ${cQ.promptAr ? `
-    <button type="button" onclick="toggleCardTranslation(this)" class="px-2 py-0.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 text-slate-600 text-[11px] font-bold transition inline-flex items-center gap-1 shadow-2xs">
-      <i class="fa-solid fa-language text-indigo-600"></i>
-      <span>ترجمة</span>
-    </button>
-    <p class="card-translation hidden text-xs text-slate-600 font-sans mt-1 p-2 rounded-xl bg-amber-50/90 border border-amber-200/80">${cQ.promptAr}</p>
-  ` : ''}
+                        <p class="text-slate-500">${cQ.promptAr}</p>
                         <details class="group">
                           <summary class="cursor-pointer text-[11px] font-bold text-emerald-600 hover:text-emerald-800 select-none flex items-center gap-1">
                             <span>👁️ عرض الإجابة النموذجية من الوثيقة</span>
@@ -4697,13 +4795,7 @@ function renderQuizQuestionsList(questions) {
                 ${ex.items.map((item, itmIdx) => `
                   <div class="quiz-card p-3.5 rounded-xl border border-slate-200 bg-slate-50 text-xs space-y-1.5">
                     <p class="font-bold text-slate-900 font-french" dir="ltr">${itmIdx + 1}. ${item.sentenceFr}</p>
-                    ${item.sentenceAr ? `
-    <button type="button" onclick="toggleCardTranslation(this)" class="px-2 py-0.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 text-slate-600 text-[11px] font-bold transition inline-flex items-center gap-1 shadow-2xs">
-      <i class="fa-solid fa-language text-indigo-600"></i>
-      <span>ترجمة</span>
-    </button>
-    <p class="card-translation hidden text-xs text-slate-600 font-sans mt-1 p-2 rounded-xl bg-amber-50/90 border border-amber-200/80">${item.sentenceAr}</p>
-  ` : ''}
+                    <p class="text-slate-500">${item.sentenceAr}</p>
 
                     ${item.options && item.options.length ? `
                       <div class="grid grid-cols-1 sm:grid-cols-3 gap-1.5 pt-1" dir="ltr">
@@ -5219,15 +5311,7 @@ function renderQuizQuestionsList(questions) {
                 ${ex.docPartAQuestions.map(q => `
                   <div class="quiz-card p-3 rounded-xl border border-slate-200 bg-slate-50 text-xs space-y-1.5">
                     <p class="font-bold text-slate-900 font-french" dir="ltr">${q.questionFr}</p>
-                    ${q.questionAr ? `
-    <div class="flex items-center gap-2">
-      <button type="button" onclick="toggleCardTranslation(this)" class="px-2 py-0.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 text-slate-600 text-[11px] font-bold transition inline-flex items-center gap-1 shadow-2xs">
-        <i class="fa-solid fa-language text-indigo-600"></i>
-        <span>ترجمة</span>
-      </button>
-    </div>
-    <p class="card-translation hidden text-xs text-slate-600 font-sans mt-1 p-2 rounded-xl bg-amber-50/90 border border-amber-200/80">${q.questionAr}</p>
-  ` : ''}
+                    <p class="text-slate-500">${q.questionAr}</p>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-1.5" dir="ltr">
                       ${q.options.map((opt, oIdx) => `
                         <button onclick="checkQuizOption(this, ${oIdx === q.correctIndex}, '${(q.explanationAr || '').replace(/['"]/g, ' ')}')" class="quiz-opt-btn p-2 rounded-lg border border-slate-200 bg-white text-xs font-french font-semibold text-slate-800 text-left hover:border-blue-300 transition">
@@ -5248,15 +5332,7 @@ function renderQuizQuestionsList(questions) {
                 ${ex.docPartBQuestions.map(q => `
                   <div class="quiz-card p-3 rounded-xl border border-slate-200 bg-slate-50 text-xs space-y-1.5">
                     <p class="font-bold text-slate-900 font-french" dir="ltr">${q.statementFr}</p>
-                    ${q.statementAr ? `
-    <div class="flex items-center gap-2">
-      <button type="button" onclick="toggleCardTranslation(this)" class="px-2 py-0.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 text-slate-600 text-[11px] font-bold transition inline-flex items-center gap-1 shadow-2xs">
-        <i class="fa-solid fa-language text-indigo-600"></i>
-        <span>ترجمة</span>
-      </button>
-    </div>
-    <p class="card-translation hidden text-xs text-slate-600 font-sans mt-1 p-2 rounded-xl bg-amber-50/90 border border-amber-200/80">${q.statementAr}</p>
-  ` : ''}
+                    <p class="text-slate-500">${q.statementAr}</p>
                     <div class="grid grid-cols-2 gap-2" dir="ltr">
                       <button onclick="checkQuizOption(this, ${q.isTrue === true}, '${(q.explanationAr || '').replace(/['"]/g, ' ')}')" class="quiz-opt-btn p-2 rounded-lg border border-slate-200 bg-white text-xs font-french font-bold text-slate-800 text-center hover:border-emerald-300 transition">
                         Vrai (صح)
@@ -6729,7 +6805,7 @@ function renderQuizQuestionsList(questions) {
     window.checkQuizOption = checkQuizOption;
 
     // --- Global & Per-Card Optional Translation Handlers ---
-    window.SHOW_ALL_TRANSLATIONS = false;
+    window.SHOW_ALL_TRANSLATIONS = true;
 
     window.toggleCardTranslation = function(btn) {
       if (!btn) return;

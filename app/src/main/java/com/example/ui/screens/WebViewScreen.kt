@@ -65,8 +65,6 @@ fun WebViewScreen(
             .testTag("interactive_webview_container"),
         factory = { context ->
             WebView(context).apply {
-                // Ensure layer rendering compatibility across various emulators
-                setLayerType(View.LAYER_TYPE_HARDWARE, null)
                 settings.apply {
                     javaScriptEnabled = true
                     domStorageEnabled = true

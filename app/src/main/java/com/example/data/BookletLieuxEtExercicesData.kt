@@ -292,7 +292,7 @@ object BookletLieuxEtExercicesData {
             expectedAnswerFr = "Au cinéma.",
             alternativeAnswersFr = listOf("Je vais au cinéma.", "au cinéma"),
             answerAr = "إلى السينما (Au cinéma).",
-            options = listOf("Au cinéma.", "Au stade.", "Au restaurant."),
+            options = listOf("Au stade.", "Au restaurant.", "Au cinéma."),
             explanationAr = "نذهب إلى السينما (Au cinéma) لمشاهدة الأفلام. cinéma كلمة مفرد مذكر مسبوقة بـ au."
         ),
         BookletOuVasTuItem(
@@ -303,7 +303,7 @@ object BookletLieuxEtExercicesData {
             expectedAnswerFr = "À l'hôpital.",
             alternativeAnswersFr = listOf("Chez le médecin.", "À la clinique.", "à l'hôpital"),
             answerAr = "إلى المستشفى (À l'hôpital) أو عند الطبيب (Chez le médecin).",
-            options = listOf("À l'hôpital.", "À la gare.", "Au club."),
+            options = listOf("À la gare.", "À l'hôpital.", "Au club."),
             explanationAr = "نذهب إلى المستشفى (À l'hôpital) أو العيادة أو عند الطبيب (Chez le médecin) للكشف والاستشارة."
         ),
         BookletOuVasTuItem(
@@ -314,7 +314,7 @@ object BookletLieuxEtExercicesData {
             expectedAnswerFr = "Au stade.",
             alternativeAnswersFr = listOf("Je vais au stade.", "au stade"),
             answerAr = "إلى الاستاد / الملعب (Au stade).",
-            options = listOf("Au stade.", "Au cinéma.", "À la poste."),
+            options = listOf("À la poste.", "Au stade.", "Au cinéma."),
             explanationAr = "نذهب إلى الاستاد (Au stade) لمشاهدة مباريات كرة القدم والرياضات المختلفة. stade مذكر يأخذ au."
         ),
         BookletOuVasTuItem(
@@ -336,7 +336,7 @@ object BookletLieuxEtExercicesData {
             expectedAnswerFr = "Au club.",
             alternativeAnswersFr = listOf("Au stade.", "À la salle de sport.", "au club"),
             answerAr = "إلى النادي (Au club) أو الاستاد (Au stade).",
-            options = listOf("Au club.", "À la pharmacie.", "À l'aéroport."),
+            options = listOf("À l'aéroport.", "Au club.", "À la pharmacie."),
             explanationAr = "نذهب إلى النادي (Au club) أو الاستاد (Au stade) لممارسة الأنشطة الرياضية والتمارين."
         )
     )
@@ -353,7 +353,7 @@ object BookletLieuxEtExercicesData {
             speakerFr = "Le professeur",
             alternativeSpeakersFr = listOf("Le père", "La mère"),
             speakerAr = "المعلم (Le professeur) أو الأب/الأم",
-            options = listOf("Le professeur", "Le mécanicien", "Le guichetier"),
+            options = listOf("Le guichetier", "Le professeur", "Le mécanicien"),
             situationContextAr = "نصيحة يوجهها المعلم في المدرسة لتلاميذه، أو يوجهها الوالد في المنزل لأبنائه للحث على التفوق."
         ),
         BookletQuiParleItem(
@@ -375,7 +375,7 @@ object BookletLieuxEtExercicesData {
             speakerFr = "Le professeur",
             alternativeSpeakersFr = listOf("L'enseignant", "Le maître"),
             speakerAr = "المعلم / الأستاذ (Le professeur)",
-            options = listOf("Le professeur", "Le chauffeur", "L'infirmière"),
+            options = listOf("Le chauffeur", "Le professeur", "L'infirmière"),
             situationContextAr = "طلب حصري داخل الفصل الدراسي من المعلم لتلميذه للكتابة أو الحل على السبورة (le tableau)."
         ),
         BookletQuiParleItem(
@@ -386,7 +386,7 @@ object BookletLieuxEtExercicesData {
             speakerFr = "Le réceptionniste",
             alternativeSpeakersFr = listOf("L'employé de l'hôtel"),
             speakerAr = "موظف الاستقبال (Le réceptionniste)",
-            options = listOf("Le réceptionniste", "Le guide", "Le vendeur"),
+            options = listOf("Le guide", "Le vendeur", "Le réceptionniste"),
             situationContextAr = "عبارة شائعة يقولها موظف الاستقبال في الفندق (à l'hôtel) لنزيل أو سائح عند عدم وجود غرف شاغرة."
         ),
         BookletQuiParleItem(
@@ -397,7 +397,7 @@ object BookletLieuxEtExercicesData {
             speakerFr = "Le malade",
             alternativeSpeakersFr = listOf("Un patient"),
             speakerAr = "المريض (Le malade) أو المستشير",
-            options = listOf("Le malade", "Le journaliste", "Le touriste"),
+            options = listOf("Le journaliste", "Le malade", "Le touriste"),
             situationContextAr = "شكوى يصف بها المريض موضع الألم للطبيب في المستشفى أو العيادة."
         )
     )
@@ -414,7 +414,7 @@ object BookletLieuxEtExercicesData {
             professionFr = "Le pilote",
             alternativeProfessionsFr = listOf("Un pilote"),
             professionAr = "الطيار (Le pilote)",
-            options = listOf("Le pilote", "Le mécanicien", "Le professeur"),
+            options = listOf("Le professeur", "Le mécanicien", "Le pilote"),
             descriptionAr = "الطيار (Le pilote) هو المسؤول عن قيادة الطائرة ونقل الركاب جواً في المطار (à l'aéroport)."
         ),
         BookletQuiFaitCeTravailItem(
@@ -425,7 +425,7 @@ object BookletLieuxEtExercicesData {
             professionFr = "Le chauffeur",
             alternativeProfessionsFr = listOf("Le conducteur", "Un chauffeur"),
             professionAr = "السائق (Le chauffeur / Le conducteur)",
-            options = listOf("Le chauffeur", "Le médecin", "Le guichetier"),
+            options = listOf("Le guichetier", "Le médecin", "Le chauffeur"),
             descriptionAr = "السائق (Le chauffeur / Le conducteur) هو من يتولى قيادة السيارات والحافلات."
         ),
         BookletQuiFaitCeTravailItem(
@@ -436,7 +436,7 @@ object BookletLieuxEtExercicesData {
             professionFr = "Le mécanicien",
             alternativeProfessionsFr = listOf("Un mécanicien"),
             professionAr = "الميكانيكي (Le mécanicien)",
-            options = listOf("Le mécanicien", "Le réceptionniste", "Le garçon"),
+            options = listOf("Le garçon", "Le réceptionniste", "Le mécanicien"),
             descriptionAr = "الميكانيكي (Le mécanicien) يقوم بصيانة وإصلاح أعطال السيارات داخل الورشة (au garage)."
         ),
         BookletQuiFaitCeTravailItem(
@@ -447,7 +447,7 @@ object BookletLieuxEtExercicesData {
             professionFr = "Le professeur",
             alternativeProfessionsFr = listOf("L'enseignant", "Le maître"),
             professionAr = "المعلم / الأستاذ (Le professeur)",
-            options = listOf("Le professeur", "L'hôtesse de l'air", "Le touriste"),
+            options = listOf("Le touriste", "L'hôtesse de l'air", "Le professeur"),
             descriptionAr = "المعلم (Le professeur) يشرح الدروس للطلاب داخل المدرسة (à l'école) وفي الفصل (en classe)."
         ),
         BookletQuiFaitCeTravailItem(
@@ -458,7 +458,7 @@ object BookletLieuxEtExercicesData {
             professionFr = "Le médecin",
             alternativeProfessionsFr = listOf("Le docteur", "Un médecin"),
             professionAr = "الطبيب (Le médecin / Le docteur)",
-            options = listOf("Le médecin", "Le vendeur", "Le journaliste"),
+            options = listOf("Le journaliste", "Le médecin", "Le vendeur"),
             descriptionAr = "الطبيب (Le médecin) يفحص المرضى ويصف لهم الدواء المناسب داخل المستشفى (à l'hôpital)."
         )
     )

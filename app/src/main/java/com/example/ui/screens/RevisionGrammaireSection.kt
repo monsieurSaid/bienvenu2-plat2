@@ -562,6 +562,9 @@ private fun GrammarItemCard(
 
             // Multiple Choice Options (if available)
             if (item.options.isNotEmpty()) {
+                val shuffledIndices = remember(item.id, item.options) {
+                    item.options.indices.shuffled()
+                }
                 Text(
                     text = "اختر الإجابة الصحيحة:",
                     fontSize = 11.sp,
@@ -576,7 +579,8 @@ private fun GrammarItemCard(
                         .horizontalScroll(rememberScrollState()),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    item.options.forEachIndexed { optIdx, optText ->
+                    shuffledIndices.forEachIndexed { displayPos, optIdx ->
+                        val optText = item.options[optIdx]
                         val isChosen = userChoice == optIdx
                         val isOptionCorrect = optIdx == item.correctIndex
 
@@ -607,7 +611,7 @@ private fun GrammarItemCard(
                             border = BorderStroke(1.2.dp, borderColor),
                             modifier = Modifier
                                 .clickable { onSelectOption(optIdx) }
-                                .testTag("grammar_opt_${index}_$optIdx")
+                                .testTag("grammar_opt_${index}_$displayPos")
                         ) {
                             Row(
                                 modifier = Modifier.padding(horizontal = 14.dp, vertical = 8.dp),

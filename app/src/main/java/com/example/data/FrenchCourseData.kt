@@ -2,7 +2,6 @@ package com.example.data
 
 object FrenchCourseData {
 
-    // --- UNITÉ 1: INVITATION (Pages 11-34) ---
     val unit1FullText = "Unité 1 : Invitation. Les vacances sont vite passées. Jean Morelle et sa femme Suzanne sont rentrés au Caire. Gamal les a invités chez lui avec Moustafa, pilote à EgyptAir."
     val unit1FullTextArabic = "الوحدة الأولى : الدعوة. مرت الإجازة بسرعة. عاد جان موريل وزوجته سوزان إلى القاهرة. دعاهما جمال إلى منزله مع مصطفى، طيار في مصر للطيران."
 
@@ -11,37 +10,35 @@ object FrenchCourseData {
             speaker = "Récit du texte",
             text = "« Les vacances sont vite passées. Jean Morelle et sa femme Suzanne sont rentrés au Caire. Gamal les a invités chez lui avec Moustafa (pilote à EgyptAir). »",
             arabicNote = "مرت الإجازة بسرعة. عاد جان وزوجته سوزان إلى القاهرة. دعاهما جمال إلى منزله مع مصطفى (طيار بمصر للطيران).",
-            borderColorHex = 0xFF6366F1
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Jean Morelle",
             text = "« Tiens Gamal. Ce livre, nous l'avons acheté pour toi. »",
             arabicNote = "تفضل يا جمال. هذا الكتاب اشتريناه لك (كتاب تاريخ هدية). 📚",
-            borderColorHex = 0xFF10B981
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Gamal",
             text = "« Oh ! Merci beaucoup. Les livres d'histoire, moi, je les adore ! J'ai passé mes vacances à la Mer Rouge avec mes élèves. »",
             arabicNote = "أوه! شكراً جزيلاً. كتب التاريخ أنا أعشقها! قضيت إجازتي في البحر الأحمر مع تلاميذي.",
-            borderColorHex = 0xFFF59E0B
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Moustafa",
             text = "« Moi, je n'ai pas eu de vacances cette année. Je suis pilote à EgyptAir. »",
             arabicNote = "أما أنا، فلم أحصل على إجازة هذا العام. أنا طيار في مصر للطيران. ✈️",
-            borderColorHex = 0xFFF43F5E
+            borderColorHex = 4283385573L
         )
     )
 
-    // --- EXERCICES DE COMPRÉHENSION DU TEXTE (Page 13) ---
-    // (2) Réponds aux questions :-
     val unit1Ex2RepondsAuxQuestions = listOf(
         QuizQuestion(
             id = "u1_ex2_a",
             question = "a- Où Gamal a-t-il invité ses amis français ?",
-            options = listOf("Chez lui (à la maison)", "Au restaurant", "Au club"),
-            correctIndex = 0,
-            pageReference = "p. 13",
+            options = listOf("Au restaurant", "Au club", "Chez lui (à la maison)"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Gamal a invité ses amis français chez lui.",
             arabicTranslation = "أين دعا جمال أصدقاءه الفرنسيين؟ ➔ في منزله (Chez lui)."
         ),
@@ -50,29 +47,28 @@ object FrenchCourseData {
             question = "b- Avec qui Suzanne est-elle rentrée au Caire ?",
             options = listOf("Avec son mari Jean", "Avec Moustafa", "Avec ses élèves"),
             correctIndex = 0,
-            pageReference = "p. 13",
+            pageReference = "",
             explanation = "Suzanne est rentrée au Caire avec son mari Jean Morelle.",
             arabicTranslation = "مع من عادت سوزان إلى القاهرة؟ ➔ مع زوجها جان (Avec son mari Jean)."
         ),
         QuizQuestion(
             id = "u1_ex2_c",
             question = "c- À qui Gamal a – t – il présenté Moustafa ?",
-            options = listOf("À ses amis français (Jean et Suzanne)", "À ses élèves", "À son père"),
-            correctIndex = 0,
-            pageReference = "p. 13",
+            options = listOf("À son père", "À ses élèves", "À ses amis français (Jean et Suzanne)"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Gamal a présenté Moustafa à Jean et Suzanne : « Je vous présente Moustafa ».",
             arabicTranslation = "إلى من قدّم جمال صديقه مصطفى؟ ➔ إلى أصدقائه الفرنسيين (جان وسوزان)."
         )
     )
 
-    // (3) Mets (Vrai) Ou (faux) devant Chaque phrase :-
     val unit1Ex3VraiOuFaux = listOf(
         QuizQuestion(
             id = "u1_ex3_a",
             question = "a- Moustafa est l'ami de Jean.",
-            options = listOf("Faux (خطأ)", "Vrai (صح)"),
-            correctIndex = 0,
-            pageReference = "p. 13",
+            options = listOf("Vrai (صح)", "Faux (خطأ)"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Faux : Moustafa est l'ami égyptien de Gamal (pilote à EgyptAir).",
             arabicTranslation = "مصطفى هو صديق جان ➔ [خطأ Faux]. مصطفى هو صديق جمال."
         ),
@@ -81,96 +77,94 @@ object FrenchCourseData {
             question = "b- Gamal aime beaucoup les livres d'histoire.",
             options = listOf("Vrai (صح)", "Faux (خطأ)"),
             correctIndex = 0,
-            pageReference = "p. 13",
+            pageReference = "",
             explanation = "Vrai : Gamal dit : « Les livres d'histoire, moi, je les adore ! »",
             arabicTranslation = "جمال يحب كتب التاريخ كثيراً ➔ [صح Vrai]. قال جمال: 'Les livres d'histoire, moi, je les adore !'"
         ),
         QuizQuestion(
             id = "u1_ex3_c",
             question = "c- Sur la table, il y a beaucoup de livres.",
-            options = listOf("Faux (خطأ)", "Vrai (صح)"),
-            correctIndex = 0,
-            pageReference = "p. 13",
+            options = listOf("Vrai (صح)", "Faux (خطأ)"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Faux : Sur la table, il y a des gâteaux et des boissons fraîches.",
             arabicTranslation = "على الطاولة يوجد الكثير من الكتب ➔ [خطأ Faux]. على الطاولة توجد حلوى ومشروبات باردة."
         ),
         QuizQuestion(
             id = "u1_ex3_d",
             question = "d- Gamal n'est pas content de ses vacances.",
-            options = listOf("Faux (خطأ)", "Vrai (صح)"),
-            correctIndex = 0,
-            pageReference = "p. 13",
+            options = listOf("Vrai (صح)", "Faux (خطأ)"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Faux : Gamal a passé de très bonnes vacances à la Mer Rouge avec ses élèves.",
             arabicTranslation = "جمال ليس سعيداً بإجازته ➔ [خطأ Faux]. قضى جمال إجازة سعيدة جداً في البحر الأحمر."
         )
     )
 
-    // (4) Associe les deux parties de la phrase d'après le document:-
     val unit1Ex4Associe = listOf(
         QuizQuestion(
             id = "u1_ex4_a",
             question = "a- Moustafa est :",
-            options = listOf("4) L'ami de Gamal.", "1) au bord de la mer", "2) pendant la Soirée", "3) à la Mer Rouge.", "5) des monuments français"),
-            correctIndex = 0,
-            pageReference = "p. 13",
+            options = listOf("5) des monuments français", "1) au bord de la mer", "2) pendant la Soirée", "3) à la Mer Rouge.", "4) L'ami de Gamal."),
+            correctIndex = 4,
+            pageReference = "",
             explanation = "Moustafa est l'ami de Gamal.",
             arabicTranslation = "مصطفى يكون ➔ 4) صديق جمال (L'ami de Gamal)."
         ),
         QuizQuestion(
             id = "u1_ex4_b",
             question = "b- Gamal a passé ses vacances :",
-            options = listOf("3) à la Mer Rouge.", "1) au bord de la mer", "2) pendant la Soirée", "4) L'ami de Gamal.", "5) des monuments français"),
-            correctIndex = 0,
-            pageReference = "p. 13",
+            options = listOf("1) au bord de la mer", "3) à la Mer Rouge.", "2) pendant la Soirée", "4) L'ami de Gamal.", "5) des monuments français"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Gamal a passé ses vacances à la Mer Rouge.",
             arabicTranslation = "جمال قضى إجازته ➔ 3) في البحر الأحمر (à la Mer Rouge)."
         ),
         QuizQuestion(
             id = "u1_ex4_c",
             question = "c- Le livre d'histoire parle :",
-            options = listOf("5) des monuments français", "1) au bord de la mer", "2) pendant la Soirée", "3) à la Mer Rouge.", "4) L'ami de Gamal."),
-            correctIndex = 0,
-            pageReference = "p. 13",
+            options = listOf("2) pendant la Soirée", "3) à la Mer Rouge.", "1) au bord de la mer", "5) des monuments français", "4) L'ami de Gamal."),
+            correctIndex = 3,
+            pageReference = "",
             explanation = "Le livre d'histoire parle des monuments français.",
             arabicTranslation = "كتاب التاريخ يتحدث عن ➔ 5) المعالم والآثار الفرنسية (des monuments français)."
         ),
         QuizQuestion(
             id = "u1_ex4_d",
             question = "d- Moustafa n'est pas allé :",
-            options = listOf("1) au bord de la mer", "2) pendant la Soirée", "3) à la Mer Rouge.", "4) L'ami de Gamal.", "5) des monuments français"),
+            options = listOf("1) au bord de la mer", "3) à la Mer Rouge.", "4) L'ami de Gamal.", "2) pendant la Soirée", "5) des monuments français"),
             correctIndex = 0,
-            pageReference = "p. 13",
+            pageReference = "",
             explanation = "Moustafa n'a pas eu de vacances, il n'est pas allé au bord de la mer.",
             arabicTranslation = "مصطفى لم يذهب ➔ 1) إلى شاطئ البحر (au bord de la mer)."
         ),
         QuizQuestion(
             id = "u1_ex4_e",
             question = "e- Les amis ont beaucoup parlé :",
-            options = listOf("2) pendant la Soirée", "1) au bord de la mer", "3) à la Mer Rouge.", "4) L'ami de Gamal.", "5) des monuments français"),
-            correctIndex = 0,
-            pageReference = "p. 13",
+            options = listOf("3) à la Mer Rouge.", "1) au bord de la mer", "5) des monuments français", "4) L'ami de Gamal.", "2) pendant la Soirée"),
+            correctIndex = 4,
+            pageReference = "",
             explanation = "Les amis ont beaucoup parlé pendant la Soirée.",
             arabicTranslation = "الأصدقاء تحدثوا كثيراً ➔ 2) أثناء السهرة (pendant la Soirée)."
         )
     )
 
-    // (5) Complète par des mots pris du document:-
     val unit1Ex5Complete = listOf(
         QuizQuestion(
             id = "u1_ex5_1",
             question = "1. Gamal a reçu jean Morelle, sa ______ et son ______ Moustafa chez lui.",
             options = listOf("femme (Suzanne) / ami", "sœur / cousin", "mère / frère"),
             correctIndex = 0,
-            pageReference = "p. 13",
+            pageReference = "",
             explanation = "Gamal a reçu Jean Morelle, sa femme Suzanne et son ami Moustafa.",
             arabicTranslation = "استقبل جمال جان موريل وزوجته (سوزان) وصديقه مصطفى في منزله."
         ),
         QuizQuestion(
             id = "u1_ex5_2",
             question = "2. IL était content parce que jean Morelle lui a offert ______",
-            options = listOf("un livre d'histoire", "des gâteaux", "une voiture"),
-            correctIndex = 0,
-            pageReference = "p. 13",
+            options = listOf("une voiture", "un livre d'histoire", "des gâteaux"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Jean Morelle lui a offert un livre d'histoire sur les monuments français.",
             arabicTranslation = "كان سعيداً لأن جان موريل أهداه كتاب تاريخ عن المعالم الفرنسية."
         ),
@@ -179,7 +173,7 @@ object FrenchCourseData {
             question = "3. Gamal, qui est professeur, a passé ______ au bord de la mer ______ avec ses ______",
             options = listOf("ses vacances / Rouge / élèves", "la soirée / Noire / amis", "l'été / Morte / voisins"),
             correctIndex = 0,
-            pageReference = "p. 13",
+            pageReference = "",
             explanation = "Gamal a passé ses vacances au bord de la mer Rouge avec ses élèves.",
             arabicTranslation = "جمال (الأستاذ) قضى إجازته على شاطئ البحر الأحمر مع تلاميذه."
         )
@@ -190,7 +184,7 @@ object FrenchCourseData {
     val pronounExercises = listOf(
         PronounExercise(
             phrase = "1. Il regarde le match.",
-            choices = listOf("le", "la", "lui"),
+            choices = listOf("la", "le", "lui"),
             correct = "le",
             explanation = "« le match » est masculin singulier direct ➔ Il le regarde.",
             arabicTranslation = "هو يشاهد المباراة. (مباشر مفرد مذكر بدون حرف جر ➔ نضع le)"
@@ -211,7 +205,7 @@ object FrenchCourseData {
         ),
         PronounExercise(
             phrase = "4. Ali mange la pomme.",
-            choices = listOf("la", "lui", "le"),
+            choices = listOf("lui", "la", "le"),
             correct = "la",
             explanation = "« la pomme » est féminin singulier direct ➔ Ali la mange.",
             arabicTranslation = "علي يأكل التفاحة. (مباشر مفرد مؤنث ➔ نضع la)"
@@ -231,34 +225,41 @@ object FrenchCourseData {
         QuizQuestion(
             id = "u1_p1",
             question = "1. Où vas-tu pour voir un film ?",
-            options = listOf("au cinéma", "à l'hôpital", "au club"),
-            correctIndex = 0,
-            arabicTranslation = "أين تذهب لمشاهدة فيلم؟ (إلى السينما / إلى المستشفى / إلى النادي)"
+            options = listOf("à l'hôpital", "au cinéma", "au club"),
+            correctIndex = 1,
+            pageReference = "p. 25",
+            explanation = "Pour voir un film, on va au cinéma.",
+            arabicTranslation = "أين تذهب لمشاهدة فيلم؟ ➔ في السينما (au cinéma)."
         ),
         QuizQuestion(
             id = "u1_p2",
             question = "2. Où vas-tu pour consulter le médecin ?",
-            options = listOf("au stade", "à l'hôpital", "au musée"),
-            correctIndex = 1,
-            arabicTranslation = "أين تذهب لاستشارة الطبيب؟ (إلى الاستاد / إلى المستشفى / إلى المتحف)"
+            options = listOf("au stade", "au musée", "à l'hôpital"),
+            correctIndex = 2,
+            pageReference = "p. 25",
+            explanation = "Pour consulter le médecin, on va à l'hôpital.",
+            arabicTranslation = "أين تذهب لاستشارة الطبيب؟ ➔ في المستشفى (à l'hôpital)."
         ),
         QuizQuestion(
             id = "u1_p3",
             question = "3. Où vas-tu pour faire du sport ?",
             options = listOf("au club", "à la pharmacie", "à la gare"),
             correctIndex = 0,
-            arabicTranslation = "أين تذهب لممارسة الرياضة؟ (إلى النادي / إلى الصيدلية / إلى المحطة)"
+            pageReference = "p. 25",
+            explanation = "Pour faire du sport, on va au club.",
+            arabicTranslation = "أين تذهب لممارسة الرياضة؟ ➔ في النادي (au club)."
         ),
         QuizQuestion(
             id = "u1_p4",
             question = "4. Où vas-tu pour acheter des médicaments ?",
-            options = listOf("à l'aéroport", "à la pharmacie", "au café"),
+            options = listOf("au café", "à la pharmacie", "à l'aéroport"),
             correctIndex = 1,
-            arabicTranslation = "أين تذهب لشراء الأدوية؟ (إلى المطار / إلى الصيدلية / إلى المقهى)"
+            pageReference = "p. 25",
+            explanation = "Pour acheter des médicaments, on va à la pharmacie.",
+            arabicTranslation = "أين تذهب لشراء الأدوية؟ ➔ في الصيدلية (à la pharmacie)."
         )
     )
 
-    // --- UNITÉ 2: REPAS & RESTAURANT (Pages 35-58) ---
     val unit2FullText = "Unité 2 : Repas & Restaurant. Le 15 juin à l'occasion de leur fête de mariage, Jean Morelle et sa femme ont invité des amis à dîner à 22 heures. Ils ont réservé une table pour 20 personnes dans un grand restaurant. De retour chez lui, Gamal a parlé de la soirée avec ses parents. Le père : Ça s'est bien passé ? Gamal : Oui, J'ai rencontré les amis français de Jean, des journalistes et des stagiaires d'El Ahram Hebdo on a très bien mangé. Le père : Qu'est-ce qu'on a servi ? Gamal : Comme entrée, on a servi des crudités : des tomates, des concombres en salade et des laitues. Comme plat principal : du veau ou du poulet avec des frites et des légumes. Et comme dessert : des fruits de toutes sortes et un gâteau au chocolat en forme de pyramide avec 5 bougies. La mère : Et tu as bien mangé ? Gamal : Bien sûr."
     val unit2FullTextArabic = "الوحدة الثانية : الوجبات والمطعم. في 15 يونيو بمناسبة عيد زواجهما، دعا جان موريل وزوجته الأصدقاء لتناول العشاء في الساعة العاشرة مساءً (22h). وحجزوا طاولة لـ 20 شخصاً في مطعم كبير. ولدى عودته، تحدث جمال عن السهرة مع والديه. الأب: هل سارت الأمور بخير؟ جمال: نعم، قابلت أصدقاء جان الفرنسيين، صحفيين ومتدربين بجريدة الأهرام إبدو، وأكلنا بشكل ممتاز. الأب: ماذا قُدِّم في العشاء؟ جمال: كمقبلات قُدِّمت خضروات طازجة (طماطم وخيار سلطة وخس)، وطبق رئيسي لحم بتلو أو دجاج مع بطاطس وخضار، والتحلية فواكه وكعكة شوكولاتة على شكل هرم بـ 5 شمعات. الأم: وهل أكلت جيداً؟ جمال: بكل تأكيد!"
 
@@ -267,94 +268,92 @@ object FrenchCourseData {
             speaker = "Récit du texte (ص 35)",
             text = "« Le 15 juin à l'occasion de leur fête de mariage, Jean Morelle et sa femme ont invité des amis à dîner à 22 heures. Ils ont réservé une table pour 20 personnes dans un grand restaurant. De retour chez lui, Gamal a parlé de la soirée avec ses parents. »",
             arabicNote = "في 15 يونيو بمناسبة عيد زواجهما، دعا جان موريل وزوجته أصدقاءهما لتناول العشاء في الساعة العاشرة مساءً (22h). وحجزوا طاولة لـ 20 شخصاً في مطعم كبير. ولدى عودته إلى المنزل، تحدث جمال عن السهرة مع والديه. 🍽️",
-            borderColorHex = 0xFFEA580C
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Le père",
             text = "« Ça s'est bien passé ? »",
             arabicNote = "هل سارت الأمور على ما يرام؟ (كيف كانت السهرة؟) 👨",
-            borderColorHex = 0xFF4F46E5
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Gamal",
             text = "« Oui, J'ai rencontré les amis français de Jean, des journalistes et des stagiaires d'El Ahram Hebdo on a très bien mangé. »",
             arabicNote = "نعم، لقد التقيت بأصدقاء جان الفرنسيين، وهم صحفيون ومتدربون بجريدة الأهرام إبدو (El Ahram Hebdo)، وقد تناولنا طعاماً لذيذاً جداً. 📰",
-            borderColorHex = 0xFF059669
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Le père",
             text = "« Qu'est – ce qu'on a servi ? »",
             arabicNote = "ماذا قُدِّم في قائمة الطعام؟ ❓",
-            borderColorHex = 0xFF4F46E5
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Gamal (Menu du dîner)",
             text = "« Comme entrée, on a servi des crudités : des tomates, des concombres en salade et des laitues. Comme plat principal : du veau ou du poulet avec des frites et des légumes. Et comme dessert : des fruits de toutes sortes et un gâteau au chocolat en forme de pyramide avec 5 bougies. »",
             arabicNote = "كمقبلات: قُدِّمت خضروات طازجة (طماطم، خيار سلطة، وخس). كطبق رئيسي: لحم بتلو (عجل) أو دجاج مع بطاطس مقلية وخضار. وللتحلية: فواكه مشكلة وتورتة شوكولاتة على شكل هرم بـ 5 شمعات. 🥗🥩🍗🍟🍫🎂🕯️",
-            borderColorHex = 0xFFD97706
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "La mère",
             text = "« Et tu as bien mangé ? »",
             arabicNote = "وهل أكلت جيداً؟ 👩",
-            borderColorHex = 0xFFE11D48
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Gamal",
             text = "« Bien sûr. »",
             arabicNote = "بالتأكيد! (طبعاً). 👍",
-            borderColorHex = 0xFF059669
+            borderColorHex = 4283385573L
         )
     )
 
-    // (1) Complète avec le bon groupe (Booklet p. 36)
     val unit2Ex1BonGroupe = listOf(
         QuizQuestion(
             id = "u2_ex1_1",
             question = "1. Jean et Suzanne fêtent leur mariage ....................",
-            options = listOf("a) Le 15 juin.", "b) Le 22 juin.", "c) Le 20 juin."),
+            options = listOf("a) Le 15 juin.", "b) Le 20 juin.", "c) Le 22 juin."),
             correctIndex = 0,
-            pageReference = "p. 36",
+            pageReference = "",
             explanation = "Le 15 juin à l'occasion de leur fête de mariage.",
             arabicTranslation = "يحتفل جان وسوزان بعيد زواجهما ➔ في 15 يونيو (Le 15 juin)."
         ),
         QuizQuestion(
             id = "u2_ex1_2",
             question = "2. Jean et Suzanne invitent leurs amis à dîner ....................",
-            options = listOf("c) dans un restaurant.", "a) Chez eux.", "b) à El Ahram Hebo."),
-            correctIndex = 0,
-            pageReference = "p. 36",
+            options = listOf("a) à El Ahram Hebo.", "b) Chez eux.", "c) dans un restaurant."),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Ils ont réservé une table pour 20 personnes dans un grand restaurant.",
             arabicTranslation = "دعا جان وسوزان أصدقائهما للعشاء ➔ في مطعم (dans un restaurant)."
         ),
         QuizQuestion(
             id = "u2_ex1_3",
             question = "3. Comme plat principal on a mangé ....................",
-            options = listOf("b) de la viande avec des légumes.", "a) des fruits et gâteaux.", "c) des concombres en salade."),
-            correctIndex = 0,
-            pageReference = "p. 36",
+            options = listOf("a) des concombres en salade.", "b) de la viande avec des légumes.", "c) des fruits et gâteaux."),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Comme plat principal : du veau ou du poulet avec des frites et des légumes (de la viande avec des légumes).",
             arabicTranslation = "كتصنيف للطبق الرئيسي تناولوا ➔ اللحم مع الخضار (de la viande avec des légumes)."
         ),
         QuizQuestion(
             id = "u2_ex1_4",
             question = "4. Gamal a raconté la soirée ....................",
-            options = listOf("a) à son père et sa mère.", "b) aux journalistes.", "c) à ses amis."),
-            correctIndex = 0,
-            pageReference = "p. 36",
+            options = listOf("a) à ses amis.", "b) aux journalistes.", "c) à son père et sa mère."),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "De retour chez lui, Gamal a parlé de la soirée avec ses parents (son père et sa mère).",
             arabicTranslation = "روى جمال أحداث السهرة ➔ لوالده ووالدته (à son père et sa mère)."
         )
     )
 
-    // (2) Mets vrai (√) ou faux (X) devant chaque phrase (Booklet p. 37)
     val unit2Ex2VraiOuFaux = listOf(
         QuizQuestion(
             id = "u2_ex2_a",
             question = "a) Au dîner, il y a 20 personnes.",
             options = listOf("Vrai (صح) ✔️", "Faux (خطأ) ❌"),
             correctIndex = 0,
-            pageReference = "p. 37",
+            pageReference = "",
             explanation = "Vrai : « Ils ont réservé une table pour 20 personnes ».",
             arabicTranslation = "في العشاء يوجد 20 شخصاً ➔ [صح Vrai]. حجزوا طاولة لعشرين شخصاً."
         ),
@@ -363,65 +362,64 @@ object FrenchCourseData {
             question = "b) Au menu, il y a de la viande.",
             options = listOf("Vrai (صح) ✔️", "Faux (خطأ) ❌"),
             correctIndex = 0,
-            pageReference = "p. 37",
+            pageReference = "",
             explanation = "Vrai : Le veau (لحم العجل) et le poulet sont de la viande.",
             arabicTranslation = "في قائمة الطعام يوجد لحم ➔ [صح Vrai]. تم تقديم لحم العجل du veau والدجاج."
         ),
         QuizQuestion(
             id = "u2_ex2_c",
             question = "c) De ce restaurant, on voit les Pyramides.",
-            options = listOf("Faux (خطأ) ❌", "Vrai (صح) ✔️"),
-            correctIndex = 0,
-            pageReference = "p. 37",
+            options = listOf("Vrai (صح) ✔️", "Faux (خطأ) ❌"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Faux : Le gâteau est en forme de pyramide, mais le texte ne dit pas qu'on voit les pyramides depuis le restaurant.",
             arabicTranslation = "من هذا المطعم نرى الأهرامات ➔ [خطأ Faux]. الكعكة على شكل هرم وليس المطعم يطل على الأهرامات."
         ),
         QuizQuestion(
             id = "u2_ex2_d",
             question = "d) Le 5 juin, C'est la fête de mariage de Jean et sa femme.",
-            options = listOf("Faux (خطأ) ❌", "Vrai (صح) ✔️"),
-            correctIndex = 0,
-            pageReference = "p. 37",
+            options = listOf("Vrai (صح) ✔️", "Faux (خطأ) ❌"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Faux : La fête de mariage a lieu le 15 juin (et non le 5 juin).",
             arabicTranslation = "في 5 يونيو عيد زواج جان وزوجته ➔ [خطأ Faux]. التاريخ الصحيح هو 15 يونيو (Le 15 juin)."
         ),
         QuizQuestion(
             id = "u2_ex2_e",
             question = "e) On a mangé un gâteau aux fruits.",
-            options = listOf("Faux (خطأ) ❌", "Vrai (صح) ✔️"),
-            correctIndex = 0,
-            pageReference = "p. 37",
+            options = listOf("Vrai (صح) ✔️", "Faux (خطأ) ❌"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Faux : C'est « un gâteau au chocolat en forme de pyramide » (les fruits étaient à part).",
             arabicTranslation = "أكلوا كعكة بالفواكه ➔ [خطأ Faux]. الكعكة كانت بالشوكولاتة (au chocolat) والفواكه قُدمت كصنف مستقل."
         )
     )
 
-    // (3) Réponds avec des mots pris du texte (Booklet p. 37)
     val unit2Ex3RepondsPrisDuTexte = listOf(
         QuizQuestion(
             id = "u2_ex3_a",
             question = "a) Où travaillent les journalistes, amis de Jean ?",
-            options = listOf("À El Ahram Hebdo", "Au restaurant", "À l'hôpital"),
-            correctIndex = 0,
-            pageReference = "p. 37",
+            options = listOf("À l'hôpital", "À El Ahram Hebdo", "Au restaurant"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Ils travaillent à « El Ahram Hebdo » (جريدة الأهرام إبدو).",
             arabicTranslation = "أين يعمل الصحفيون أصدقاء جان؟ ➔ في جريدة الأهرام إبدو (À El Ahram Hebdo)."
         ),
         QuizQuestion(
             id = "u2_ex3_b",
             question = "b) De quelle fête on parle ?",
-            options = listOf("De la fête de mariage de Jean et sa femme", "De la fête d'anniversaire", "De la fête du Nouvel An"),
+            options = listOf("De la fête de mariage de Jean et sa femme", "De la fête du Nouvel An", "De la fête d'anniversaire"),
             correctIndex = 0,
-            pageReference = "p. 37",
+            pageReference = "",
             explanation = "On parle de la fête de mariage de Jean Morelle et sa femme.",
             arabicTranslation = "عن أي حفلة نتحدث؟ ➔ عن حفلة عيد زواج جان وزوجته."
         ),
         QuizQuestion(
             id = "u2_ex3_c",
             question = "c) Pour quelle heure Jean a réservé la table ?",
-            options = listOf("À 22 heures (dix heures du soir)", "À 20 heures", "À 12 heures (midi)"),
-            correctIndex = 0,
-            pageReference = "p. 37",
+            options = listOf("À 20 heures", "À 22 heures (dix heures du soir)", "À 12 heures (midi)"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Jean a invité des amis à dîner à 22 heures.",
             arabicTranslation = "لأي ساعة حجز جان الطاولة؟ ➔ الساعة 22:00 (العاشرة مساءً)."
         ),
@@ -430,83 +428,79 @@ object FrenchCourseData {
             question = "d) Au menu qu'est – ce qu'il y a comme crudités ?",
             options = listOf("Des tomates, des concombres en salade et des laitues", "Des frites et des légumes", "Des fruits de toutes sortes"),
             correctIndex = 0,
-            pageReference = "p. 37",
+            pageReference = "",
             explanation = "Comme entrée, on a servi des crudités : des tomates, des concombres en salade et des laitues.",
             arabicTranslation = "ماذا يوجد في القائمة كمقبلات سلطة خضراء؟ ➔ طماطم، خيار سلطة، وخس."
         ),
         QuizQuestion(
             id = "u2_ex3_e",
             question = "e) Combien de bougies il y a sur le gâteau ?",
-            options = listOf("5 bougies (cinq bougies)", "20 bougies", "15 bougies"),
-            correctIndex = 0,
-            pageReference = "p. 37",
+            options = listOf("15 bougies", "5 bougies (cinq bougies)", "20 bougies"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Il y a un gâteau au chocolat en forme de pyramide avec 5 bougies.",
             arabicTranslation = "كم شمعة توجد على الكعكة؟ ➔ 5 شمعات (5 bougies)."
         )
     )
 
-    // (4) Complete (Booklet p. 37)
-    // Banques de mots : ( Le 15 juin – ses amis – à l'Occasion – une table – ses parents – des crudités )
     val unit2Ex4Complete = listOf(
         QuizQuestion(
             id = "u2_ex4_1",
             question = "1- Le 15 juin, ____________ de la fête de mariage.",
             options = listOf("à l'Occasion", "une table", "ses parents"),
             correctIndex = 0,
-            pageReference = "p. 37",
+            pageReference = "",
             explanation = "Le 15 juin, à l'occasion de la fête de mariage.",
             arabicTranslation = "15 يونيو، [بمناسبة] عيد الزواج ➔ à l'Occasion"
         ),
         QuizQuestion(
             id = "u2_ex4_2",
             question = "2- Il a réservé ____________ pour cinq personnes.",
-            options = listOf("une table", "des crudités", "ses amis"),
-            correctIndex = 0,
-            pageReference = "p. 37",
+            options = listOf("ses amis", "une table", "des crudités"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Il a réservé une table (dans le texte pour 20 personnes).",
             arabicTranslation = "هو حجز [طاولة] ➔ une table"
         ),
         QuizQuestion(
             id = "u2_ex4_3",
             question = "3- Jean et sa femme ont invité ____________ à dîner.",
-            options = listOf("ses amis", "ses parents", "une table"),
-            correctIndex = 0,
-            pageReference = "p. 37",
+            options = listOf("ses parents", "une table", "ses amis"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Jean et sa femme ont invité ses amis à dîner.",
             arabicTranslation = "جان وزوجته دعوا [أصدقاءه] للعشاء ➔ ses amis"
         ),
         QuizQuestion(
             id = "u2_ex4_4",
             question = "4- Gamal a parlé de la fête avec ____________",
-            options = listOf("ses parents", "ses amis", "des crudités"),
+            options = listOf("ses parents", "des crudités", "ses amis"),
             correctIndex = 0,
-            pageReference = "p. 37",
+            pageReference = "",
             explanation = "Gamal a parlé de la soirée avec ses parents.",
             arabicTranslation = "تحدث جمال عن الحفلة مع [والديه] ➔ ses parents"
         ),
         QuizQuestion(
             id = "u2_ex4_5",
             question = "5- Jean et Suzanne fêtent leur mariage ____________",
-            options = listOf("Le 15 juin", "à l'Occasion", "ses amis"),
-            correctIndex = 0,
-            pageReference = "p. 37",
+            options = listOf("à l'Occasion", "ses amis", "Le 15 juin"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Jean et Suzanne fêtent leur mariage Le 15 juin.",
             arabicTranslation = "جان وسوزان يحتفلان بعيد زواجهما [في 15 يونيو] ➔ Le 15 juin"
         ),
         QuizQuestion(
             id = "u2_ex4_6",
             question = "6- Comme entrée, on a servi ____________",
-            options = listOf("des crudités", "une table", "Le 15 juin"),
-            correctIndex = 0,
-            pageReference = "p. 37",
+            options = listOf("une table", "des crudités", "Le 15 juin"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Comme entrée, on a servi des crudités (tomates, concombres, laitues).",
             arabicTranslation = "كمقبلات، تم تقديم [خضروات طازجة / سلطات خضراء] ➔ des crudités"
         )
     )
 
-    // --- UNITÉ 2 : VOCABULAIRE & VERBES & PERSONNAGES & LIEUX (Page 38) ---
     val unit2VocabWords = listOf(
-        // === 1. Vocabulaire & Expressions (ص 38) ===
         VocabWord(
             id = "u2_v1",
             french = "à l'occasion de",
@@ -514,6 +508,7 @@ object FrenchCourseData {
             category = VocabCategory.EXPRESSION,
             exampleFr = "À l'occasion de leur fête de mariage, ils ont invité des amis.",
             exampleAr = "بمناسبة حفل عيد زواجهما، دعوا الأصدقاء.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -523,6 +518,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Jean et Suzanne célèbrent la fête de mariage.",
             exampleAr = "جان وسوزان يحتفلان بعيد زواجهما.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -532,6 +528,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Jean Morelle et sa femme ont réservé une table.",
             exampleAr = "جان موريل وزوجته حجزا طاولة.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -541,6 +538,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Gamal a parlé de la soirée avec ses parents.",
             exampleAr = "تحدث جمال عن السهرة مع والديه.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -550,6 +548,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Chaque invité a passé une bonne soirée.",
             exampleAr = "كل مدعو قضى سهرة ممتعة.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -559,6 +558,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "J'ai reçu une invitation pour la fête.",
             exampleAr = "استلمت دعوة للحفلة.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -568,6 +568,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Un gâteau au chocolat en forme de pyramide.",
             exampleAr = "تورتة شوكولاتة على شكل هرم.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -577,6 +578,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Le gâteau est décoré avec 5 bougies.",
             exampleAr = "التورتة مزينة بـ 5 شمعات.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -586,6 +588,7 @@ object FrenchCourseData {
             category = VocabCategory.EXPRESSION,
             exampleFr = "Comme entrée, on a servi des crudités.",
             exampleAr = "كمقبلات، قُدمت خضروات طازجة وسلطات.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -595,6 +598,7 @@ object FrenchCourseData {
             category = VocabCategory.EXPRESSION,
             exampleFr = "Comme plat principal, du veau ou du poulet.",
             exampleAr = "كطبق رئيسي، لحم بتلو أو دجاج.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -604,6 +608,7 @@ object FrenchCourseData {
             category = VocabCategory.EXPRESSION,
             exampleFr = "Comme dessert, des fruits et un gâteau.",
             exampleAr = "للتحلية، فواكه وتورتة.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -613,6 +618,7 @@ object FrenchCourseData {
             category = VocabCategory.EXPRESSION,
             exampleFr = "Le restaurant est magnifique.",
             exampleAr = "المطعم رائع جداً.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -622,10 +628,9 @@ object FrenchCourseData {
             category = VocabCategory.EXPRESSION,
             exampleFr = "Le gâteau est en forme de pyramide.",
             exampleAr = "التورتة على شكل هرم.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
-
-        // === 2. Les Verbes (ص 38) ===
         VocabWord(
             id = "u2_v14",
             french = "Fêter",
@@ -726,8 +731,6 @@ object FrenchCourseData {
             phoneticOrNote = "3ème groupe",
             pageReference = "p. 38"
         ),
-
-        // === 3. Les personnages (ص 38) ===
         VocabWord(
             id = "u2_v24",
             french = "Un Client",
@@ -735,6 +738,7 @@ object FrenchCourseData {
             category = VocabCategory.PERSONNAGE,
             exampleFr = "Le client demande l'addition au restaurant.",
             exampleAr = "الزبون يطلب الفاتورة في المطعم.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -744,6 +748,7 @@ object FrenchCourseData {
             category = VocabCategory.PERSONNAGE,
             exampleFr = "Le garçon apporte le menu et l'eau.",
             exampleAr = "الجرسون يُحضر القائمة والماء.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -753,6 +758,7 @@ object FrenchCourseData {
             category = VocabCategory.PERSONNAGE,
             exampleFr = "Le vendeur travaille dans un magasin.",
             exampleAr = "البائع يعمل في المحل التجاري.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -762,6 +768,7 @@ object FrenchCourseData {
             category = VocabCategory.PERSONNAGE,
             exampleFr = "Le touriste prend des photos des pyramides.",
             exampleAr = "السائح يلتقط صوراً للأهرامات.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -771,6 +778,7 @@ object FrenchCourseData {
             category = VocabCategory.PERSONNAGE,
             exampleFr = "Le guide explique l'histoire du monument.",
             exampleAr = "المرشد يشرح تاريخ الأثر.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -780,10 +788,9 @@ object FrenchCourseData {
             category = VocabCategory.PERSONNAGE,
             exampleFr = "Chaque invité félicite les mariés.",
             exampleAr = "كل مدعو يُهنئ العروسين.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
-
-        // === 4. Les lieux (ص 38) ===
         VocabWord(
             id = "u2_v30",
             french = "Au restaurant",
@@ -791,6 +798,7 @@ object FrenchCourseData {
             category = VocabCategory.LIEU,
             exampleFr = "Nous dînons au restaurant ce soir.",
             exampleAr = "نتناول العشاء في المطعم هذا المساء.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -800,6 +808,7 @@ object FrenchCourseData {
             category = VocabCategory.LIEU,
             exampleFr = "Les touristes réservent une chambre à l'hôtel.",
             exampleAr = "السياح يحجزون غرفة في الفندق.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -809,6 +818,7 @@ object FrenchCourseData {
             category = VocabCategory.LIEU,
             exampleFr = "On achète des vêtements au magasin.",
             exampleAr = "نشتري ملابس من المحل.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -818,6 +828,7 @@ object FrenchCourseData {
             category = VocabCategory.LIEU,
             exampleFr = "On voit les antiquités au musée égyptien.",
             exampleAr = "نرى الآثار في المتحف المصري.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -827,6 +838,7 @@ object FrenchCourseData {
             category = VocabCategory.LIEU,
             exampleFr = "Il boit un jus d'orange au café.",
             exampleAr = "يشرب عصير برتقال في المقهى.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         ),
         VocabWord(
@@ -836,6 +848,7 @@ object FrenchCourseData {
             category = VocabCategory.LIEU,
             exampleFr = "Je joue au football au club avec mes amis.",
             exampleAr = "ألعب كرة القدم في النادي مع أصدقائي.",
+            phoneticOrNote = "",
             pageReference = "p. 38"
         )
     )
@@ -844,32 +857,36 @@ object FrenchCourseData {
         QuizQuestion(
             id = "u2_part1",
             question = "1. Au petit déjeuner, je prends ______ fromage et ______ confiture.",
-            options = listOf("du / de la", "des / de l'", "du / des"),
+            options = listOf("du / de la", "du / des", "des / de l'"),
             correctIndex = 0,
+            pageReference = "",
             explanation = "fromage est masculin (du) et confiture est féminin (de la).",
             arabicTranslation = "في وجبة الإفطار، أتناول [جبناً] و[مربى]. الجبن مذكر (du) والمربى مؤنث (de la)."
         ),
         QuizQuestion(
             id = "u2_part2",
             question = "2. Je bois ______ eau minérale.",
-            options = listOf("du", "de la", "de l'"),
-            correctIndex = 2,
+            options = listOf("du", "de l'", "de la"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "« eau » commence par une voyelle ➔ de l'eau.",
             arabicTranslation = "أنا أشرب [ماء معدنياً]. كلمة eau تبدأ بحرف متحرك ➔ نختار de l'."
         ),
         QuizQuestion(
             id = "u2_part3",
             question = "3. À la forme négative : Je ne mange pas ______ viande.",
-            options = listOf("de la", "de", "des"),
-            correctIndex = 1,
+            options = listOf("de la", "des", "de"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "En négation, les partitifs deviennent « de » ou « d' ».",
             arabicTranslation = "في صيغة النفي: أنا لا آكل [لحماً]. أدوات التجزئة تتحول إلى de في النفي."
         ),
         QuizQuestion(
             id = "u2_part4",
             question = "4. Verbe de goût : J'adore ______ chocolat.",
-            options = listOf("du", "le", "un"),
+            options = listOf("un", "le", "du"),
             correctIndex = 1,
+            pageReference = "",
             explanation = "Avec les verbes d'appréciation (aimer, adorer...), on emploie les articles définis (le, la, les).",
             arabicTranslation = "فعل تفضيل ومشاعر: أنا أعشق [الشوكولاتة]. مع أفعال الميول نستخدم أدوات المعرفة (le)."
         )
@@ -879,48 +896,46 @@ object FrenchCourseData {
         QuizQuestion(
             id = "u2_int1",
             question = "1. ______ vas-tu le vendredi ? - Je vais au club.",
-            options = listOf("Qui", "Où", "Quand"),
-            correctIndex = 1,
+            options = listOf("Quand", "Qui", "Où"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Pour demander le lieu (au club), on utilise « Où ».",
             arabicTranslation = "[أين] تذهب يوم الجمعة؟ - أذهب إلى النادي. (للسؤال عن المكان: Où)"
         ),
         QuizQuestion(
             id = "u2_int2",
             question = "2. ______ est absent aujourd'hui ? - Ali est absent.",
-            options = listOf("Qui", "Que", "Où"),
-            correctIndex = 0,
+            options = listOf("Où", "Qui", "Que"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Pour demander la personne (Ali), on utilise « Qui ».",
             arabicTranslation = "[مَن] غائب اليوم؟ - علي غائب. (للسؤال عن العاقل: Qui)"
         ),
         QuizQuestion(
             id = "u2_int3",
             question = "3. ______ fais-tu le soir ? - Je fais mon devoir.",
-            options = listOf("Où", "Comment", "Que"),
-            correctIndex = 2,
+            options = listOf("Que", "Où", "Comment"),
+            correctIndex = 0,
+            pageReference = "",
             explanation = "Pour demander l'action/chose, on utilise « Que » ou « Qu'est-ce que ».",
             arabicTranslation = "[ماذا] تفعل في المساء؟ - أعمل واجبي. (للسؤال عن الشيء: Que)"
         ),
         QuizQuestion(
             id = "u2_int4",
             question = "4. ______ vas-tu à l'école ? - En voiture.",
-            options = listOf("Comment", "Pourquoi", "Quand"),
-            correctIndex = 0,
+            options = listOf("Quand", "Comment", "Pourquoi"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Pour demander le moyen de transport, on utilise « Comment ».",
             arabicTranslation = "[كيف] تذهب إلى المدرسة؟ - بالسيارة. (للسؤال عن وسيلة المواصلات: Comment)"
         )
     )
 
-    // --- UNITÉ 3: SANTÉ & HÔPITAL (Pages 59-67) ---
     val unit3FullText = "Unité 3 : Santé / Hôpital. Samir, l'ami de Gamal a eu un accident dans la rue. L'ambulance l'a vite transporté à l'hôpital. Gamal et Ali sont allés le voir. Dans sa chambre à l'hôpital, Samir était couché. Il avait l'air fatigué et il parlait difficilement. Gamal : Ça va bien maintenant ? Samir : Oui, merci. Gamal : Qu'est-ce qui est arrivé ? Samir : Une voiture m'a renversé et je suis tombé. À ce moment, le médecin et l'infirmière sont entrés. Le médecin : Ça va aujourd'hui ? Samir : Oui docteur, mais j'ai encore mal au bras et à la jambe. Le médecin l'a examiné, il a lu la radiographie et le rapport et lui a dit : Ne t'inquiète pas, repose-toi bien, et prends tes médicaments. Je te conseille de prendre encore ce calmant. Tu peux marcher dans quelques jours. Quand le médecin est sorti, Gamal et Ali ont salué leur ami et sont rentrés chez eux."
-
     val unit3FullTextArabic = "الوحدة الثالثة : الصحة والمستشفى. سمير، صديق جمال، تعرض لحادث في الشارع. ونقلته سيارة الإسعاف سريعاً إلى المستشفى. ذهب جمال وعلي لزيارته. في غرفته بالمستشفى، كان سمير مستلقياً على السرير. كان يبدو عليه التعب وكان يتحدث بصعوبة. جمال: هل أنت بخير الآن؟ سمير: نعم، شكراً. جمال: ماذا حدث؟ سمير: صدمتني سيارة وسقطت أرضاً. في هذه اللحظة، دخل الطبيب والممرضة. الطبيب: كيف حالك اليوم؟ سمير: نعم يا دكتور، لكن ما زال ذراعي وساقي يؤلماني. فحصه الطبيب، وقرأ الأشعة والتقرير الطبي وقال له: «لا تقلق، استرح جيداً، وتناول أدويتك. أنصحك أيضاً بأخذ هذا المسكن. يمكنك المشي خلال بضعة أيام». وعندما خرج الطبيب، ودع جمال وعلي صديقهما وعادا إلى منزليهما."
-
     val unit3Page59Text = "Samir, l'ami de Gamal a eu un accident dans la rue. L'ambulance l'a vite transporté à l'hôpital. Gamal et Ali sont allés le voir. Dans sa chambre à l'hôpital, Samir était couché. Il avait l'air fatigué et il parlait difficilement.\n- Gamal : Ça va bien maintenant?\n- Samir : Oui, merci.\n- Gamal : Qu'est-ce qui est arrivé?\n- Samir : Une voiture m'a renversé et je suis tombé."
-
     val unit3Page59TextArabic = "سمير، صديق جمال، تعرض لحادث في الشارع. نقلته سيارة الإسعاف سريعاً إلى المستشفى. ذهب جمال وعلي لزيارته. في غرفته بالمستشفى، كان سمير مستلقياً على السرير. كان يبدو متعباً ويتحدث بصعوبة.\n- جمال: هل أنت بخير الآن؟\n- سمير: نعم، شكراً.\n- جمال: ماذا حدث؟\n- سمير: صدمتني سيارة وسقطت أرضاً."
-
     val unit3Page60Text = "À ce moment, le médecin et l'infirmière sont entrés.\n- Le médecin : Ça va aujourd'hui?\n- Samir : Oui docteur, mais j'ai encore mal au bras et à la jambe.\nLe médecin l'a examiné, il a lu la radiographie et le rapport et lui a dit:\n\" Ne t'inquiète pas, repose-toi bien, et prends tes médicaments. Je te conseille de prendre encore ce calmant. Tu peux marcher dans quelques jours\".\nQuand le médecin est sorti, Gamal et Ali ont salué leur ami et sont rentrés chez eux."
-
     val unit3Page60TextArabic = "في هذه اللحظة، دخل الطبيب والممرضة.\n- الطبيب: كيف حالك اليوم؟\n- سمير: نعم يا دكتور، لكن ما زال يؤلمني ذراعي وساقي.\nفحصه الطبيب، وقرأ الأشعة والتقرير الطبي وقال له:\n\"لا تقلق، استرح جيداً، وتناول أدويتك. أنصحك أيضاً بتناول هذا المسكن. يمكنك المشي بعد بضعة أيام\".\nوعندما خرج الطبيب، سلّم جمال وعلي على صديقهما وعادا إلى منزليهما."
 
     val unit3Dialogues = listOf(
@@ -928,73 +943,71 @@ object FrenchCourseData {
             speaker = "Récit (ص 59)",
             text = "« Samir, l'ami de Gamal a eu un accident dans la rue. L'ambulance l'a vite transporté à l'hôpital. Gamal et Ali sont allés le voir. Dans sa chambre à l'hôpital, Samir était couché. Il avait l'air fatigué et il parlait difficilement. »",
             arabicNote = "سمير صديق جمال تعرض لحادث في الشارع. نقلته سيارة الإسعاف سريعاً للمستشفى. ذهب جمال وعلي لزيارته. كان مستلقياً في غرفته يبدو متعباً ويتكلم بصعوبة. 🚑",
-            borderColorHex = 0xFF0D9488
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Gamal",
             text = "« Ça va bien maintenant? »",
             arabicNote = "هل أنت على ما يرام الآن؟ 🤝",
-            borderColorHex = 0xFF4F46E5
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Samir",
             text = "« Oui, merci. »",
             arabicNote = "نعم، شكراً. 🛌",
-            borderColorHex = 0xFF059669
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Gamal",
             text = "« Qu'est-ce qui est arrivé? »",
             arabicNote = "ماذا حدث؟ (كيف وقع الحادث؟) ❓",
-            borderColorHex = 0xFF4F46E5
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Samir",
             text = "« Une voiture m'a renversé et je suis tombé. »",
             arabicNote = "صدمتني سيارة وسقطت أرضاً. 🚗💥",
-            borderColorHex = 0xFFE11D48
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Récit (ص 60)",
             text = "« À ce moment, le médecin et l'infirmière sont entrés. »",
             arabicNote = "في هذه اللحظة، دخل الطبيب والممرضة إلى الغرفة. 👨‍⚕️👩‍⚕️",
-            borderColorHex = 0xFF0D9488
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Le médecin",
             text = "« Ça va aujourd'hui? »",
             arabicNote = "كيف حالك اليوم؟ 🩺",
-            borderColorHex = 0xFF2563EB
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Samir",
             text = "« Oui docteur, mais j'ai encore mal au bras et à la jambe. »",
             arabicNote = "نعم يا دكتور، لكن لا يزال ذراعي وساقي يؤلماني. 🤕",
-            borderColorHex = 0xFFDC2626
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Le médecin (نصائح الطبيب)",
             text = "« Ne t'inquiète pas, repose-toi bien, et prends tes médicaments. Je te conseille de prendre encore ce calmant. Tu peux marcher dans quelques jours. »",
             arabicNote = "لا تقلق، استرح جيداً، وتناول أدويتك. أنصحك بأخذ هذا المسكن مجدداً. يمكنك المشي خلال بضعة أيام. 💊",
-            borderColorHex = 0xFF059669
+            borderColorHex = 4283385573L
         ),
         DialogueLine(
             speaker = "Récit (خاتمة الزيارة)",
             text = "« Quand le médecin est sorti, Gamal et Ali ont salué leur ami et sont rentrés chez eux. »",
             arabicNote = "وعندما خرج الطبيب، ودع جمال وعلي صديقهما وعادا إلى منزليهما. 👋🏠",
-            borderColorHex = 0xFF0D9488
+            borderColorHex = 4283385573L
         )
     )
 
-    // تمارين الفهم والاستيعاب ص 61
-    // A) Mets (Vrai) ou (Faux) devant chaque phrases (Booklet p. 61)
     val unit3Ex1VraiOuFaux = listOf(
         QuizQuestion(
             id = "u3_vf_1",
             question = "1. Ali et Gamal sont allés voir Samir chez lui.",
-            options = listOf("Faux (خطأ) ❌", "Vrai (صح) ✔️"),
-            correctIndex = 0,
-            pageReference = "p. 61",
+            options = listOf("Vrai (صح) ✔️", "Faux (خطأ) ❌"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Faux : Ils sont allés le voir à l'hôpital (dans sa chambre à l'hôpital).",
             arabicTranslation = "علي وجمال ذهبا لرؤية سمير في بيته ➔ [خطأ Faux]. ذهبا لزيارته في المستشفى وليس في بيته."
         ),
@@ -1003,7 +1016,7 @@ object FrenchCourseData {
             question = "2. Le médecin a parlé à Samir.",
             options = listOf("Vrai (صح) ✔️", "Faux (خطأ) ❌"),
             correctIndex = 0,
-            pageReference = "p. 61",
+            pageReference = "",
             explanation = "Vrai : Le médecin a parlé à Samir : « Ça va aujourd'hui? » et lui a donné des conseils.",
             arabicTranslation = "تحدث الطبيب إلى سمير ➔ [صح Vrai]. سأله عن حاله وقدم له النصائح الطبية."
         ),
@@ -1012,76 +1025,55 @@ object FrenchCourseData {
             question = "3. Le médecin a donné à Samir quelques conseils.",
             options = listOf("Vrai (صح) ✔️", "Faux (خطأ) ❌"),
             correctIndex = 0,
-            pageReference = "p. 61",
+            pageReference = "",
             explanation = "Vrai : Le médecin lui a dit : « Ne t'inquiète pas, repose-toi bien, et prends tes médicaments. Je te conseille... ».",
             arabicTranslation = "أعطى الطبيب لسمير بعض النصائح ➔ [صح Vrai]. نصحه بالراحة وتناول الدواء والمسكن."
         ),
         QuizQuestion(
             id = "u3_vf_4",
             question = "4. L'infirmière a examiné le malade.",
-            options = listOf("Faux (خطأ) ❌", "Vrai (صح) ✔️"),
-            correctIndex = 0,
-            pageReference = "p. 61",
+            options = listOf("Vrai (صح) ✔️", "Faux (خطأ) ❌"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Faux : C'est le médecin qui a examiné le malade (« Le médecin l'a examiné »).",
             arabicTranslation = "الممرضة فحصت المريض ➔ [خطأ Faux]. الطبيب هو الذي فحصه وقرأ التقرير والأشعة."
         )
     )
 
-    // B) Réponds aux questions (Booklet p. 61)
     val unit3Ex2QuestionsReponses = listOf(
         QuizQuestion(
             id = "u3_q_1",
             question = "1. Où est Samir ?",
-            options = listOf(
-                "À l'hôpital (dans sa chambre)",
-                "Chez lui à la maison",
-                "Au club de sport",
-                "À l'école"
-            ),
-            correctIndex = 0,
-            pageReference = "p. 61",
+            options = listOf("À l'école", "Chez lui à la maison", "À l'hôpital (dans sa chambre)", "Au club de sport"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Samir est à l'hôpital (dans sa chambre à l'hôpital).",
             arabicTranslation = "أين يكون سمير؟ ➔ في المستشفى (في غرفته بالمستشفى)."
         ),
         QuizQuestion(
             id = "u3_q_2",
             question = "2. Pourquoi l'ambulance l'a transporté ?",
-            options = listOf(
-                "Parce qu'il a eu un accident dans la rue (une voiture l'a renversé)",
-                "Pour visiter un ami malade",
-                "Pour acheter des médicaments",
-                "Pour passer les vacances"
-            ),
+            options = listOf("Parce qu'il a eu un accident dans la rue (une voiture l'a renversé)", "Pour visiter un ami malade", "Pour acheter des médicaments", "Pour passer les vacances"),
             correctIndex = 0,
-            pageReference = "p. 61",
+            pageReference = "",
             explanation = "L'ambulance l'a transporté à l'hôpital parce qu'il a eu un accident dans la rue (une voiture l'a renversé).",
             arabicTranslation = "لماذا نقلته سيارة الإسعاف؟ ➔ لأنه تعرض لحادث في الشارع (صدمته سيارة)."
         ),
         QuizQuestion(
             id = "u3_q_3",
             question = "3. Où a-t-il mal ?",
-            options = listOf(
-                "Au bras et à la jambe",
-                "À la tête et aux yeux",
-                "Au ventre et au dos",
-                "Aux dents et à la gorge"
-            ),
-            correctIndex = 0,
-            pageReference = "p. 61",
+            options = listOf("À la tête et aux yeux", "Au ventre et au dos", "Au bras et à la jambe", "Aux dents et à la gorge"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Il a encore mal au bras et à la jambe.",
             arabicTranslation = "أين يشعر بالألم؟ ➔ في ذراعه وساقه (au bras et à la jambe)."
         ),
         QuizQuestion(
             id = "u3_q_4",
             question = "4. Que fait le médecin ?",
-            options = listOf(
-                "Il examine le malade, lit la radiographie et lui donne des conseils",
-                "Il prépare le repas du malade",
-                "Il conduit l'ambulance",
-                "Il salue Samir et rentre chez lui"
-            ),
-            correctIndex = 0,
-            pageReference = "p. 61",
+            options = listOf("Il conduit l'ambulance", "Il salue Samir et rentre chez lui", "Il prépare le repas du malade", "Il examine le malade, lit la radiographie et lui donne des conseils"),
+            correctIndex = 3,
+            pageReference = "",
             explanation = "Le médecin l'a examiné, il a lu la radiographie et le rapport et lui a donné des conseils.",
             arabicTranslation = "ماذا يفعل الطبيب؟ ➔ فحص المريض، وقرأ الأشعة والتقرير الطبي وقدم له النصائح."
         )
@@ -1091,40 +1083,45 @@ object FrenchCourseData {
         QuizQuestion(
             id = "u3_p1",
             question = "1. J'ai mal ______ tête.",
-            options = listOf("au", "à la", "aux", "à l'"),
-            correctIndex = 1,
+            options = listOf("à la", "à l'", "aux", "au"),
+            correctIndex = 0,
+            pageReference = "",
             explanation = "tête est féminin singulier ➔ à la tête.",
             arabicTranslation = "أشعر بألم في الرأس. (الرأس tête مؤنث ➔ نختار à la)"
         ),
         QuizQuestion(
             id = "u3_p2",
             question = "2. Sami a mal ______ pieds.",
-            options = listOf("au", "à la", "aux", "à l'"),
+            options = listOf("au", "à l'", "aux", "à la"),
             correctIndex = 2,
+            pageReference = "",
             explanation = "pieds est au pluriel ➔ aux pieds.",
             arabicTranslation = "سامي يشعر بألم في القدمين. (القدمين pieds جمع ➔ نختار aux)"
         ),
         QuizQuestion(
             id = "u3_p3",
             question = "3. Ma mère a mal ______ ventre.",
-            options = listOf("au", "à la", "aux", "à l'"),
-            correctIndex = 0,
+            options = listOf("aux", "au", "à l'", "à la"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "ventre est masculin singulier ➔ au ventre.",
             arabicTranslation = "أمي تشعر بألم في البطن. (البطن ventre مذكر ➔ نختار au)"
         ),
         QuizQuestion(
             id = "u3_p4",
             question = "4. Nous avons mal ______ estomac.",
-            options = listOf("au", "à la", "aux", "à l'"),
-            correctIndex = 3,
+            options = listOf("à l'", "aux", "à la", "au"),
+            correctIndex = 0,
+            pageReference = "",
             explanation = "estomac commence par une voyelle ➔ à l'estomac.",
             arabicTranslation = "نشعر بألم في المعدة. (المعدة estomac تبدأ بحرف متحرك ➔ نختار à l')"
         ),
         QuizQuestion(
             id = "u3_p5",
             question = "5. Farida a mal ______ yeux.",
-            options = listOf("au", "à la", "aux", "à l'"),
-            correctIndex = 2,
+            options = listOf("à l'", "aux", "au", "à la"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "yeux est au pluriel ➔ aux yeux.",
             arabicTranslation = "فريدة تشعر بألم في العينين. (العينين yeux جمع ➔ نختار aux)"
         )
@@ -1134,61 +1131,66 @@ object FrenchCourseData {
         QuizQuestion(
             id = "u3_med1",
             question = "1. Tu as très mal au bras, le médecin te dit :",
-            options = listOf("Fais tes devoirs !", "Fais une radiographie.", "Mange une glace !"),
-            correctIndex = 1,
+            options = listOf("Fais une radiographie.", "Mange une glace !", "Fais tes devoirs !"),
+            correctIndex = 0,
+            pageReference = "",
             explanation = "Pour un bras blessé, on fait une radiographie.",
             arabicTranslation = "ذراعك يؤلمك بشدة، الطبيب يقول لك : (اعمل واجباتك! / قم بعمل أشعة. / تناول آيس كريم!)"
         ),
         QuizQuestion(
             id = "u3_med2",
             question = "2. Ton ami te demande ce que l'ambulancier fait :",
-            options = listOf("Il transporte les malades.", "Il examine les dents.", "Il enseigne la leçon."),
-            correctIndex = 0,
+            options = listOf("Il enseigne la leçon.", "Il transporte les malades.", "Il examine les dents."),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "L'ambulancier transporte les personnes malades ou blessées.",
             arabicTranslation = "صديقك يسألك عما يفعله المسعف : (ينقل المرضى. / يفحص الأسنان. / يشرح الدرس.)"
         ),
         QuizQuestion(
             id = "u3_med3",
             question = "3. Le médecin donne un conseil à Samir :",
-            options = listOf("Va au cinéma !", "Repose-toi bien et prends tes médicaments.", "Fais attention au feu !"),
-            correctIndex = 1,
+            options = listOf("Repose-toi bien et prends tes médicaments.", "Va au cinéma !", "Fais attention au feu !"),
+            correctIndex = 0,
+            pageReference = "",
             explanation = "Conseil du médecin : du repos et les médicaments à l'heure.",
             arabicTranslation = "الطبيب يقدم نصيحة لسمير : (اذهب إلى السينما! / ارتح جيداً وتناول أدويتك في موعدها. / انتبه للنار!)"
         )
     )
 
-    // --- EXERCICES OFFICIELS DU LIVRET (Pages 4, 5, 6 & 84-88) ---
-    // (1) Mets au présent (Page 4)
     val revisionEx1MetsAuPresent = listOf(
         QuizQuestion(
             id = "rev_ex1_1",
             question = "1- J' ______ un livre. (avoir)",
-            options = listOf("ai", "as", "a"),
-            correctIndex = 0,
+            options = listOf("a", "as", "ai"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Verbe avoir avec J' ➔ J'ai.",
             arabicTranslation = "تصريف فعل يملك avoir مع الضمير J' ➔ J'ai un livre (أنا أملك كتاباً)."
         ),
         QuizQuestion(
             id = "rev_ex1_2",
             question = "2- Tu ______ content. (être)",
-            options = listOf("es", "suis", "est"),
+            options = listOf("es", "est", "suis"),
             correctIndex = 0,
+            pageReference = "",
             explanation = "Verbe être avec Tu ➔ Tu es.",
             arabicTranslation = "تصريف فعل الكينونة être مع الضمير Tu ➔ Tu es content (أنت سعيد)."
         ),
         QuizQuestion(
             id = "rev_ex1_3",
             question = "3- Je ______ aux élèves. (parler)",
-            options = listOf("parle", "parles", "parlons"),
-            correctIndex = 0,
+            options = listOf("parlons", "parle", "parles"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Verbe parler (1er groupe) avec Je ➔ Je parle.",
             arabicTranslation = "تصريف فعل يتحدث parler (مجموعة أولى) مع Je ➔ Je parle (أنا أتحدث إلى التلاميذ)."
         ),
         QuizQuestion(
             id = "rev_ex1_4",
             question = "4- Nous ______ des gâteaux. (manger)",
-            options = listOf("mangeons", "mangons", "mangez"),
-            correctIndex = 0,
+            options = listOf("mangons", "mangez", "mangeons"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Verbe manger avec Nous ➔ Nous mangeons (on ajoute 'e' pour la prononciation).",
             arabicTranslation = "تصريف فعل يأكل manger مع Nous: نضيف حرف e قبل ons للحفاظ على النطق ➔ Nous mangeons (نحن نأكل كعكاً)."
         ),
@@ -1197,14 +1199,16 @@ object FrenchCourseData {
             question = "5- Vous ______ la télé. (regarder)",
             options = listOf("regardez", "regardons", "regardent"),
             correctIndex = 0,
+            pageReference = "",
             explanation = "Verbe regarder avec Vous ➔ Vous regardez.",
             arabicTranslation = "تصريف فعل يشاهد regarder مع Vous ➔ Vous regardez la télé (أنتم تشاهدون التلفاز)."
         ),
         QuizQuestion(
             id = "rev_ex1_6",
             question = "6- Héba ______ au ballon. (jouer)",
-            options = listOf("joue", "joues", "jouent"),
-            correctIndex = 0,
+            options = listOf("joues", "joue", "jouent"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Héba (elle) avec verbe jouer ➔ joue.",
             arabicTranslation = "هبة (مفرد مؤنث elle) مع فعل يلعب jouer ➔ Héba joue au ballon (هبة تلعب بالكرة)."
         ),
@@ -1213,14 +1217,16 @@ object FrenchCourseData {
             question = "7- Je ______ le devoir. (finir)",
             options = listOf("finis", "finit", "finissons"),
             correctIndex = 0,
+            pageReference = "",
             explanation = "Verbe finir (2ème groupe) avec Je ➔ Je finis.",
             arabicTranslation = "تصريف فعل ينهي finir (مجموعة ثانية) مع Je ➔ Je finis le devoir (أنا أنهي الواجب)."
         ),
         QuizQuestion(
             id = "rev_ex1_8",
             question = "8- Ils ______ 16 ans. (avoir)",
-            options = listOf("ont", "sont", "avons"),
-            correctIndex = 0,
+            options = listOf("avons", "sont", "ont"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Verbe avoir pour l'âge avec Ils ➔ Ils ont.",
             arabicTranslation = "تصريف فعل يملك avoir للعمر مع الجمع Ils ➔ Ils ont 16 ans (هم عندهم 16 سنة)."
         ),
@@ -1229,26 +1235,28 @@ object FrenchCourseData {
             question = "9- Nous ______ des filles. (être)",
             options = listOf("sommes", "sont", "êtes"),
             correctIndex = 0,
+            pageReference = "",
             explanation = "Verbe être avec Nous ➔ Nous sommes.",
             arabicTranslation = "تصريف فعل الكينونة être مع Nous ➔ Nous sommes des filles (نحن فتيات)."
         ),
         QuizQuestion(
             id = "rev_ex1_10",
             question = "10- Ali ______ la chanson. (écouter)",
-            options = listOf("écoute", "écoutes", "écoutent"),
-            correctIndex = 0,
+            options = listOf("écoutes", "écoutent", "écoute"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Ali (il) avec verbe écouter ➔ écoute.",
             arabicTranslation = "علي (مفرد مذكر il) مع فعل يستمع écouter ➔ Ali écoute la chanson (علي يستمع للأغنية)."
         )
     )
 
-    // (2) Choisis la bonne réponse (Page 4)
     val revisionEx2ChoisisBonneReponse = listOf(
         QuizQuestion(
             id = "rev_ex2_1",
             question = "1. Maintenant, le professeur ______ la leçon.",
-            options = listOf("explique", "expliquez", "expliques"),
-            correctIndex = 0,
+            options = listOf("expliquez", "explique", "expliques"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Le professeur (il) explique.",
             arabicTranslation = "الآن، المعلم (il) يشرح الدرس ➔ le professeur explique la leçon."
         ),
@@ -1257,202 +1265,223 @@ object FrenchCourseData {
             question = "2. Aujourd'hui, nous ______ au stade.",
             options = listOf("allons", "aller", "allez"),
             correctIndex = 0,
+            pageReference = "",
             explanation = "Verbe aller avec nous ➔ nous allons.",
             arabicTranslation = "اليوم، نحن نذهب إلى الاستاد ➔ nous allons au stade."
         ),
         QuizQuestion(
             id = "rev_ex2_3",
             question = "3. Chaque jour, ils ______ leurs devoirs.",
-            options = listOf("finissent", "finis", "finissons"),
-            correctIndex = 0,
+            options = listOf("finissons", "finissent", "finis"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Verbe finir (2ème groupe) avec ils ➔ ils finissent.",
             arabicTranslation = "كل يوم، هم ينهون واجباتهم (ils + finir ➔ finissent) ➔ ils finissent."
         ),
         QuizQuestion(
             id = "rev_ex2_4",
             question = "4. Chaque matin, je ______ prendre le petit déjeuner tôt.",
-            options = listOf("préfère", "préfères", "préférez"),
+            options = listOf("préfère", "préférez", "préfères"),
             correctIndex = 0,
+            pageReference = "",
             explanation = "Verbe préférer avec je ➔ je préfère.",
             arabicTranslation = "كل صباح، أنا أفضل تناول الإفطار مبكراً (je + préférer ➔ préfère) ➔ je préfère."
         ),
         QuizQuestion(
             id = "rev_ex2_5",
             question = "5. Nous ______ les fruits.",
-            options = listOf("aimons", "aimes", "aimez"),
-            correctIndex = 0,
+            options = listOf("aimes", "aimons", "aimez"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Verbe aimer avec nous ➔ nous aimons.",
             arabicTranslation = "نحن نحب الفواكه (nous + aimer ➔ aimons) ➔ nous aimons."
         )
     )
 
-    // (3) Complète par un mot interrogatif (Page 5)
     val revisionEx3Interrogatifs = listOf(
         QuizQuestion(
             id = "rev_ex3_1",
             question = "1) ______ allez-vous ?\n— ça va bien merci.",
-            options = listOf("Comment", "Qui", "Où", "Que", "Qu'est ce que"),
-            correctIndex = 0,
+            options = listOf("Que", "Qui", "Où", "Comment", "Qu'est ce que"),
+            correctIndex = 3,
+            pageReference = "",
             explanation = "On demande l'état de santé par 'Comment' ➔ Comment allez-vous ?",
             arabicTranslation = "كيف حالكم؟ السؤال عن الحال والصحة بـ Comment ➔ Comment allez-vous ? (كيف حالكم؟ - بخير شكراً)."
         ),
         QuizQuestion(
             id = "rev_ex3_2",
             question = "2) ______ tu as ?\n— J'ai un examen.",
-            options = listOf("Qu'est ce que", "Comment", "Qui", "Où", "Que"),
-            correctIndex = 0,
+            options = listOf("Comment", "Que", "Qu'est ce que", "Qui", "Où"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "On demande ce qu'on a par 'Qu'est ce que' ➔ Qu'est ce que tu as ?",
             arabicTranslation = "ماذا عندك؟ السؤال عن غير عاقل بـ Qu'est ce que tu as ? (ماذا عندك؟ - عندي امتحان)."
         ),
         QuizQuestion(
             id = "rev_ex3_3",
             question = "3) ______ c'est ?\n— C'est la maitresse de français.",
-            options = listOf("Qui", "Où", "Que", "Comment", "Qu'est ce que"),
-            correctIndex = 0,
+            options = listOf("Qu'est ce que", "Que", "Comment", "Qui", "Où"),
+            correctIndex = 3,
+            pageReference = "",
             explanation = "On demande l'identité d'une personne par 'Qui' ➔ Qui c'est ?",
             arabicTranslation = "من هذا؟ السؤال عن شخص عاقل بـ Qui c'est? (من هذا؟ - إنها معلمة اللغة الفرنسية)."
         ),
         QuizQuestion(
             id = "rev_ex3_4",
             question = "4) ______ sont les élèves ?\n— Les élèves sont dans la cour.",
-            options = listOf("Où", "Qui", "Que", "Comment", "Qu'est ce que"),
+            options = listOf("Où", "Comment", "Qui", "Qu'est ce que", "Que"),
             correctIndex = 0,
+            pageReference = "",
             explanation = "On demande le lieu (dans la cour) par 'Où' ➔ Où sont les élèves ?",
             arabicTranslation = "أين التلاميذ؟ السؤال عن المكان (dans la cour في الفناء) بـ Où ➔ Où sont les élèves ?"
         ),
         QuizQuestion(
             id = "rev_ex3_5",
             question = "5) ______ fais-tu ?\n— J'écoute de la musique.",
-            options = listOf("Que", "Qui", "Où", "Comment", "Qu'est ce que"),
-            correctIndex = 0,
+            options = listOf("Qu'est ce que", "Qui", "Où", "Que", "Comment"),
+            correctIndex = 3,
+            pageReference = "",
             explanation = "On demande l'action par 'Que' avec inversion ➔ Que fais-tu ?",
             arabicTranslation = "ماذا تفعل؟ السؤال عن الفعل مع تقديم الفعل على الفاعل بـ Que ➔ Que fais-tu ? (ماذا تفعل؟ - أستمع للموسيقى)."
         )
     )
 
-    // (4) Complète avec (à – au – à la – à l' – aux) (Page 5)
     val revisionEx4ArticlesLieux = listOf(
         QuizQuestion(
             id = "rev_ex4_1",
             question = "1) ______ pharmacie",
-            options = listOf("à la", "au", "à l'", "aux", "à"),
-            correctIndex = 0,
+            options = listOf("aux", "à l'", "au", "à", "à la"),
+            correctIndex = 4,
+            pageReference = "",
             explanation = "Pharmacie est féminin singulier ➔ à la pharmacie.",
             arabicTranslation = "الصيدلية مكان مؤنث مفرد ➔ à la pharmacie."
         ),
         QuizQuestion(
             id = "rev_ex4_2",
             question = "2) ______ école",
-            options = listOf("à l'", "à la", "au", "aux", "à"),
-            correctIndex = 0,
+            options = listOf("aux", "au", "à la", "à l'", "à"),
+            correctIndex = 3,
+            pageReference = "",
             explanation = "École commence par une voyelle ➔ à l'école.",
             arabicTranslation = "المدرسة تبدأ بحرف متحرك é ➔ à l'école."
         ),
         QuizQuestion(
             id = "rev_ex4_3",
             question = "3) ______ restaurant",
-            options = listOf("au", "à la", "à l'", "aux", "à"),
-            correctIndex = 0,
+            options = listOf("aux", "à la", "à l'", "à", "au"),
+            correctIndex = 4,
+            pageReference = "",
             explanation = "Restaurant est masculin singulier ➔ au restaurant.",
             arabicTranslation = "المطعم مكان مذكر مفرد ➔ au restaurant."
         ),
         QuizQuestion(
             id = "rev_ex4_4",
             question = "4) ______ zoo",
-            options = listOf("au", "à la", "à l'", "aux", "à"),
-            correctIndex = 0,
+            options = listOf("aux", "à", "au", "à la", "à l'"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Zoo est masculin singulier ➔ au zoo.",
             arabicTranslation = "حديقة الحيوان مكان مذكر مفرد ➔ au zoo."
         ),
         QuizQuestion(
             id = "rev_ex4_5",
             question = "5) ______ tour",
-            options = listOf("à la", "au", "à l'", "aux", "à"),
-            correctIndex = 0,
+            options = listOf("à", "à la", "aux", "à l'", "au"),
+            correctIndex = 1,
+            pageReference = "",
             explanation = "Tour (البرج) est féminin singulier ➔ à la tour.",
             arabicTranslation = "البرج مكان مؤنث مفرد ➔ à la tour."
         ),
         QuizQuestion(
             id = "rev_ex4_6",
             question = "6) ______ poste",
-            options = listOf("à la", "au", "à l'", "aux", "à"),
-            correctIndex = 0,
+            options = listOf("au", "aux", "à la", "à", "à l'"),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Poste (مكتب البريد) est féminin singulier ➔ à la poste.",
             arabicTranslation = "مكتب البريد مكان مؤنث مفرد ➔ à la poste."
         ),
         QuizQuestion(
             id = "rev_ex4_7",
             question = "7) ______ cinéma",
-            options = listOf("au", "à la", "à l'", "aux", "à"),
+            options = listOf("au", "à", "à la", "aux", "à l'"),
             correctIndex = 0,
+            pageReference = "",
             explanation = "Cinéma est masculin singulier ➔ au cinéma.",
             arabicTranslation = "السينما مكان مذكر مفرد ➔ au cinéma."
         ),
         QuizQuestion(
             id = "rev_ex4_8",
             question = "8) ______ hôtel",
-            options = listOf("à l'", "au", "à la", "aux", "à"),
-            correctIndex = 0,
+            options = listOf("à", "à la", "au", "à l'", "aux"),
+            correctIndex = 3,
+            pageReference = "",
             explanation = "Hôtel commence par 'h' muet (voyelle) ➔ à l'hôtel.",
             arabicTranslation = "الفندق يبدأ بحرف h صامت ➔ à l'hôtel."
         ),
         QuizQuestion(
             id = "rev_ex4_9",
             question = "9) ______ club",
-            options = listOf("au", "à la", "à l'", "aux", "à"),
-            correctIndex = 0,
+            options = listOf("à", "à l'", "à la", "aux", "au"),
+            correctIndex = 4,
+            pageReference = "",
             explanation = "Club est masculin singulier ➔ au club.",
             arabicTranslation = "النادي مكان مذكر مفرد ➔ au club."
         ),
         QuizQuestion(
             id = "rev_ex4_10",
             question = "10) ______ pyramides",
-            options = listOf("aux", "au", "à la", "à l'", "à"),
+            options = listOf("aux", "à", "à la", "à l'", "au"),
             correctIndex = 0,
+            pageReference = "",
             explanation = "Pyramides est au pluriel (-s) ➔ aux pyramides.",
             arabicTranslation = "الأهرامات جمع ينتهي بـ s ➔ aux pyramides."
         ),
         QuizQuestion(
             id = "rev_ex4_11",
             question = "11) ______ jardin",
-            options = listOf("au", "à la", "à l'", "aux", "à"),
-            correctIndex = 0,
+            options = listOf("aux", "à", "à la", "au", "à l'"),
+            correctIndex = 3,
+            pageReference = "",
             explanation = "Jardin est masculin singulier ➔ au jardin.",
             arabicTranslation = "الحديقة مكان مذكر مفرد ➔ au jardin."
         ),
         QuizQuestion(
             id = "rev_ex4_12",
             question = "12) ______ magasin",
-            options = listOf("au", "à la", "à l'", "aux", "à"),
-            correctIndex = 0,
+            options = listOf("à l'", "aux", "à", "à la", "au"),
+            correctIndex = 4,
+            pageReference = "",
             explanation = "Magasin est masculin singulier ➔ au magasin.",
             arabicTranslation = "المتجر مكان مذكر مفرد ➔ au magasin."
         )
     )
 
-    // (5) Mets à la forme négative (Page 6)
     val revisionEx5Negation = listOf(
         QuizQuestion(
             id = "rev_ex5_1",
             question = "1. « Nous avons des amis. »\n➔ À la forme négative :",
-            options = listOf("Nous n'avons pas d'amis.", "Nous n'avons pas des amis.", "Nous ne avons pas d'amis."),
-            correctIndex = 0,
+            options = listOf("Nous n'avons pas des amis.", "Nous ne avons pas d'amis.", "Nous n'avons pas d'amis."),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "L'article 'des' se transforme en 'd'' devant voyelle ➔ d'amis.",
             arabicTranslation = "أداة الجمع des تتحول في النفي إلى d' أمام حرف متحرك a ➔ Nous n'avons pas d'amis."
         ),
         QuizQuestion(
             id = "rev_ex5_2",
             question = "2. « Je vais au stade. »\n➔ À la forme négative :",
-            options = listOf("Je ne vais pas au stade.", "Je ne va pas au stade.", "Je n'ai pas au stade."),
+            options = listOf("Je ne vais pas au stade.", "Je n'ai pas au stade.", "Je ne va pas au stade."),
             correctIndex = 0,
+            pageReference = "",
             explanation = "Négation simple : ne + verbe + pas ➔ Je ne vais pas.",
             arabicTranslation = "نفي بسيط بحصر الفعل vais بين ne و pas ➔ Je ne vais pas au stade."
         ),
         QuizQuestion(
             id = "rev_ex5_3",
             question = "3. « Nous sommes des amis. »\n➔ À la forme négative :",
-            options = listOf("Nous ne sommes pas des amis.", "Nous ne sommes pas d'amis.", "Nous n'avons pas des amis."),
-            correctIndex = 0,
+            options = listOf("Nous n'avons pas des amis.", "Nous ne sommes pas d'amis.", "Nous ne sommes pas des amis."),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Attention : Avec le verbe ÊTRE, l'article 'des' NE change PAS !",
             arabicTranslation = "⚠️ انتبه: مع فعل الكينونة être لا تتغير des بل تظل كما هي ➔ Nous ne sommes pas des amis."
         ),
@@ -1461,23 +1490,23 @@ object FrenchCourseData {
             question = "4. « Il a une nouvelle voiture. »\n➔ À la forme négative :",
             options = listOf("Il n'a pas de nouvelle voiture.", "Il n'a pas une nouvelle voiture.", "Il ne a pas de nouvelle voiture."),
             correctIndex = 0,
+            pageReference = "",
             explanation = "L'article 'une' se transforme en 'de' à la négation.",
             arabicTranslation = "تتحول أداة النكرة une في النفي إلى de ➔ Il n'a pas de nouvelle voiture."
         ),
         QuizQuestion(
             id = "rev_ex5_5",
             question = "5. « Elle est une élève. »\n➔ À la forme négative :",
-            options = listOf("Elle n'est pas une élève.", "Elle n'est pas d'élève.", "Elle n'est pas de élève."),
-            correctIndex = 0,
+            options = listOf("Elle n'est pas de élève.", "Elle n'est pas d'élève.", "Elle n'est pas une élève."),
+            correctIndex = 2,
+            pageReference = "",
             explanation = "Attention : Avec le verbe ÊTRE, on conserve 'une' !",
             arabicTranslation = "⚠️ انتبه: مع فعل الكينونة être تبقى أداة النكرة une كما هي بدون تغيير ➔ Elle n'est pas une élève."
         )
     )
 
-    // All Grammar Questions combined (37 questions from Pages 4, 5, 6)
     val grammarQuizQuestions = revisionEx1MetsAuPresent + revisionEx2ChoisisBonneReponse + revisionEx3Interrogatifs + revisionEx4ArticlesLieux + revisionEx5Negation
 
-    // --- EXAMEN OFFICIEL DE MI-ANNÉE (Pages 78-80) ---
     val examText = "Le garçon : Bonjour monsieur, vous voulez prendre le déjeuner au menu ou à la carte ? Ahmed : À la carte. Le garçon : Que voulez-vous comme entrée ? Ahmed : Des tomates et des concombres en salade. Le garçon : et le plat principal ? Ahmed : De la viande, du riz et des frites. Le garçon : Voulez-vous du dessert ? Ahmed : Oui, j'aime le gâteau."
     val examTextArabic = "النادل: مرحباً سيدي، هل تريد تناول الغداء ضمن قائمة اليوم أم حسب الطلب؟ أحمد: حسب الطلب. النادل: ماذا تريد كطبق مقبلات؟ أحمد: طماطم وخيار وسلطة. النادل: والطبق الرئيسي؟ أحمد: لحم وأرز وبطاطس مقلية. النادل: هل تريد حلوى؟ أحمد: نعم، أحب الكعك."
 
@@ -1485,78 +1514,76 @@ object FrenchCourseData {
         ExamQuestion(
             section = "I. Compréhension du texte",
             question = "1. Ahmed prend son repas :",
-            options = listOf("à la carte", "au menu", "au dîner"),
-            correctIndex = 0,
+            options = listOf("au menu", "à la carte", "au dîner"),
+            correctIndex = 1,
             arabicTranslation = "يتناول أحمد وجبته : (حسب الطلب à la carte / قائمة اليوم au menu / في العشاء au dîner)"
         ),
         ExamQuestion(
             section = "I. Compréhension du texte",
             question = "2. Ahmed demande comme plat principal :",
-            options = listOf("du poisson", "de la glace", "de la viande et du riz"),
+            options = listOf("de la glace", "du poisson", "de la viande et du riz"),
             correctIndex = 2,
             arabicTranslation = "طلب أحمد كطبق رئيسي : (سمك / آيس كريم / لحم وأرز)"
         ),
         ExamQuestion(
             section = "I. Compréhension du texte",
             question = "3. Ahmed va prendre :",
-            options = listOf("le petit-déjeuner", "le déjeuner", "le dîner"),
-            correctIndex = 1,
+            options = listOf("le déjeuner", "le dîner", "le petit-déjeuner"),
+            correctIndex = 0,
             arabicTranslation = "أحمد سيتناول : (الإفطار / الغداء / العشاء)"
         ),
         ExamQuestion(
             section = "II. Grammaire",
             question = "4. Nous ______ aux élèves. (parler)",
-            options = listOf("parlez", "parlons", "parle"),
-            correctIndex = 1,
+            options = listOf("parle", "parlez", "parlons"),
+            correctIndex = 2,
             arabicTranslation = "نحن [نتحدث] إلى التلاميذ. تصريف فعل parler مع nous ➔ parlons."
         ),
         ExamQuestion(
             section = "II. Grammaire",
             question = "5. On peut prendre ______ boissons fraîches.",
-            options = listOf("du", "de l'", "des"),
-            correctIndex = 2,
+            options = listOf("des", "du", "de l'"),
+            correctIndex = 0,
             arabicTranslation = "يمكننا تناول [مشروبات باردة]. كلمة boissons جمع ➔ نختار des."
         ),
         ExamQuestion(
             section = "II. Adjectifs Possessifs",
             question = "6. Tu aimes ______ parents.",
-            options = listOf("ton", "ta", "tes"),
-            correctIndex = 2,
+            options = listOf("ton", "tes", "ta"),
+            correctIndex = 1,
             arabicTranslation = "أنت تحب [والديك]. كلمة parents جمع مع الضمير tu ➔ نختار tes."
         ),
         ExamQuestion(
             section = "II. Pronoms Personnels",
             question = "7. « Je parle à mon ami » ➔ Je ______ parle.",
-            options = listOf("le", "lui", "leur"),
-            correctIndex = 1,
+            options = listOf("lui", "le", "leur"),
+            correctIndex = 0,
             arabicTranslation = "«أنا أتحدث إلى صديقي» ➔ أنا أتحدث [إليه]. المفعول شخص مفرد مسبوق بـ à ➔ نختار lui."
         ),
         ExamQuestion(
             section = "II. Négation",
             question = "8. Elle mange des légumes. ➔ Elle ne mange pas ______ légumes.",
-            options = listOf("des", "de", "les"),
-            correctIndex = 1,
+            options = listOf("des", "les", "de"),
+            correctIndex = 2,
             arabicTranslation = "هي تأكل خضروات ➔ هي لا تأكل [خضروات]. أداة التجزئة des تتحول إلى de في النفي."
         ),
         ExamQuestion(
             section = "III. Situations officielles",
             question = "9. Tu demandes au garçon l'addition, tu dis :",
-            options = listOf("L'addition, S.V.P !", "Que voulez-vous ?", "Bon appétit !"),
+            options = listOf("L'addition, S.V.P !", "Bon appétit !", "Que voulez-vous ?"),
             correctIndex = 0,
             arabicTranslation = "تطلب من النادل الحساب والفاتورة، ماذا تقول؟ (الحساب لو سمحت! / ماذا تريد؟ / بالهناء والشفاء!)"
         ),
         ExamQuestion(
             section = "III. Situations officielles",
             question = "10. Au restaurant, tu demandes le menu au garçon, tu dis :",
-            options = listOf("Je prends de la glace.", "Apportez-moi le menu, S.V.P !", "C'est combien ?"),
+            options = listOf("C'est combien ?", "Apportez-moi le menu, S.V.P !", "Je prends de la glace."),
             correctIndex = 1,
             arabicTranslation = "في المطعم، تطلب قائمة الطعام من النادل، ماذا تقول؟ (أنا آخذ آيس كريم / أحضر لي القائمة لو سمحت! / كم الحساب؟)"
         )
     )
 
-    // --- UNITÉ 1 : VOCABULAIRE & VERBES (Page 14) ---
     val unit1VocabWords = listOf(
-        // Vocabulaire - Noms & Expressions
         VocabWord(
             id = "u1_v1",
             french = "Une invitation",
@@ -1564,6 +1591,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Gamal a envoyé une invitation à ses amis.",
             exampleAr = "أرسل جمال دعوة إلى أصدقائه.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1573,6 +1601,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Les vacances sont vite passées.",
             exampleAr = "مرت الإجازة بسرعة.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1582,6 +1611,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Vendredi, c'est le congé hebdomadaire.",
             exampleAr = "يوم الجمعة هو يوم العطلة الأسبوعية.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1591,6 +1621,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Le livre parle des monuments français.",
             exampleAr = "الكتاب يتحدث عن المعالم والآثار الفرنسية.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1600,6 +1631,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Sur la table, il y a des boissons fraîches.",
             exampleAr = "على الطاولة، توجد مشروبات باردة ومنعشة.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1609,6 +1641,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Gamal a passé ses vacances à la Mer Rouge.",
             exampleAr = "قضى جمال إجازته في البحر الأحمر.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1618,6 +1651,7 @@ object FrenchCourseData {
             category = VocabCategory.EXPRESSION,
             exampleFr = "Moustafa est ici, Jean est là-bas.",
             exampleAr = "مصطفى هنا، وجان هناك.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1627,6 +1661,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Moustafa est l'ami égyptien de Gamal.",
             exampleAr = "مصطفى هو صديق جمال المصري.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1636,6 +1671,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Jean Morelle est un invité chez Gamal.",
             exampleAr = "جان موريل ضيف ومدعو عند جمال.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1645,6 +1681,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "En été, nous passons les vacances d'été à Alexandrie.",
             exampleAr = "في الصيف، نقضي إجازة الصيف في الإسكندرية.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1654,6 +1691,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Jean a offert à Gamal un livre d'histoire.",
             exampleAr = "أهدى جان لجمال كتاب تاريخ.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1663,6 +1701,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "À Hurghada, Gamal et ses élèves ont mangé du poisson.",
             exampleAr = "في الغردقة، أكل جمال وتلاميذه سمكاً.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1672,6 +1711,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Gamal a passé une semaine à la Mer Rouge.",
             exampleAr = "أمضى جمال أسبوعاً في البحر الأحمر.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1681,6 +1721,7 @@ object FrenchCourseData {
             category = VocabCategory.EXPRESSION,
             exampleFr = "Ils se promènent au bord de la mer.",
             exampleAr = "يتنزهون على شاطئ البحر.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1690,10 +1731,9 @@ object FrenchCourseData {
             category = VocabCategory.EXPRESSION,
             exampleFr = "Les amis ont beaucoup parlé pendant la soirée.",
             exampleAr = "تحدث الأصدقاء كثيراً أثناء السهرة.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
-
-        // Les verbes (Page 14)
         VocabWord(
             id = "u1_v16",
             french = "inviter",
@@ -1701,6 +1741,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Gamal invite ses amis chez lui.",
             exampleAr = "يدعو جمال أصدقاءه إلى منزله.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1710,6 +1751,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "J'ai passé de bonnes vacances.",
             exampleAr = "قضيت إجازة سعيدة.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1719,6 +1761,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Moi, j'adore les livres d'histoire !",
             exampleAr = "أنا أعشق كتب التاريخ!",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1728,6 +1771,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Je vous présente Moustafa.",
             exampleAr = "أقدّم لكم مصطفى.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1737,6 +1781,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Les amis aiment bavarder le soir.",
             exampleAr = "يحب الأصدقاء الدردشة في المساء.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1746,6 +1791,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Jean visite les monuments égyptiens.",
             exampleAr = "يزور جان الآثار المصرية.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1755,6 +1801,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Suzanne aime voyager en Égypte.",
             exampleAr = "تحب سوزان السفر إلى مصر.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1764,6 +1811,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Gamal prépare des gâteaux pour les invités.",
             exampleAr = "يجهّز جمال الحلوى للضيوف.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1773,6 +1821,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Jean a offert un cadeau à Gamal.",
             exampleAr = "أهدى جان هدية لجمال.",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         ),
         VocabWord(
@@ -1782,13 +1831,12 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Moustafa se présente : « Je suis pilote à EgyptAir ».",
             exampleAr = "مصطفى يقدّم نفسه: «أنا طيار في مصر للطيران».",
+            phoneticOrNote = "",
             pageReference = "p. 14"
         )
     )
 
-    // --- UNITÉ 1 : BANQUE DES MOTS (Pages 27 & 28) ---
     val unit1BanqueDesMots = listOf(
-        // Noms masculins (Page 27)
         VocabWord(
             id = "u1_bm_m1",
             french = "un bouquet",
@@ -1796,6 +1844,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "J'offre un bouquet de fleurs à Suzanne.",
             exampleAr = "أهدي باقة زهور لسوزان.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1805,6 +1854,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Jean apporte un cadeau pour Gamal.",
             exampleAr = "يحضر جان هدية لجمال.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1814,6 +1864,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Nous écoutons de la musique sur un disque.",
             exampleAr = "نستمع إلى الموسيقى من أسطوانة.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1823,6 +1874,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Bon anniversaire mon ami !",
             exampleAr = "عيد ميلاد سعيد يا صديقي!",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1832,6 +1884,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "L'oiseau chante dans le jardin.",
             exampleAr = "العصفور يغرد في الحديقة.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1841,6 +1894,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Gamal a un petit chien fidèle.",
             exampleAr = "جمال لديه كلب صغير وفيّ.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1850,6 +1904,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Le chat blanc dort sur la chaise.",
             exampleAr = "القط الأبيض ينام على الكرسي.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1859,6 +1914,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Jean porte un chapeau élégant.",
             exampleAr = "يرتدي جان قبعة أنيقة.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1868,6 +1924,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "L'enfant souffle les bougies.",
             exampleAr = "الطفل يطفئ الشموع.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1877,6 +1934,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Maman prépare un délicieux gâteau.",
             exampleAr = "تجهز أمي كعكة لذيذة.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1886,6 +1944,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Les enfants mangent un biscuit sucré.",
             exampleAr = "يأكل الأطفال بسكويتاً حلو المذاق.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1895,6 +1954,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Il écoute les informations sur un poste de radio.",
             exampleAr = "يستمع إلى الأخبار على جهاز راديو.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1904,6 +1964,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Nous fêtons l'anniversaire dans le jardin.",
             exampleAr = "نحتفل بعيد الميلاد في الحديقة.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1913,6 +1974,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "J'aime manger du chocolat au lait.",
             exampleAr = "أحب أكل الشوكولاتة بالحليب.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1922,6 +1984,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Il pleut, prends un parapluie !",
             exampleAr = "إنها تمطر، خذ معك شمسية مطر!",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1931,6 +1994,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Gamal accueille chaque invité avec joie.",
             exampleAr = "يستقبل جمال كل ضيف بفرح.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1940,6 +2004,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Les Pyramides sont un monument célèbre.",
             exampleAr = "الأهرامات هي أثر تاريخي مشهور.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1949,6 +2014,7 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Nous gonflons un ballon pour la fête.",
             exampleAr = "ننفخ بالونة من أجل الحفلة.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1958,10 +2024,9 @@ object FrenchCourseData {
             category = VocabCategory.MASCULINE,
             exampleFr = "Il y a beaucoup de gens à la soirée.",
             exampleAr = "يوجد الكثير من الناس في السهرة.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
-
-        // Noms féminins (Page 27)
         VocabWord(
             id = "u1_bm_f1",
             french = "une invitation",
@@ -1969,6 +2034,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "J'ai accepté ton invitation avec plaisir.",
             exampleAr = "قبلت دعوتك بكل سرور.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1978,6 +2044,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Elle met une belle fleur sur la table.",
             exampleAr = "تضع زهرة جميلة على الطاولة.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1987,6 +2054,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Il achète une carte de France.",
             exampleAr = "يشتري خريطة لفرنسا.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -1996,6 +2064,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Nous prenons une photo souvenir ensemble.",
             exampleAr = "نلتقط صورة تذكارية معاً.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2005,6 +2074,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Sur le gâteau, il y a une bougie colorée.",
             exampleAr = "على التورتة توجد شمعة ملونة.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2014,6 +2084,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "L'oiseau est dans une cage en fer.",
             exampleAr = "العصفور في قفص حديدي.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2023,6 +2094,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "L'élève va à l'école sur une bicyclette.",
             exampleAr = "يذهب الطالب إلى المدرسة بالدراجة.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2032,6 +2104,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Suzanne est la femme de Jean.",
             exampleAr = "سوزان هي زوجة جان.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2041,6 +2114,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Nous écoutons une cassette de chansons.",
             exampleAr = "نستمع إلى شريط كاسيت أغانٍ.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2050,6 +2124,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Fumer une cigarette est interdit ici.",
             exampleAr = "تدخين سيجارة ممنوع هنا.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2059,6 +2134,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "C'est une belle occasion pour se réunir.",
             exampleAr = "إنها مناسبة جميلة للاجتماع معاً.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2068,6 +2144,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Le grand-père fume une vieille pipe.",
             exampleAr = "الجد يدخن غليوناً قديماً.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2077,6 +2154,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Nous organisons une grande fête chez Gamal.",
             exampleAr = "ننظم حفلة كبيرة في منزل جمال.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2086,6 +2164,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Je vais au cinéma une fois par semaine.",
             exampleAr = "أذهب إلى السينما مرة في الأسبوع.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2095,6 +2174,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "J'envoie une carte postale à mes cousins.",
             exampleAr = "أرسل بطاقة بريدية لأبناء عمي.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2104,6 +2184,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Les vacances sont vite passées.",
             exampleAr = "مرت الإجازة بسرعة.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2113,6 +2194,7 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "À la plage, il met des lunettes de soleil.",
             exampleAr = "على الشاطئ، يضع نظارة شمسية.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
         VocabWord(
@@ -2122,10 +2204,9 @@ object FrenchCourseData {
             category = VocabCategory.FEMININE,
             exampleFr = "Gamal envoie une carte d'invitation à ses amis.",
             exampleAr = "يرسل جمال بطاقة دعوة لأصدقائه.",
+            phoneticOrNote = "",
             pageReference = "p. 27"
         ),
-
-        // Verbes (Page 28)
         VocabWord(
             id = "u1_bm_v1",
             french = "organiser",
@@ -2133,6 +2214,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Nous organisons une fête d'anniversaire.",
             exampleAr = "نحن ننظم حفلة عيد ميلاد.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2142,6 +2224,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Je t'invite chez moi ce soir.",
             exampleAr = "أدعوك إلى منزلي هذا المساء.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2151,6 +2234,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "La fête commence à sept heures.",
             exampleAr = "تبدأ الحفلة في الساعة السابعة.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2160,6 +2244,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Les invités dansent avec joie.",
             exampleAr = "يرقص المدعوون بفرح.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2169,6 +2254,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Les amis bavardent pendant la soirée.",
             exampleAr = "يتحدث الأصدقاء أثناء السهرة.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2178,6 +2264,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Nous mangeons des gâteaux délicieux.",
             exampleAr = "نأكل حلويات لذيذة.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2187,6 +2274,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Les élèves écoutent la musique.",
             exampleAr = "يستمع التلاميذ إلى الموسيقى.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2196,6 +2284,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "N'oublie pas ton devoir !",
             exampleAr = "لا تنسَ واجبك!",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2205,6 +2294,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Gamal raconte ses vacances à la Mer Rouge.",
             exampleAr = "يحكي جمال عن إجازته في البحر الأحمر.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2214,6 +2304,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Jean apporte un livre à Gamal.",
             exampleAr = "يحضر جان كتاباً لجمال.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2223,6 +2314,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Tout le monde chante une belle chanson.",
             exampleAr = "الجميع يغني أغنية جميلة.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2232,6 +2324,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Suzanne visite le musée égyptien.",
             exampleAr = "تزور سوزان المتحف المصري.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2241,6 +2334,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Je cherche mes clés partout.",
             exampleAr = "أبحث عن مفاتيحي في كل مكان.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2250,6 +2344,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "J'accepte l'invitation avec plaisir.",
             exampleAr = "أقبل الدعوة بكل سرور.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2259,6 +2354,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Il refuse l'invitation car il est malade.",
             exampleAr = "يرفض الدعوة لأنه مريض.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2268,6 +2364,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Nous déjeunons au restaurant à midi.",
             exampleAr = "نتناول الغداء في المطعم عند الظهر.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2277,6 +2374,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Jean et sa femme sont rentrés au Caire.",
             exampleAr = "عاد جان وزوجته إلى القاهرة.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2286,6 +2384,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Gamal adore les livres d'histoire.",
             exampleAr = "يعشق جمال كتب التاريخ.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2295,6 +2394,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "La mère prépare de bons plats pour la fête.",
             exampleAr = "تجهز الأم أطباقاً طيبة للحفلة.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2304,6 +2404,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Jean offre un beau cadeau à son ami.",
             exampleAr = "يقدم جان هدية جميلة لصديقه.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2313,6 +2414,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Moustafa vient à la soirée chez Gamal.",
             exampleAr = "يأتي مصطفى إلى السهرة في منزل جمال.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2322,6 +2424,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Qu'est-ce qu'on fait à la fête ?",
             exampleAr = "ماذا نفعل في الحفلة؟",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2331,6 +2434,7 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Suzanne écrit une lettre à sa famille.",
             exampleAr = "تكتب سوزان رسالة لعائلتها.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         ),
         VocabWord(
@@ -2340,23 +2444,26 @@ object FrenchCourseData {
             category = VocabCategory.VERB,
             exampleFr = "Après la fête, les enfants vont dormir.",
             exampleAr = "بعد الحفلة، يذهب الأطفال للنوم.",
+            phoneticOrNote = "",
             pageReference = "p. 28"
         )
     )
 
-    // --- UNITÉ 1 : SITUATIONS (Page 15) ---
     val unit1Situations = listOf(
         SituationItem(
             id = "u1_sit_1",
             number = 1,
             promptFr = "Ton ami t'invite à une fête, tu acceptes l'invitation; tu dis:",
             promptAr = "صديقك يدعوك إلى حفلة، وأنت تقبل الدعوة؛ ماذا تقول؟",
-            categoryFr = "Accepter une invitation",
             categoryAr = "قبول الدعوة ✅",
-            goldenRule = "عند قبول الدعوة (Tu acceptes l'invitation) نستخدم تعبيرات القبول مثل: Avec plaisir ! (بكل سرور) أو D'accord ! أو Pourquoi pas !",
-            rolePlaySpeaker = "Ton ami Gamal",
-            rolePlayMessage = "« Je t'invite à ma fête ce soir, tu peux venir ? »",
+            categoryFr = "Accepter une invitation",
             options = listOf(
+                SituationOption(
+                    textFr = "Pardon, j'ai un examen",
+                    textAr = "عذراً، لدي امتحان (اعتذار)",
+                    isCorrect = false,
+                    explanation = "خطأ! هذا اعتذار وتبرير لعدم الحضور."
+                ),
                 SituationOption(
                     textFr = "avec plaisir !",
                     textAr = "بكل سرور ! (قبول الدعوة)",
@@ -2368,14 +2475,11 @@ object FrenchCourseData {
                     textAr = "آسف، لا أستطيع المجيء (رفض)",
                     isCorrect = false,
                     explanation = "خطأ! هذا تعبير لرفض الدعوة والاعتذار وليس لقبولها."
-                ),
-                SituationOption(
-                    textFr = "Pardon, j'ai un examen",
-                    textAr = "عذراً، لدي امتحان (اعتذار)",
-                    isCorrect = false,
-                    explanation = "خطأ! هذا اعتذار وتبرير لعدم الحضور."
                 )
             ),
+            goldenRule = "عند قبول الدعوة (Tu acceptes l'invitation) نستخدم تعبيرات القبول مثل: Avec plaisir ! (بكل سرور) أو D'accord ! أو Pourquoi pas !",
+            rolePlaySpeaker = "Ton ami Gamal",
+            rolePlayMessage = "« Je t'invite à ma fête ce soir, tu peux venir ? »",
             pageReference = "p. 15"
         ),
         SituationItem(
@@ -2383,18 +2487,9 @@ object FrenchCourseData {
             number = 2,
             promptFr = "Tu invites ton ami à la fête de ton anniversaire; tu dis:",
             promptAr = "أنت تدعو صديقك إلى حفلة عيد ميلادك؛ ماذا تقول له؟",
-            categoryFr = "Inviter un ami",
             categoryAr = "توجيه الدعوة ✉️",
-            goldenRule = "عند توجيه الدعوة (Tu invites... tu dis) تبدأ بجملة دعوة مثل: « Je t'invite à... » (أدعوك إلى...) أو صيغة اقتراح.",
-            rolePlaySpeaker = "Toi (أنت)",
-            rolePlayMessage = "ماذا ستقول لصديقك لتدعوه لحفلة عيد ميلادك؟",
+            categoryFr = "Inviter un ami",
             options = listOf(
-                SituationOption(
-                    textFr = "je t'invite à la fête de mon anniversaire.",
-                    textAr = "أدعوك إلى حفلة عيد ميلادي.",
-                    isCorrect = true,
-                    explanation = "صحيح! تبدأ بـ (Je t'invite à) لأنك أنت صاحب الدعوة وأنت من يتكلم."
-                ),
                 SituationOption(
                     textFr = "Je ne peux pas venir.",
                     textAr = "أنا لا أستطيع المجيء.",
@@ -2406,8 +2501,17 @@ object FrenchCourseData {
                     textAr = "آسف، لدي موعد.",
                     isCorrect = false,
                     explanation = "خطأ! هذا اعتذار عند تلقي دعوة، بينما المطلوب أن توجه أنت الدعوة."
+                ),
+                SituationOption(
+                    textFr = "je t'invite à la fête de mon anniversaire.",
+                    textAr = "أدعوك إلى حفلة عيد ميلادي.",
+                    isCorrect = true,
+                    explanation = "صحيح! تبدأ بـ (Je t'invite à) لأنك أنت صاحب الدعوة وأنت من يتكلم."
                 )
             ),
+            goldenRule = "عند توجيه الدعوة (Tu invites... tu dis) تبدأ بجملة دعوة مثل: « Je t'invite à... » (أدعوك إلى...) أو صيغة اقتراح.",
+            rolePlaySpeaker = "Toi (أنت)",
+            rolePlayMessage = "ماذا ستقول لصديقك لتدعوه لحفلة عيد ميلادك؟",
             pageReference = "p. 15"
         ),
         SituationItem(
@@ -2415,17 +2519,14 @@ object FrenchCourseData {
             number = 3,
             promptFr = "Ton ami te demande ce qu'on fait à la fête; tu dis:",
             promptAr = "صديقك يسألك عما نفعله في الحفلة؛ ماذا تقول له؟",
-            categoryFr = "Activités de la fête",
             categoryAr = "أنشطة الحفلة 🎂",
-            goldenRule = "عند السؤال عن أنشطة الحفلة (ce qu'on fait à la fête) نذكر أنشطة الاحتفال مثل: أكل الجاتوه (manger des gâteaux)، وسماع الموسيقى والرقص.",
-            rolePlaySpeaker = "Ton ami Jean",
-            rolePlayMessage = "« Qu'est-ce qu'on fait pendant la fête d'anniversaire ? »",
+            categoryFr = "Activités de la fête",
             options = listOf(
                 SituationOption(
-                    textFr = "On écrit des lettres.",
-                    textAr = "نكتب خطابات.",
+                    textFr = "On part à Alex.",
+                    textAr = "نسافر إلى الإسكندرية.",
                     isCorrect = false,
-                    explanation = "خطأ! في الحفلات لا نكتب خطابات بريدية."
+                    explanation = "خطأ! هذا نشاط سفر وإجازة وليس داخل الحفلة."
                 ),
                 SituationOption(
                     textFr = "On va manger des gâteaux.",
@@ -2434,12 +2535,15 @@ object FrenchCourseData {
                     explanation = "ممتاز! أكل الجاتوه والحلوى وسماع الموسيقى هي الأنشطة الأساسية في الحفلات."
                 ),
                 SituationOption(
-                    textFr = "On part à Alex.",
-                    textAr = "نسافر إلى الإسكندرية.",
+                    textFr = "On écrit des lettres.",
+                    textAr = "نكتب خطابات.",
                     isCorrect = false,
-                    explanation = "خطأ! هذا نشاط سفر وإجازة وليس داخل الحفلة."
+                    explanation = "خطأ! في الحفلات لا نكتب خطابات بريدية."
                 )
             ),
+            goldenRule = "عند السؤال عن أنشطة الحفلة (ce qu'on fait à la fête) نذكر أنشطة الاحتفال مثل: أكل الجاتوه (manger des gâteaux)، وسماع الموسيقى والرقص.",
+            rolePlaySpeaker = "Ton ami Jean",
+            rolePlayMessage = "« Qu'est-ce qu'on fait pendant la fête d'anniversaire ? »",
             pageReference = "p. 15"
         ),
         SituationItem(
@@ -2447,17 +2551,14 @@ object FrenchCourseData {
             number = 4,
             promptFr = "Tu félicites ton ami pour son anniversaire; tu dis:",
             promptAr = "أنت تهنئ صديقك بمناسبة عيد ميلاده؛ ماذا تقول؟",
-            categoryFr = "Féliciter pour l'anniversaire",
             categoryAr = "التهنئة بعيد الميلاد 🎉",
-            goldenRule = "عند التهنئة بعيد الميلاد (Tu félicites... pour son anniversaire) نستخدم العبارة الرسمية الشهيرة: Bon anniversaire ! أو Joyeux anniversaire !",
-            rolePlaySpeaker = "Ton ami Moustafa",
-            rolePlayMessage = "« Aujourd'hui c'est le 14 mai, c'est mon anniversaire ! »",
+            categoryFr = "Féliciter pour l'anniversaire",
             options = listOf(
                 SituationOption(
-                    textFr = "Bon anniversaire !",
-                    textAr = "عيد ميلاد سعيد !",
-                    isCorrect = true,
-                    explanation = "أحسنت! (Bon anniversaire !) هي عبارة التهنئة المباشرة بعيد الميلاد."
+                    textFr = "Je t'invite chez moi.",
+                    textAr = "أدعوك إلى منزلي.",
+                    isCorrect = false,
+                    explanation = "خطأ! هذه دعوة وليست تهنئة بعيد ميلاده."
                 ),
                 SituationOption(
                     textFr = "Pardon, je suis fatigué.",
@@ -2466,12 +2567,15 @@ object FrenchCourseData {
                     explanation = "خطأ! هذا اعتذار وشعور بالتعب، ولا يعبر عن تهنئة."
                 ),
                 SituationOption(
-                    textFr = "Je t'invite chez moi.",
-                    textAr = "أدعوك إلى منزلي.",
-                    isCorrect = false,
-                    explanation = "خطأ! هذه دعوة وليست تهنئة بعيد ميلاده."
+                    textFr = "Bon anniversaire !",
+                    textAr = "عيد ميلاد سعيد !",
+                    isCorrect = true,
+                    explanation = "أحسنت! (Bon anniversaire !) هي عبارة التهنئة المباشرة بعيد الميلاد."
                 )
             ),
+            goldenRule = "عند التهنئة بعيد الميلاد (Tu félicites... pour son anniversaire) نستخدم العبارة الرسمية الشهيرة: Bon anniversaire ! أو Joyeux anniversaire !",
+            rolePlaySpeaker = "Ton ami Moustafa",
+            rolePlayMessage = "« Aujourd'hui c'est le 14 mai, c'est mon anniversaire ! »",
             pageReference = "p. 15"
         ),
         SituationItem(
@@ -2479,23 +2583,20 @@ object FrenchCourseData {
             number = 5,
             promptFr = "Tu invites ton ami à déjeuner, mais il n'accepte pas; il dit:",
             promptAr = "تدعو صديقك لتناول الغداء، لكنه لا يقبل (يرفض)؛ ماذا يقول هو؟",
-            categoryFr = "Refuser une invitation",
             categoryAr = "رفض الدعوة والاعتذار ❌",
-            goldenRule = "لاحظ الفاعل في نهاية الموقف: « il dit » (هو يقول) + « il n'accepte pas » (هو لا يقبل) ➔ المطلوب جملة اعتذار ورفض بأدب: Désolé / Pardon...",
-            rolePlaySpeaker = "Ton ami (qui refuse)",
-            rolePlayMessage = "تدعوه: « Viens déjeuner avec moi ! » وهو يعتذر، فماذا يقول؟",
+            categoryFr = "Refuser une invitation",
             options = listOf(
-                SituationOption(
-                    textFr = "Avec plaisir.",
-                    textAr = "بكل سرور. (قبول)",
-                    isCorrect = false,
-                    explanation = "خطأ! هذا قبول، بينما الموقف يحدد أنه لا يقبل (il n'accepte pas)."
-                ),
                 SituationOption(
                     textFr = "Désolé, je vais sortir avec mes parents.",
                     textAr = "آسف، سأخرج مع والديّ. (رفض بأدب واعتذار)",
                     isCorrect = true,
                     explanation = "صحيح جداً! بدأ بـ (Désolé) وقدم سبباً مقنعاً لعدم القدوم."
+                ),
+                SituationOption(
+                    textFr = "Avec plaisir.",
+                    textAr = "بكل سرور. (قبول)",
+                    isCorrect = false,
+                    explanation = "خطأ! هذا قبول، بينما الموقف يحدد أنه لا يقبل (il n'accepte pas)."
                 ),
                 SituationOption(
                     textFr = "Pourquoi pas.",
@@ -2504,6 +2605,9 @@ object FrenchCourseData {
                     explanation = "خطأ! (Pourquoi pas) تعني الموافقة والقبول."
                 )
             ),
+            goldenRule = "لاحظ الفاعل في نهاية الموقف: « il dit » (هو يقول) + « il n'accepte pas » (هو لا يقبل) ➔ المطلوب جملة اعتذار ورفض بأدب: Désolé / Pardon...",
+            rolePlaySpeaker = "Ton ami (qui refuse)",
+            rolePlayMessage = "تدعوه: « Viens déjeuner avec moi ! » وهو يعتذر، فماذا يقول؟",
             pageReference = "p. 15"
         ),
         SituationItem(
@@ -2511,11 +2615,8 @@ object FrenchCourseData {
             number = 6,
             promptFr = "Ton ami te demande ce que tu achètes pour ta mère à l'occasion de son anniversaire: tu dis:",
             promptAr = "يسألك صديقك عما تشتريه لوالدتك بمناسبة عيد ميلادها؛ ماذا تقول؟",
-            categoryFr = "Cadeau d'anniversaire",
             categoryAr = "هدية عيد الأم / الميلاد 💐",
-            goldenRule = "صديقك يسألك ماذا تشتري (ce que tu achètes) وأنت تجيب (tu dis) ➔ نذكر شيئاً مادياً مناسباً يُهدى للأم، مثل: Un bouquet de fleurs (باقة ورد) أو Un cadeau.",
-            rolePlaySpeaker = "Ton ami Jean",
-            rolePlayMessage = "« Qu'est-ce que tu achètes comme cadeau pour ta mère ? »",
+            categoryFr = "Cadeau d'anniversaire",
             options = listOf(
                 SituationOption(
                     textFr = "J'ai un examen.",
@@ -2524,23 +2625,25 @@ object FrenchCourseData {
                     explanation = "خطأ! هذا اعتذار لا علاقة له بالسؤال عن الهدية."
                 ),
                 SituationOption(
-                    textFr = "Un bouquet de fleurs.",
-                    textAr = "باقة من الزهور الجميلة. (هدية)",
-                    isCorrect = true,
-                    explanation = "رائع! باقة الزهور (Un bouquet de fleurs) هي الهدية النموذجية والمثالية."
-                ),
-                SituationOption(
                     textFr = "Bon anniversaire.",
                     textAr = "عيد ميلاد سعيد.",
                     isCorrect = false,
                     explanation = "خطأ! هذه جملة تهنئة تقال للأم، وليست الشيء الذي تشتريه كهدية."
+                ),
+                SituationOption(
+                    textFr = "Un bouquet de fleurs.",
+                    textAr = "باقة من الزهور الجميلة. (هدية)",
+                    isCorrect = true,
+                    explanation = "رائع! باقة الزهور (Un bouquet de fleurs) هي الهدية النموذجية والمثالية."
                 )
             ),
+            goldenRule = "صديقك يسألك ماذا تشتري (ce que tu achètes) وأنت تجيب (tu dis) ➔ نذكر شيئاً مادياً مناسباً يُهدى للأم، مثل: Un bouquet de fleurs (باقة ورد) أو Un cadeau.",
+            rolePlaySpeaker = "Ton ami Jean",
+            rolePlayMessage = "« Qu'est-ce que tu achètes comme cadeau pour ta mère ? »",
             pageReference = "p. 15"
         )
     )
 
-    // --- UNITÉ 1 : COMPOSITION (Page 16) ---
     val unit1CompositionTopic = CompositionTopic(
         id = "u1_comp_famille",
         titleFr = "Présente ta famille",
@@ -2549,12 +2652,12 @@ object FrenchCourseData {
         instructionAr = "تحدث عن عائلتك (اسمك وسنك، عدد أفراد الأسرة، أسماء ومهن الوالدين، إخوتك).",
         pageReference = "p. 16",
         requiredElements = listOf(
-            "الاسم والسن (Nom & Âge)" to "Je m'appelle Rami, j'ai 14 ans.",
-            "عدد أفراد الأسرة (Membres)" to "Ma famille se compose de cinq personnes.",
-            "مهنة الأب (Père)" to "Mon père est médecin / professeur / ingénieur.",
-            "مهنة الأم (Mère)" to "Ma mère est pharmacienne / maîtresse de maison.",
-            "الإخوة والأخوات (Frères & Sœurs)" to "J'ai un frère et une sœur.",
-            "خاتمة إيجابية (Sentiment)" to "J'aime beaucoup ma famille."
+            Pair("الاسم والسن (Nom & Âge)", "Je m'appelle Rami, j'ai 14 ans."),
+            Pair("عدد أفراد الأسرة (Membres)", "Ma famille se compose de cinq personnes."),
+            Pair("مهنة الأب (Père)", "Mon père est médecin / professeur / ingénieur."),
+            Pair("مهنة الأم (Mère)", "Ma mère est pharmacienne / maîtresse de maison."),
+            Pair("الإخوة والأخوات (Frères & Sœurs)", "J'ai un frère et une sœur."),
+            Pair("خاتمة إيجابية (Sentiment)", "J'aime beaucoup ma famille.")
         ),
         sentences = listOf(
             CompositionSentence(
@@ -2605,75 +2708,76 @@ object FrenchCourseData {
         fillBlankSolutions = listOf("personnes", "médecin", "professeure", "frère", "sœur", "famille")
     )
 
-    // --- UNITÉ 1 : GRAMMAIRE - LES ADJECTIFS POSSESSIFS (Pages 17-18) ---
     val unit1PossessiveTable = listOf(
         PossessiveTableRow(
             subject = "Je",
             mascSingular = "Mon",
             femSingular = "Ma",
             plural = "Mes",
-            arabicSubject = "أنا (المتكلم المفرد)",
+            arabicSubject = "أنا",
             exampleFr = "Je prends mon stylo, ma règle et mes livres.",
-            exampleAr = "أنا آخذ قلمي ومسطرتي وكتبي."
+            exampleAr = ""
         ),
         PossessiveTableRow(
             subject = "Tu",
             mascSingular = "Ton",
             femSingular = "Ta",
             plural = "Tes",
-            arabicSubject = "أنتَ / أنتِ (المخاطب المفرد)",
+            arabicSubject = "أنت",
             exampleFr = "Tu ranges ton cahier, ta trousse et tes stylos.",
-            exampleAr = "أنت ترتب كراستك ومقلمتك وأقلامك."
+            exampleAr = ""
         ),
         PossessiveTableRow(
             subject = "Il / Elle",
             mascSingular = "Son",
             femSingular = "Sa",
             plural = "Ses",
-            arabicSubject = "هو / هي (الغائب المفرد)",
+            arabicSubject = "هو / هي",
             exampleFr = "Il fait son devoir, écoute sa mère et aide ses amis.",
-            exampleAr = "هو يؤدي واجبه ويستمع لأمه ويساعد أصدقاءه."
+            exampleAr = ""
         ),
         PossessiveTableRow(
             subject = "Nous",
             mascSingular = "Notre",
             femSingular = "Notre",
             plural = "Nos",
-            arabicSubject = "نحن (المتكلم الجمع)",
+            arabicSubject = "نحن",
             exampleFr = "Nous aimons notre école, notre professeur et nos camarades.",
-            exampleAr = "نحن نحب مدرستنا ومعلمنا وزملاءنا."
+            exampleAr = ""
         ),
         PossessiveTableRow(
             subject = "Vous",
             mascSingular = "Votre",
             femSingular = "Votre",
             plural = "Vos",
-            arabicSubject = "أنتم / حضرتك (المخاطب الجمع أو الاحترام)",
+            arabicSubject = "أنتم",
             exampleFr = "Vous prenez votre sac, votre voiture et vos clés.",
-            exampleAr = "أنتم تأخذون حقيبتكم وسيارتكم ومفاتيحكم."
+            exampleAr = ""
         ),
         PossessiveTableRow(
             subject = "Ils / Elles",
             mascSingular = "Leur",
             femSingular = "Leur",
             plural = "Leurs",
-            arabicSubject = "هم / هن (الغائب الجمع)",
+            arabicSubject = "هم / هن",
             exampleFr = "Ils invitent leur ami, leur cousine et leurs professeurs.",
-            exampleAr = "هم يدعون صديقهم وابنة عمهم وأساتذتهم."
+            exampleAr = ""
         )
     )
 
-    // التمرين الرسمي من ص 18: Complète par un adjectif possessif (9 جمل مطابقة للأصل)
+    val unit1VowelRuleExamples = listOf(
+        Triple("amie", "ton amie", "صديقتك (مؤنث يبدأ بحرف a ➔ ton بدلاً من ta)"),
+        Triple("adresse", "son adresse", "عنوانه/عنوانها (مؤنث يبدأ بحرف a ➔ son بدلاً من sa)"),
+        Triple("école", "mon école", "مدرستي (مؤنث يبدأ بحرف é ➔ mon بدلاً من ma)")
+    )
+
     val unit1PossessiveExercises = listOf(
         PossessiveExerciseItem(
             id = "u1_poss_1",
             number = 1,
             sentenceParts = listOf("Il fait ", " devoir et ", " examens."),
             targetBlanks = listOf("son", "ses"),
-            optionsPerBlank = listOf(
-                listOf("son", "sa", "ses"),
-                listOf("ses", "son", "sa")
-            ),
+            optionsPerBlank = listOf(listOf("sa", "son", "ses"), listOf("son", "ses", "sa")),
             subject = "Il",
             complements = listOf("devoir (مفرد مذكر)", "examens (جمع)"),
             fullSentenceFr = "Il fait son devoir et ses examens.",
@@ -2687,9 +2791,7 @@ object FrenchCourseData {
             number = 2,
             sentenceParts = listOf("Nous prenons ", " voiture."),
             targetBlanks = listOf("notre"),
-            optionsPerBlank = listOf(
-                listOf("notre", "nos", "notres")
-            ),
+            optionsPerBlank = listOf(listOf("nos", "notre", "votre")),
             subject = "Nous",
             complements = listOf("voiture (مفرد مؤنث)"),
             fullSentenceFr = "Nous prenons notre voiture.",
@@ -2703,9 +2805,7 @@ object FrenchCourseData {
             number = 3,
             sentenceParts = listOf("Je vais à ", " école."),
             targetBlanks = listOf("mon"),
-            optionsPerBlank = listOf(
-                listOf("mon", "ma", "mes")
-            ),
+            optionsPerBlank = listOf(listOf("ma", "mon", "mes")),
             subject = "Je",
             complements = listOf("école (مفرد مؤنث يبدأ بمتحرك é)"),
             fullSentenceFr = "Je vais à mon école.",
@@ -2719,9 +2819,7 @@ object FrenchCourseData {
             number = 4,
             sentenceParts = listOf("Elles aiment ", " professeurs."),
             targetBlanks = listOf("leurs"),
-            optionsPerBlank = listOf(
-                listOf("leurs", "leur", "ses")
-            ),
+            optionsPerBlank = listOf(listOf("leur", "leurs", "nos")),
             subject = "Elles",
             complements = listOf("professeurs (جمع مذكر/مؤنث)"),
             fullSentenceFr = "Elles aiment leurs professeurs.",
@@ -2735,11 +2833,9 @@ object FrenchCourseData {
             number = 5,
             sentenceParts = listOf("Il parle à ", " amis."),
             targetBlanks = listOf("ses"),
-            optionsPerBlank = listOf(
-                listOf("ses", "son", "sa")
-            ),
+            optionsPerBlank = listOf(listOf("son", "sa", "ses")),
             subject = "Il",
-            complements = listOf("amis (جمع مذكر)"),
+            complements = listOf("amis (جمع)"),
             fullSentenceFr = "Il parle à ses amis.",
             translationAr = "هو يتحدث إلى أصدقائه.",
             explanationAr = "الفاعل Il يأخذ (son, sa, ses). كلمة amis جمع تنتهي بـ s، فنختار ses.",
@@ -2751,9 +2847,7 @@ object FrenchCourseData {
             number = 6,
             sentenceParts = listOf("Il aime ", " amie."),
             targetBlanks = listOf("son"),
-            optionsPerBlank = listOf(
-                listOf("son", "sa", "ses")
-            ),
+            optionsPerBlank = listOf(listOf("sa", "ses", "son")),
             subject = "Il",
             complements = listOf("amie (مفرد مؤنث يبدأ بمتحرك a)"),
             fullSentenceFr = "Il aime son amie.",
@@ -2767,9 +2861,7 @@ object FrenchCourseData {
             number = 7,
             sentenceParts = listOf("Vous allez chez ", " grand-parents."),
             targetBlanks = listOf("vos"),
-            optionsPerBlank = listOf(
-                listOf("vos", "votre", "leurs")
-            ),
+            optionsPerBlank = listOf(listOf("votre", "vos", "nos")),
             subject = "Vous",
             complements = listOf("grand-parents (جمع)"),
             fullSentenceFr = "Vous allez chez vos grand-parents.",
@@ -2783,9 +2875,7 @@ object FrenchCourseData {
             number = 8,
             sentenceParts = listOf("Tu prends ", " petit déjeuner ?"),
             targetBlanks = listOf("ton"),
-            optionsPerBlank = listOf(
-                listOf("ton", "ta", "tes")
-            ),
+            optionsPerBlank = listOf(listOf("ta", "ton", "tes")),
             subject = "Tu",
             complements = listOf("petit déjeuner (مفرد مذكر)"),
             fullSentenceFr = "Tu prends ton petit déjeuner ?",
@@ -2799,9 +2889,7 @@ object FrenchCourseData {
             number = 9,
             sentenceParts = listOf("Je prends ", " cadeau."),
             targetBlanks = listOf("mon"),
-            optionsPerBlank = listOf(
-                listOf("mon", "ma", "mes")
-            ),
+            optionsPerBlank = listOf(listOf("mes", "ma", "mon")),
             subject = "Je",
             complements = listOf("cadeau (مفرد مذكر)"),
             fullSentenceFr = "Je prends mon cadeau.",
@@ -2812,20 +2900,6 @@ object FrenchCourseData {
         )
     )
 
-    // أمثلة N.B الرسمية من كتيّب ص 17
-    val unit1VowelRuleExamples = listOf(
-        Triple("amie", "ton amie", "صديقتك (مؤنث يبدأ بحرف a ➔ ton بدلاً من ta)"),
-        Triple("adresse", "son adresse", "عنوانه/عنوانها (مؤنث يبدأ بحرف a ➔ son بدلاً من sa)"),
-        Triple("école", "mon école", "مدرستي (مؤنث يبدأ بحرف é ➔ mon بدلاً من ma)")
-    )
-
-    // --- UNITÉ 1 : LE PRONOM (ON) (Page 19) ---
-    val unit1PronomOnExamples = listOf(
-        Pair("Nous allons au club", "On va au club"),
-        Pair("Nous visitons les pyramides", "on visite les pyramides")
-    )
-
-    // تمرين 1 من ص 19: Choisis (On – Nous) :- (7 جمل رسمية كاملة)
     val unit1PronomOnChoisisExercises = listOf(
         PronomOnExerciseItem(
             id = "u1_on_ex1_1",
@@ -2906,7 +2980,6 @@ object FrenchCourseData {
         )
     )
 
-    // تمرين 2 من ص 19: Remplace (on) par (nous): (5 جمل رسمية كاملة)
     val unit1PronomOnReplaceExercises = listOf(
         PronomOnReplaceItem(
             id = "u1_on_ex2_1",
@@ -2960,174 +3033,44 @@ object FrenchCourseData {
         )
     )
 
-    // =============================================================================================
-    // --- UNITÉ 1 : LES PRONOMS PERSONNELS (Pages 20, 21, 22, 23) ---
-    // =============================================================================================
-
-    // 1- قواعد ضمائر الفاعل (Sujet) - ص 20 و 21
     val bookletPronounsRulesSujet = listOf(
-        BookletPronounRuleItem(
-            id = "pr_suj_il",
-            category = BookletPronounCategory.SUJET,
-            pronoun = "il",
-            replacesFr = "remplace un nom masculin.",
-            replacesAr = "يحل محل اسم مفرد مذكر (عاقل أو غير عاقل)",
-            exampleFr = "Ali – un Sac ......",
-            transformedFr = "Ali va au club ➔ Il va au club",
-            noteAr = "علي ذهب إلى النادي ➔ هو ذهب إلى النادي.",
-            pageReference = "p. 20-21"
-        ),
-        BookletPronounRuleItem(
-            id = "pr_suj_elle",
-            category = BookletPronounCategory.SUJET,
-            pronoun = "Elle",
-            replacesFr = "remplace un nom féminin.",
-            replacesAr = "يحل محل اسم مفرد مؤنث (عاقل أو غير عاقل)",
-            exampleFr = "Alice – une gomme ......",
-            transformedFr = "La maitresse est gentille ➔ Elle est gentille.",
-            noteAr = "المعلمة لطيفة ➔ هي لطيفة.",
-            pageReference = "p. 20-21"
-        ),
-        BookletPronounRuleItem(
-            id = "pr_suj_nous",
-            category = BookletPronounCategory.SUJET,
-            pronoun = "Nous",
-            replacesFr = "remplace un nom + moi",
-            replacesAr = "يحل محل (أي اسم شخص + moi)",
-            exampleFr = "Ali et moi ➔ Nous",
-            transformedFr = "Rami et moi jouons ➔ Nous jouons",
-            noteAr = "أي اسم شخص معاناه أنا ومعه آخرون ➔ نحن (Nous).",
-            pageReference = "p. 20-21"
-        ),
-        BookletPronounRuleItem(
-            id = "pr_suj_vous",
-            category = BookletPronounCategory.SUJET,
-            pronoun = "Vous",
-            replacesFr = "remplace un nom + toi",
-            replacesAr = "يحل محل (أي اسم شخص + toi)",
-            exampleFr = "Ali et Toi ➔ Vous",
-            transformedFr = "Adham et toi êtes Egyptiens ➔ Vous êtes Egyptiens.",
-            noteAr = "أدهم وأنت مصريان ➔ أنتم مصريون.",
-            pageReference = "p. 20-21"
-        ),
-        BookletPronounRuleItem(
-            id = "pr_suj_ils",
-            category = BookletPronounCategory.SUJET,
-            pronoun = "Ils",
-            replacesFr = "remplace nom masculin pluriel.",
-            replacesAr = "يحل محل اسم جمع مذكر (أو مذكر ومؤنث معاً)",
-            exampleFr = "Les élèves .........",
-            transformedFr = "Les garçons jouent ➔ Ils jouent",
-            noteAr = "التلاميذ يلعبون ➔ هم يلعبون.",
-            pageReference = "p. 20-21"
-        ),
-        BookletPronounRuleItem(
-            id = "pr_suj_elles",
-            category = BookletPronounCategory.SUJET,
-            pronoun = "Elles",
-            replacesFr = "remplace nom féminin pluriel.",
-            replacesAr = "يحل محل اسم جمع مؤنث خالص",
-            exampleFr = "Les filles .........",
-            transformedFr = "Les filles sont contentes ➔ Elles sont contentes.",
-            noteAr = "البنات مسرورات ➔ هن مسرورات.",
-            pageReference = "p. 20-21"
-        )
+        BookletPronounRuleItem("pr_suj_il", BookletPronounCategory.SUJET, "Il", "remplace un nom masculin.", "يحل محل اسم مفرد مذكر (عاقل أو غير عاقل)", "Ali va au club.", "Il va au club.", "علي ذهب إلى النادي ➔ هو ذهب إلى النادي.", "p. 20-21"),
+        BookletPronounRuleItem("pr_suj_elle", BookletPronounCategory.SUJET, "Elle", "remplace un nom féminin.", "يحل محل اسم مفرد مؤنث", "Mona est Egyptienne.", "Elle est Egyptienne.", "منى مصرية ➔ هي مصرية.", "p. 20-21"),
+        BookletPronounRuleItem("pr_suj_nous", BookletPronounCategory.SUJET, "Nous", "remplace un nom + moi", "يحل محل (أي اسم شخص + moi)", "Rami et moi jouons au tennis.", "Nous jouons au tennis.", "رامي وأنا نلعب التنس ➔ نحن نلعب التنس.", "p. 20-21"),
+        BookletPronounRuleItem("pr_suj_vous", BookletPronounCategory.SUJET, "Vous", "remplace un nom + toi", "يحل محل (أي اسم شخص + toi)", "Karim et toi êtes gentils.", "Vous êtes gentils.", "كريم وأنت لطفاء ➔ أنتم لطفاء.", "p. 20-21"),
+        BookletPronounRuleItem("pr_suj_ils", BookletPronounCategory.SUJET, "Ils", "remplace nom masculin pluriel.", "يحل محل اسم جمع مذكر (أو مذكر ومؤنث معاً)", "Les élèves écoutent.", "Ils écoutent.", "التلاميذ يستمعون ➔ هم يستمعون.", "p. 20-21"),
+        BookletPronounRuleItem("pr_suj_elles", BookletPronounCategory.SUJET, "Elles", "remplace nom féminin pluriel.", "يحل محل اسم جمع مؤنث خالص", "Les filles sont contentes.", "Elles sont contentes.", "البنات مسرورات ➔ هن مسرورات.", "p. 20-21")
     )
 
-    // أمثلة الفاعل الرسمية من كتيّب ص 21
     val bookletPronounsSujetExamples = listOf(
-        Triple("1- Ali va au club", "- Il va au club", "علي ➔ Il (مفرد مذكر)"),
-        Triple("2- Adham et toi êtes Egyptiens", "- Vous êtes Egyptiens.", "Adham et toi ➔ Vous (اسم + toi)"),
-        Triple("3- La maitresse est gentille", "- Elle est gentille.", "La maitresse ➔ Elle (مفرد مؤنث)")
+        Triple("1- Ali va au club", "➔ Il va au club.", "علي ➔ Il (مفرد مذكر)"),
+        Triple("2- Adham et toi êtes Egyptiens", "➔ Vous êtes Egyptiens.", "Adham et toi ➔ Vous (اسم + toi)"),
+        Triple("3- La maitresse est gentille", "➔ Elle est gentille.", "La maitresse ➔ Elle (مفرد مؤنث)")
     )
 
-    // 2- قواعد المفعول المباشر (C.O.D) - ص 20 و 21
     val bookletPronounsRulesCOD = listOf(
-        BookletPronounRuleItem(
-            id = "pr_cod_le",
-            category = BookletPronounCategory.COD,
-            pronoun = "Le",
-            replacesFr = "Remplace un nom masculin singulier.",
-            replacesAr = "يحل محل مفعول مباشر مفرد مذكر (بدون حرف جر)",
-            exampleFr = "Il regarde le match",
-            transformedFr = "Il le regarde.",
-            noteAr = "هو يشاهد المباراة ➔ هو يشاهدها (مباشر مفرد مذكر).",
-            pageReference = "p. 20-21"
-        ),
-        BookletPronounRuleItem(
-            id = "pr_cod_la",
-            category = BookletPronounCategory.COD,
-            pronoun = "La",
-            replacesFr = "Remplace un nom féminin singulier.",
-            replacesAr = "يحل محل مفعول مباشر مفرد مؤنث (بدون حرف جر)",
-            exampleFr = "Elle va prendre cette jupe",
-            transformedFr = "Elle va la prendre.",
-            noteAr = "هي ستأخذ هذه التنورة ➔ هي ستأخذها.",
-            pageReference = "p. 20-21"
-        ),
-        BookletPronounRuleItem(
-            id = "pr_cod_lapostrophe",
-            category = BookletPronounCategory.COD,
-            pronoun = "L'",
-            replacesFr = "Remplace un nom masculin ou féminin singulier mais le verbe commence par une voyelle (a - e - i - o - u - h - y)",
-            replacesAr = "يحل محل مذكر أو مؤنث مفرد إذا بدأ الفعل بحرف متحرك",
-            exampleFr = "Tu aimes ton frère.",
-            transformedFr = "Tu l'aimes.",
-            noteAr = "أنت تحب أخاك ➔ أنت تحبه (تحولت le إلى l' أمام حرف a المتحرك).",
-            pageReference = "p. 20-21"
-        ),
-        BookletPronounRuleItem(
-            id = "pr_cod_les",
-            category = BookletPronounCategory.COD,
-            pronoun = "Les",
-            replacesFr = "remplace un pluriel. (s - x)",
-            replacesAr = "يحل محل مفعول مباشر جمع بنوعيه (ينتهي بـ s أو x)",
-            exampleFr = "Elles aiment les fruits.",
-            transformedFr = "Elles les aiment.",
-            noteAr = "هن يحببن الفواكه ➔ هن يحببنها (les لا تختصر أمام المتحرك).",
-            pageReference = "p. 20-21"
-        )
+        BookletPronounRuleItem("pr_cod_le", BookletPronounCategory.COD, "Le", "Remplace un nom masculin singulier.", "يحل محل مفعول مباشر مفرد مذكر (بدون حرف جر)", "Il regarde le match.", "- Il le regarde.", "هو يشاهد المباراة ➔ هو يشاهدها (مباشر مفرد مذكر).", "p. 20-21"),
+        BookletPronounRuleItem("pr_cod_la", BookletPronounCategory.COD, "La", "Remplace un nom féminin singulier.", "يحل محل مفعول مباشر مفرد مؤنث (بدون حرف جر)", "Elle prend la robe.", "- Elle la prend.", "هي تأخذ الفستان ➔ هي تأخذه.", "p. 20-21"),
+        BookletPronounRuleItem("pr_cod_lapostrophe", BookletPronounCategory.COD, "L'", "Remplace un nom masculin ou féminin singulier mais le verbe commence par une voyelle (a - e - i - o - u - h - y)", "يحل محل مذكر أو مؤنث مفرد إذا بدأ الفعل بحرف متحرك", "Tu aimes ton frère.", "- Tu l'aimes.", "أنت تحب أخاك ➔ أنت تحبه.", "p. 20-21"),
+        BookletPronounRuleItem("pr_cod_les", BookletPronounCategory.COD, "Les", "remplace un pluriel. (s - x)", "يحل محل مفعول مباشر جمع بنوعيه (ينتهي بـ s أو x)", "Elles aiment les fruits.", "- Elles les aiment.", "هن يحببن الفواكه ➔ هن يحببنها (les لا تختصر أمام المتحرك).", "p. 20-21")
     )
 
-    // أمثلة C.O.D الرسمية من كتيّب ص 21
     val bookletPronounsCodExamples = listOf(
-        Triple("1- Il regarde le match", "- Il le regarde.", "le match (مفرد مذكر) ➔ le قبل الفعل"),
-        Triple("2- Tu aimes ton frère.", "- Tu l'aimes", "ton frère (مفرد مذكر) + فعل يبدأ بمتحرك ➔ l'")
+        Triple("1- Il regarde le match.", "- Il le regarde.", "le match (مفرد مذكر) ➔ le قبل الفعل"),
+        Triple("2- Tu aimes ton frère.", "- Tu l'aimes.", "ton frère + فعل يبدأ بمتحرك (aimes) ➔ l'"),
+        Triple("3- Elles aiment les fruits.", "- Elles les aiment.", "les fruits (جمع) ➔ les (لا تختصر أبداً)")
     )
 
-    // 3- قواعد المفعول غير المباشر (C.O.I) - ص 20 و 22
-    val bookletPronounsRulesCOI = listOf(
-        BookletPronounRuleItem(
-            id = "pr_coi_lui",
-            category = BookletPronounCategory.COI,
-            pronoun = "Lui",
-            replacesFr = "Remplace un nom singulier (précédé de à, au, à la, à l' + une personne)",
-            replacesAr = "يحل محل مفعول غير مباشر مفرد (مذكر أو مؤنث) مسبوق بحرف جر + شخص عاقل",
-            exampleFr = "Je parle à mon ami.",
-            transformedFr = "Je lui parle.",
-            noteAr = "أنا أتحدث إلى صديقي ➔ أنا أتحدث إليه (Lui للمفرد بنوعيه).",
-            pageReference = "p. 20-22"
-        ),
-        BookletPronounRuleItem(
-            id = "pr_coi_leur",
-            category = BookletPronounCategory.COI,
-            pronoun = "Leur",
-            replacesFr = "Remplace un nom pluriel (précédé de à, aux + des personnes)",
-            replacesAr = "يحل محل مفعول غير مباشر جمع (مذكر أو مؤنث) مسبوق بحرف جر + أشخاص",
-            exampleFr = "Il téléphone à mes amis.",
-            transformedFr = "Il leur téléphone.",
-            noteAr = "هو يتصل بأصدقائي ➔ هو يتصل بهم (Leur ضمير بدون s دائماً).",
-            pageReference = "p. 20-22"
-        )
-    )
-
-    // شروط C.O.I الذهبية من ص 20 و 22
     val bookletCoiConditions = listOf(
-        "1- précédé d'une Préposition (à, au, aux)",
-        "2- suivi d'une personne (شخص عاقل)"
+        "1- précédé d'une Préposition (à, au, aux) — مسبوق بحرف جر",
+        "2- suivi d'une personne (شخص عاقل) — يدل على إنسان عاقل"
     )
 
-    // أمثلة C.O.I الرسمية الأربعة من كتيّب ص 22
+    val bookletPronounsRulesCOI = listOf(
+        BookletPronounRuleItem("pr_coi_lui", BookletPronounCategory.COI, "Lui", "Remplace un nom singulier (précédé de à, au, à la, à l' + une personne)", "يحل محل مفعول غير مباشر مفرد (مذكر أو مؤنث) مسبوق بحرف جر + شخص عاقل", "1- Je parle à mon ami.", "- Je lui parle.", "أنا أتحدث إلى صديقي ➔ أنا أتحدث إليه (Lui للمفرد بنوعيه).", "p. 20-22"),
+        BookletPronounRuleItem("pr_coi_leur", BookletPronounCategory.COI, "Leur", "Remplace un nom pluriel (précédé de à, aux + personnes)", "يحل محل مفعول غير مباشر جمع (مذكر أو مؤنث) مسبوق بحرف جر + أشخاص", "2- Il téléphone à mes amis.", "- Il leur téléphone.", "هو يتصل بأصدقائي ➔ هو يتصل بهم (Leur ضمير بدون s دائماً).", "p. 20-22")
+    )
+
     val bookletPronounsCoiExamples = listOf(
         Triple("1- Je parle à mon ami.", "- Je lui parle.", "à mon ami (مفرد عاقل) ➔ lui"),
         Triple("2- Il téléphone à mes amis.", "- Il leur téléphone.", "à mes amis (جمع عاقل) ➔ leur"),
@@ -3135,8 +3078,6 @@ object FrenchCourseData {
         Triple("4- Nous demandons à nos professeurs", "- Nous leur demandons.", "à nos professeurs (جمع عاقل) ➔ leur")
     )
 
-    // 4- التمرين الرسمي الكامل من كتيّب المعهد ص 22 و 23:
-    // Remplace les mots soulignés par un pronom personnel convenable:- (15 جملة كاملة)
     val bookletPronounsOfficial15Exercises = listOf(
         BookletPronounOfficialExerciseItem(
             id = "u1_pr_ex_1",
@@ -3145,7 +3086,7 @@ object FrenchCourseData {
             underlinedPart = "à son amie",
             category = BookletPronounCategory.COI,
             targetPronoun = "lui",
-            options = listOf("lui", "la", "leur"),
+            options = listOf("lui", "leur", "la"),
             transformedSentenceFr = "Elle lui parle.",
             sentenceAr = "هي تتحدث إلى صديقتها.",
             transformedSentenceAr = "هي تتحدث إليها.",
@@ -3161,7 +3102,7 @@ object FrenchCourseData {
             underlinedPart = "Mona",
             category = BookletPronounCategory.SUJET,
             targetPronoun = "Elle",
-            options = listOf("Elle", "Il", "Elles"),
+            options = listOf("Elles", "Elle", "Il"),
             transformedSentenceFr = "Elle est Egyptienne.",
             sentenceAr = "منى مصرية.",
             transformedSentenceAr = "هي مصرية.",
@@ -3177,7 +3118,7 @@ object FrenchCourseData {
             underlinedPart = "cette jupe",
             category = BookletPronounCategory.COD,
             targetPronoun = "la",
-            options = listOf("la", "lui", "l'"),
+            options = listOf("la", "l'", "lui"),
             transformedSentenceFr = "Elle va la prendre.",
             sentenceAr = "هي سوف تأخذ هذه الجونة.",
             transformedSentenceAr = "هي سوف تأخذها.",
@@ -3193,7 +3134,7 @@ object FrenchCourseData {
             underlinedPart = "la radio",
             category = BookletPronounCategory.COD,
             targetPronoun = "l'",
-            options = listOf("l'", "la", "lui"),
+            options = listOf("lui", "la", "l'"),
             transformedSentenceFr = "Nous l'écoutons.",
             sentenceAr = "نحن نستمع إلى الراديو.",
             transformedSentenceAr = "نحن نستمع إليه.",
@@ -3209,7 +3150,7 @@ object FrenchCourseData {
             underlinedPart = "les fruits",
             category = BookletPronounCategory.COD,
             targetPronoun = "les",
-            options = listOf("les", "leur", "des"),
+            options = listOf("des", "les", "leur"),
             transformedSentenceFr = "Elles les aiment.",
             sentenceAr = "هن يحببن الفواكه.",
             transformedSentenceAr = "هن يحببنها.",
@@ -3225,7 +3166,7 @@ object FrenchCourseData {
             underlinedPart = "à mon professeur",
             category = BookletPronounCategory.COI,
             targetPronoun = "lui",
-            options = listOf("lui", "le", "leur"),
+            options = listOf("le", "leur", "lui"),
             transformedSentenceFr = "Je lui ai répondu.",
             sentenceAr = "لقد أجبت أستاذي.",
             transformedSentenceAr = "لقد أجبت عليه.",
@@ -3241,7 +3182,7 @@ object FrenchCourseData {
             underlinedPart = "Les professeurs ... les leçons",
             category = BookletPronounCategory.COD,
             targetPronoun = "Ils / les",
-            options = listOf("Ils les expliquent.", "Ils expliquent les leçons.", "Les professeurs leur expliquent."),
+            options = listOf("Ils expliquent les leçons.", "Les professeurs leur expliquent.", "Ils les expliquent."),
             transformedSentenceFr = "Ils les expliquent.",
             sentenceAr = "الأساتذة يشرحون الدروس.",
             transformedSentenceAr = "هم يشرحونها.",
@@ -3257,7 +3198,7 @@ object FrenchCourseData {
             underlinedPart = "ce pantalon",
             category = BookletPronounCategory.COD,
             targetPronoun = "l'",
-            options = listOf("l'", "le", "lui"),
+            options = listOf("le", "l'", "lui"),
             transformedSentenceFr = "Vous l'aimez.",
             sentenceAr = "أنتم تحبون هذا البنطال.",
             transformedSentenceAr = "أنتم تحبونه.",
@@ -3273,7 +3214,7 @@ object FrenchCourseData {
             underlinedPart = "son devoir",
             category = BookletPronounCategory.COD,
             targetPronoun = "le",
-            options = listOf("le", "lui", "la"),
+            options = listOf("le", "la", "lui"),
             transformedSentenceFr = "Il le fait.",
             sentenceAr = "هو يؤدي واجبه.",
             transformedSentenceAr = "هو يؤديه.",
@@ -3289,7 +3230,7 @@ object FrenchCourseData {
             underlinedPart = "à son père",
             category = BookletPronounCategory.COI,
             targetPronoun = "lui",
-            options = listOf("lui", "le", "leur"),
+            options = listOf("le", "lui", "leur"),
             transformedSentenceFr = "Il lui offre un cadeau.",
             sentenceAr = "هو يقدم هدية لوالده.",
             transformedSentenceAr = "هو يقدم له هدية.",
@@ -3305,7 +3246,7 @@ object FrenchCourseData {
             underlinedPart = "Rami et moi",
             category = BookletPronounCategory.SUJET,
             targetPronoun = "Nous",
-            options = listOf("Nous", "Vous", "Ils"),
+            options = listOf("Nous", "Ils", "Vous"),
             transformedSentenceFr = "Nous jouons au tennis.",
             sentenceAr = "رامي وأنا نلعب التنس.",
             transformedSentenceAr = "نحن نلعب التنس.",
@@ -3321,7 +3262,7 @@ object FrenchCourseData {
             underlinedPart = "le sandwich",
             category = BookletPronounCategory.COD,
             targetPronoun = "l'",
-            options = listOf("l'", "le", "lui"),
+            options = listOf("le", "lui", "l'"),
             transformedSentenceFr = "Ali l'a mangé.",
             sentenceAr = "علي أكل الساندويتش.",
             transformedSentenceAr = "علي أكله.",
@@ -3337,7 +3278,7 @@ object FrenchCourseData {
             underlinedPart = "aux directeurs",
             category = BookletPronounCategory.COI,
             targetPronoun = "leur",
-            options = listOf("leur", "les", "leurs"),
+            options = listOf("les", "leur", "leurs"),
             transformedSentenceFr = "Elle va leur téléphoner.",
             sentenceAr = "هي سوف تتصل بالمديرين.",
             transformedSentenceAr = "هي سوف تتصل بهم.",
@@ -3353,7 +3294,7 @@ object FrenchCourseData {
             underlinedPart = "ces cahiers",
             category = BookletPronounCategory.COD,
             targetPronoun = "les",
-            options = listOf("les", "leur", "des"),
+            options = listOf("les", "des", "leur"),
             transformedSentenceFr = "Il les prend.",
             sentenceAr = "هو يأخذ هذه الكراريس.",
             transformedSentenceAr = "هو يأخذها.",
@@ -3369,7 +3310,7 @@ object FrenchCourseData {
             underlinedPart = "Karim et toi",
             category = BookletPronounCategory.SUJET,
             targetPronoun = "Vous",
-            options = listOf("Vous", "Nous", "Ils"),
+            options = listOf("Nous", "Vous", "Ils"),
             transformedSentenceFr = "Vous êtes gentils.",
             sentenceAr = "كريم وأنت لطفاء.",
             transformedSentenceAr = "أنتم لطفاء.",
@@ -3380,9 +3321,6 @@ object FrenchCourseData {
         )
     )
 
-    // ---------------------------------------------------------------------------------------------
-    // كتيّب الوحدة الأولى ص 24: تكوين الجمل (Fais des Phrases)
-    // ---------------------------------------------------------------------------------------------
     val unit1FaisDesPhrasesList = listOf(
         FaisDesPhrasesItem(
             id = "u1_fp_1",
@@ -3393,22 +3331,11 @@ object FrenchCourseData {
             complement = "le dîner",
             modelSentenceFr = "Maman prépare le dîner.",
             modelSentenceAr = "ماما تُعِدّ العشاء.",
-            alternativeSentences = listOf(
-                Pair("Je prépare le dîner avec ma mère.", "أنا أعد العشاء مع والدتي."),
-                Pair("Nous préparons le dîner pour la fête.", "نحن نجهز العشاء من أجل الحفلة."),
-                Pair("Elle prépare un bon dîner.", "هي تُعدّ عشاءً شهياً ولذيذاً.")
-            ),
+            alternativeSentences = listOf(),
             scrambledWords = listOf("prépare", "Maman", "le", "dîner."),
             correctOrder = listOf("Maman", "prépare", "le", "dîner."),
             grammarTipAr = "فعل (Préparer) من أفعال المجموعة الأولى (1er groupe) المنتهية بـ -er. عند تصريفه في المضارع مع (Maman = Elle) نحذف -er ونضيف e ➔ prépare. بنية الجملة البسيطة في الفرنسية: فاعل (Sujet) + فعل مصرف (Verbe) + مفعول (Complément).",
-            conjugationSamples = listOf(
-                Pair("Je prépare", "أنا أُعدّ"),
-                Pair("Tu prépares", "أنت تُعدّ"),
-                Pair("Il / Elle prépare", "هو / هي تُعدّ"),
-                Pair("Nous préparons", "نحن نُعدّ"),
-                Pair("Vous préparez", "أنتم تُعدّون"),
-                Pair("Ils / Elles préparent", "هم / هنّ يُعدّون")
-            ),
+            conjugationSamples = listOf(),
             pageReference = "p. 24"
         ),
         FaisDesPhrasesItem(
@@ -3420,22 +3347,11 @@ object FrenchCourseData {
             complement = "les livres d'histoire",
             modelSentenceFr = "J'adore les livres d'histoire.",
             modelSentenceAr = "أنا أعشق كتب التاريخ.",
-            alternativeSentences = listOf(
-                Pair("Mon père adore les livres d'histoire.", "والدي يعشق كتب التاريخ."),
-                Pair("Nous adorons lire les livres d'histoire.", "نحن نحب ونعشق قراءة كتب التاريخ."),
-                Pair("Ali adore les livres d'histoire égyptienne.", "علي يعشق كتب التاريخ المصري.")
-            ),
+            alternativeSentences = listOf(),
             scrambledWords = listOf("les", "J'adore", "d'histoire.", "livres"),
             correctOrder = listOf("J'adore", "les", "livres", "d'histoire."),
             grammarTipAr = "فعل (Adorer) يبدأ بحرف متحرك (A)، لذلك مع ضمير المتكلم Je يتحول إلى (J'adore) بحذف حرف الـ e ووضع الفاصلة العليا (l'apostrophe). لاحظ أيضاً إضافة أداة المعرفة الجمع (les) قبل كلمة livres، لأن أفعال الميول والتفضيل (aimer, adorer, préférer) تأخذ دائماً أدوات معرفة (le, la, les).",
-            conjugationSamples = listOf(
-                Pair("J'adore", "أنا أعشق"),
-                Pair("Tu adores", "أنت تعشق"),
-                Pair("Il / Elle adore", "هو / هي تعشق"),
-                Pair("Nous adorons", "نحن نعشق"),
-                Pair("Vous adorez", "أنتم تعشقون"),
-                Pair("Ils / Elles adorent", "هم / هنّ يعشقون")
-            ),
+            conjugationSamples = listOf(),
             pageReference = "p. 24"
         ),
         FaisDesPhrasesItem(
@@ -3447,22 +3363,11 @@ object FrenchCourseData {
             complement = "un billet pour le Caire",
             modelSentenceFr = "J'achète un billet pour le Caire.",
             modelSentenceAr = "أنا أشتري تذكرة إلى القاهرة.",
-            alternativeSentences = listOf(
-                Pair("Je vais à la gare pour acheter un billet pour le Caire.", "أنا أذهب إلى المحطة لأشتري تذكرة إلى القاهرة."),
-                Pair("Mon père achète un billet pour le Caire.", "والدي يشتري تذكرة إلى القاهرة."),
-                Pair("Nous achetons des billets pour le Caire.", "نحن نشتري تذاكر إلى القاهرة.")
-            ),
+            alternativeSentences = listOf(),
             scrambledWords = listOf("un", "J'achète", "pour", "billet", "le Caire."),
             correctOrder = listOf("J'achète", "un", "billet", "pour", "le Caire."),
             grammarTipAr = "فعل (Acheter) يبدأ بحرف متحرك لذلك مع Je يصبح (J'achète). انتبه للنبرة المائلة (accent grave) على حرف الـ e في (achète, achètes, achètent). كما أن القاهرة تأخذ أداة المعرفة المذكرة (le Caire) وحرف الجر pour يعني (إلى / من أجل).",
-            conjugationSamples = listOf(
-                Pair("J'achète", "أنا أشتري"),
-                Pair("Tu achètes", "أنت تشتري"),
-                Pair("Il / Elle achète", "هو / هي يشتري"),
-                Pair("Nous achetons", "نحن نشتري"),
-                Pair("Vous achetez", "أنتم تشترون"),
-                Pair("Ils / Elles achètent", "هم / هنّ يشترون")
-            ),
+            conjugationSamples = listOf(),
             pageReference = "p. 24"
         ),
         FaisDesPhrasesItem(
@@ -3474,31 +3379,15 @@ object FrenchCourseData {
             complement = "les vacances",
             modelSentenceFr = "Je passe les vacances à Alexandrie.",
             modelSentenceAr = "أنا أقضي الإجازة في الإسكندرية.",
-            alternativeSentences = listOf(
-                Pair("Nous passons de bonnes vacances chez nos grands-parents.", "نحن نقضي إجازة سعيدة عند أجدادنا."),
-                Pair("Où passes-tu les vacances d'été ?", "أين تقضي إجازة الصيف؟"),
-                Pair("Il passe les vacances à Paris.", "هو يقضي الإجازة في باريس.")
-            ),
+            alternativeSentences = listOf(),
             scrambledWords = listOf("les", "Je", "passe", "à Alexandrie.", "vacances"),
             correctOrder = listOf("Je", "passe", "les", "vacances", "à Alexandrie."),
             grammarTipAr = "فعل (Passer) عند استخدامه مع الوقت أو الإجازة يعني (يقضي). كلمة (Vacances) في اللغة الفرنسية تأتي بصيغة الجمع المؤنث دائماً (les vacances). نستخدم حرف الجر (à) مع المدن: (à Alexandrie, à Louxor, à Assouan).",
-            conjugationSamples = listOf(
-                Pair("Je passe", "أنا أقضي"),
-                Pair("Tu passes", "أنت تقضي"),
-                Pair("Il / Elle passe", "هو / هي يقضي"),
-                Pair("Nous passons", "نحن نقضي"),
-                Pair("Vous passez", "أنتم تقضون"),
-                Pair("Ils / Elles passent", "هم / هنّ يقضون")
-            ),
+            conjugationSamples = listOf(),
             pageReference = "p. 24"
         )
     )
 
-    // =========================================================================
-    // كتيّب ص 39 و 40 : الإنتاج اللغوي والتعبير للوحدة الثانية (Production & Composition)
-    // =========================================================================
-
-    // 1- ص 39 : التمرين الأول (1- Qui parle ?)
     val unit2QuiParleItems = listOf(
         BookletQuiParleItem(
             id = "u2_qp_1",
@@ -3508,7 +3397,7 @@ object FrenchCourseData {
             speakerFr = "Le garçon",
             alternativeSpeakersFr = listOf("Le serveur", "Le vendeur"),
             speakerAr = "النادل / الجرسون (Le garçon)",
-            options = listOf("Le garçon", "Le client", "Le médecin"),
+            options = listOf("Le client", "Le médecin", "Le garçon"),
             situationContextAr = "سؤال تحية واستفسار يوجهه النادل أو الجرسون للزبون في المطعم لتلقي طلبات الطعام أو الشراب."
         ),
         BookletQuiParleItem(
@@ -3519,7 +3408,7 @@ object FrenchCourseData {
             speakerFr = "Le touriste",
             alternativeSpeakersFr = listOf("Un touriste", "Un passant"),
             speakerAr = "السائح (Le touriste)",
-            options = listOf("Le touriste", "Le guide", "Le vendeur"),
+            options = listOf("Le guide", "Le touriste", "Le vendeur"),
             situationContextAr = "سؤال يطرحه السائح الأجنبي في الشارع لمعرفة طريق وموقع المتحف المصري."
         ),
         BookletQuiParleItem(
@@ -3530,7 +3419,7 @@ object FrenchCourseData {
             speakerFr = "Le client",
             alternativeSpeakersFr = listOf("Un client"),
             speakerAr = "الزبون (Le client)",
-            options = listOf("Le client", "Le garçon", "Le chauffeur"),
+            options = listOf("Le chauffeur", "Le garçon", "Le client"),
             situationContextAr = "عبارة شهيرة يطلب بها الزبون في المطعم أو الكافيه من النادل إحضار فاتورة الحساب بعد الانتهاء من تناول الوجبة."
         ),
         BookletQuiParleItem(
@@ -3541,7 +3430,7 @@ object FrenchCourseData {
             speakerFr = "Le client",
             alternativeSpeakersFr = listOf("Un client"),
             speakerAr = "الزبون (Le client)",
-            options = listOf("Le client", "Le cuisinier", "Le guide"),
+            options = listOf("Le client", "Le guide", "Le cuisinier"),
             situationContextAr = "طلب مهذب باستخدام صيغة (Je voudrais) وأدوات التجزئة يوجهه الزبون للنادل لتحديد مكونات وجبته."
         ),
         BookletQuiParleItem(
@@ -3552,7 +3441,7 @@ object FrenchCourseData {
             speakerFr = "La cliente",
             alternativeSpeakersFr = listOf("Une cliente", "L'acheteuse"),
             speakerAr = "الزبونة (La cliente)",
-            options = listOf("La cliente", "Le vendeur", "Le réceptionniste"),
+            options = listOf("Le vendeur", "Le réceptionniste", "La cliente"),
             situationContextAr = "سؤال تطرحه الزبونة أو المشترية على البائع في متجر الملابس للاستفسار عن ثمن الفستان."
         ),
         BookletQuiParleItem(
@@ -3563,12 +3452,11 @@ object FrenchCourseData {
             speakerFr = "Le guide",
             alternativeSpeakersFr = listOf("Un guide touristique"),
             speakerAr = "المرشد السياحي (Le guide)",
-            options = listOf("Le guide", "Le touriste", "Le mécanicien"),
+            options = listOf("Le mécanicien", "Le guide", "Le touriste"),
             situationContextAr = "معلومة وشرح تاريخي يقدمه المرشد السياحي للسياح أثناء جولتهم داخل المتحف المصري."
         )
     )
 
-    // 2- ص 39 : التمرين الثاني (2- Où vas – tu Pour ......?)
     val unit2OuVasTuItems = listOf(
         BookletOuVasTuItem(
             id = "u2_ovt_1",
@@ -3578,7 +3466,7 @@ object FrenchCourseData {
             expectedAnswerFr = "Au restaurant.",
             alternativeAnswersFr = listOf("Au restaurant.", "Je vais au restaurant.", "au restaurant"),
             answerAr = "إلى المطعم (Au restaurant).",
-            options = listOf("Au restaurant.", "Au cinéma.", "À la pharmacie."),
+            options = listOf("Au restaurant.", "À la pharmacie.", "Au cinéma."),
             explanationAr = "نذهب إلى المطعم (Au restaurant) لتناول الوجبات الشهية. كلمة restaurant مفرد مذكر مسبوقة بحرف الجر المدغم (au)."
         ),
         BookletOuVasTuItem(
@@ -3589,7 +3477,7 @@ object FrenchCourseData {
             expectedAnswerFr = "Au magasin.",
             alternativeAnswersFr = listOf("Au magasin.", "Au magasin de vêtements.", "au magasin"),
             answerAr = "إلى المحل / المتجر (Au magasin).",
-            options = listOf("Au magasin.", "Au musée.", "À l'hôpital."),
+            options = listOf("Au musée.", "Au magasin.", "À l'hôpital."),
             explanationAr = "المحل التجاري (Au magasin) هو المكان المناسب لشراء الملابس وتجربتها."
         ),
         BookletOuVasTuItem(
@@ -3600,7 +3488,7 @@ object FrenchCourseData {
             expectedAnswerFr = "Au café.",
             alternativeAnswersFr = listOf("Au café.", "au café", "Au salon de thé."),
             answerAr = "إلى المقهى (Au café).",
-            options = listOf("Au café.", "À la gare.", "Au club."),
+            options = listOf("Au café.", "Au club.", "À la gare."),
             explanationAr = "المقهى (Au café) هو المكان المخصص للجلوس وتناول المشروبات الساخنة والباردة كالشاي والقهوة."
         ),
         BookletOuVasTuItem(
@@ -3611,7 +3499,7 @@ object FrenchCourseData {
             expectedAnswerFr = "Au musée.",
             alternativeAnswersFr = listOf("Au musée.", "Aux pyramides.", "au musée"),
             answerAr = "إلى المتحف (Au musée) أو الأهرامات (Aux pyramides).",
-            options = listOf("Au musée.", "Au stade.", "À la poste."),
+            options = listOf("À la poste.", "Au stade.", "Au musée."),
             explanationAr = "نذهب إلى المتحف (Au musée) لمشاهدة الآثار والمعالم التاريخية والحضارية العظيمة."
         ),
         BookletOuVasTuItem(
@@ -3622,7 +3510,7 @@ object FrenchCourseData {
             expectedAnswerFr = "À l'hôpital.",
             alternativeAnswersFr = listOf("À l'hôpital.", "Chez le médecin.", "À la clinique.", "à l'hôpital"),
             answerAr = "إلى المستشفى (À l'hôpital) أو عند الطبيب (Chez le médecin).",
-            options = listOf("À l'hôpital.", "Au club.", "Au restaurant."),
+            options = listOf("À l'hôpital.", "Au restaurant.", "Au club."),
             explanationAr = "المستشفى (À l'hôpital) والعيادة هما المكانان الرسميان لإجراء الفحوصات الطبية واستشارة الطبيب."
         ),
         BookletOuVasTuItem(
@@ -3633,12 +3521,11 @@ object FrenchCourseData {
             expectedAnswerFr = "À la pharmacie.",
             alternativeAnswersFr = listOf("À la pharmacie.", "à la pharmacie"),
             answerAr = "إلى الصيدلية (À la pharmacie).",
-            options = listOf("À la pharmacie.", "À l'hôtel.", "Au café."),
+            options = listOf("À l'hôtel.", "Au café.", "À la pharmacie."),
             explanationAr = "الصيدلية (À la pharmacie) هي المكان الحصري لصرف وشراء الأدوية. كلمة مؤنثة تأخذ (à la)."
         )
     )
 
-    // 3- ص 39 و 40 : التمرين الثالث (3- Fais des Phrases?)
     val unit2FaisDesPhrasesItems = listOf(
         FaisDesPhrasesItem(
             id = "u2_fp_1",
@@ -3649,21 +3536,11 @@ object FrenchCourseData {
             complement = "une table",
             modelSentenceFr = "Je réserve une table au restaurant.",
             modelSentenceAr = "أنا أحجز طاولة في المطعم.",
-            alternativeSentences = listOf(
-                Pair("Jean a réservé une table pour 20 personnes.", "حجز جان طاولة لعشرين شخصاً."),
-                Pair("Nous réservons une table près de la fenêtre.", "نحن نحجز طاولة بجانب النافذة.")
-            ),
+            alternativeSentences = listOf(),
             scrambledWords = listOf("table", "Je", "au restaurant.", "réserve", "une"),
             correctOrder = listOf("Je", "réserve", "une", "table", "au restaurant."),
             grammarTipAr = "فعل (Réserver) مجموعة أولى ينتهي بـ (-er). يصرف مع Je بحذف النهاية وإضافة e ➔ (Je réserve). كلمة table مفرد مؤنث تأخذ أداة النكرة (une).",
-            conjugationSamples = listOf(
-                Pair("Je réserve", "أنا أحجز"),
-                Pair("Tu réserves", "أنت تحجز"),
-                Pair("Il / Elle réserve", "هو / هي يحجز"),
-                Pair("Nous réservons", "نحن نحجز"),
-                Pair("Vous réservez", "أنتم تحجزون"),
-                Pair("Ils / Elles réservent", "هم / هنّ يحجزون")
-            ),
+            conjugationSamples = listOf(),
             pageReference = "p. 39"
         ),
         FaisDesPhrasesItem(
@@ -3675,21 +3552,11 @@ object FrenchCourseData {
             complement = "au restaurant",
             modelSentenceFr = "Nous mangeons le déjeuner au restaurant.",
             modelSentenceAr = "نحن نأكل طعام الغداء في المطعم.",
-            alternativeSentences = listOf(
-                Pair("On a très bien mangé au restaurant hier.", "أكلنا طعاماً لذيذاً جداً في المطعم أمس."),
-                Pair("Je mange du poisson au restaurant.", "أنا آكل سمكاً في المطعم.")
-            ),
+            alternativeSentences = listOf(),
             scrambledWords = listOf("au restaurant.", "le déjeuner", "mangeons", "Nous"),
             correctOrder = listOf("Nous", "mangeons", "le déjeuner", "au restaurant."),
             grammarTipAr = "فعل (Manger) مجموعة أولى، مع (Nous) نضيف حرف e قبل النهاية للحفاظ على سلامة النطق: (Nous mangeons). اسم المكان restaurant مذكر يأخذ (au).",
-            conjugationSamples = listOf(
-                Pair("Je mange", "أنا آكل"),
-                Pair("Tu manges", "أنت تأكل"),
-                Pair("Il / Elle mange", "هو / هي يأكل"),
-                Pair("Nous mangeons", "نحن نأكل"),
-                Pair("Vous mangez", "أنتم تأكلون"),
-                Pair("Ils / Elles mangent", "هم / هنّ يأكلون")
-            ),
+            conjugationSamples = listOf(),
             pageReference = "p. 39"
         ),
         FaisDesPhrasesItem(
@@ -3701,21 +3568,11 @@ object FrenchCourseData {
             complement = "mes amis pour mon anniversaire le mardi",
             modelSentenceFr = "J'invite mes amis pour mon anniversaire le mardi.",
             modelSentenceAr = "أدعو أصدقائي لحفل عيد ميلادي يوم الثلاثاء.",
-            alternativeSentences = listOf(
-                Pair("Il invite ses copains pour son anniversaire le mardi.", "هو يدعو رفاقه لعيد ميلاده يوم الثلاثاء."),
-                Pair("Mardi prochain, j'invite ma famille à la fête.", "الثلاثاء القادم، أدعو أسرتي للحفل.")
-            ),
+            alternativeSentences = listOf(),
             scrambledWords = listOf("pour", "J'invite", "anniversaire", "mes amis", "mon", "le mardi."),
             correctOrder = listOf("J'invite", "mes amis", "pour", "mon", "anniversaire", "le mardi."),
             grammarTipAr = "فعل (Inviter) يبدأ بحرف متحرك، فيصبح مع ضمير المتكلم: (J'invite). أيام الأسبوع في الفرنسية تسبق بأداة المعرفة المذكرة (le mardi) للدلالة على الموعد.",
-            conjugationSamples = listOf(
-                Pair("J'invite", "أنا أدعو"),
-                Pair("Tu invites", "أنت تدعو"),
-                Pair("Il / Elle invite", "هو / هي يدعو"),
-                Pair("Nous invitons", "نحن ندعو"),
-                Pair("Vous invitez", "أنتم تدعون"),
-                Pair("Ils / Elles invitent", "هم / هنّ يدعون")
-            ),
+            conjugationSamples = listOf(),
             pageReference = "p. 40"
         ),
         FaisDesPhrasesItem(
@@ -3727,21 +3584,11 @@ object FrenchCourseData {
             complement = "au café",
             modelSentenceFr = "Je vais au café avec mes amis.",
             modelSentenceAr = "أنا أذهب إلى المقهى مع أصدقائي.",
-            alternativeSentences = listOf(
-                Pair("Nous allons au café pour boire du thé.", "نحن نذهب إلى المقهى لشرب الشاي."),
-                Pair("Mon père va au café le soir.", "يذهب والدي إلى المقهى في المساء.")
-            ),
+            alternativeSentences = listOf(),
             scrambledWords = listOf("au café", "Je", "vais", "avec", "mes amis."),
             correctOrder = listOf("Je", "vais", "au café", "avec", "mes amis."),
             grammarTipAr = "فعل (Aller) فعل شاذ من المجموعة الثالثة. تصريفه مع Je هو (Je vais) ومع Nous هو (Nous allons). كلمة café مذكر وتأخذ حرف الجر المدغم (au).",
-            conjugationSamples = listOf(
-                Pair("Je vais", "أنا أذهب"),
-                Pair("Tu vas", "أنت تذهب"),
-                Pair("Il / Elle va", "هو / هي يذهب"),
-                Pair("Nous allons", "نحن نذهب"),
-                Pair("Vous allez", "أنتم تذهبون"),
-                Pair("Ils / Elles vont", "هم / هنّ يذهبون")
-            ),
+            conjugationSamples = listOf(),
             pageReference = "p. 40"
         ),
         FaisDesPhrasesItem(
@@ -3753,26 +3600,15 @@ object FrenchCourseData {
             complement = "stagiaire",
             modelSentenceFr = "Je suis stagiaire à El Ahram Hebdo.",
             modelSentenceAr = "أنا متدرب في جريدة الأهرام إبدو.",
-            alternativeSentences = listOf(
-                Pair("Mon grand frère est stagiaire dans une grande entreprise.", "أخي الأكبر متدرب في شركة كبرى."),
-                Pair("Gamal est stagiaire au journal.", "جمال متدرب في الجريدة.")
-            ),
+            alternativeSentences = listOf(),
             scrambledWords = listOf("à El Ahram Hebdo.", "suis", "Je", "stagiaire"),
             correctOrder = listOf("Je", "suis", "stagiaire", "à El Ahram Hebdo."),
             grammarTipAr = "فعل الكينونة (Être) هو الرابط الأساسي بين الفاعل والصفة أو المسمى المهني: (Je suis stagiaire). لاحظ أن المسمى الوظيفي بعد être لا يسبق بأداة نكرة في هذا السياق.",
-            conjugationSamples = listOf(
-                Pair("Je suis", "أنا أكون"),
-                Pair("Tu es", "أنت تكون"),
-                Pair("Il / Elle est", "هو / هي يكون"),
-                Pair("Nous sommes", "نحن نكون"),
-                Pair("Vous êtes", "أنتم تكونون"),
-                Pair("Ils / Elles sont", "هم / هنّ يكونون")
-            ),
+            conjugationSamples = listOf(),
             pageReference = "p. 40"
         )
     )
 
-    // 4- ص 40 : موضوع التعبير الرسمي (Composition : Au restaurant)
     val unit2CompositionTopic = CompositionTopic(
         id = "u2_comp_restaurant",
         titleFr = "Un déjeuner au restaurant en famille",
@@ -3839,34 +3675,14 @@ object FrenchCourseData {
                 hint = "جملة ختامية تعبر عن المشاعر الإيجابية والانطباع العام."
             )
         ),
-        scrambleWords = listOf(
-            "Vendredi", "mon père", "nous", "a invités", "au restaurant.", "Le garçon", "a apporté", "le menu.",
-            "Comme entrée,", "de la salade.", "Comme plat principal,", "du poulet.", "Comme dessert,", "un gâteau.",
-            "C'était", "magnifique."
-        ),
+        scrambleWords = listOf("Vendredi", "mon père", "nous", "a invités", "au restaurant.", "Le garçon", "a apporté", "le menu.", "Comme entrée,", "de la salade.", "Comme plat principal,", "du poulet.", "Comme dessert,", "un gâteau.", "C'était", "magnifique."),
         fillBlankText = "Vendredi dernier, mon père nous a _____ au restaurant. Nous sommes allés en _____. Le _____ nous a apporté le menu. Comme entrée, nous avons pris de la _____. Comme plat principal, du _____ et du riz. Comme dessert, un gâteau au _____. Mon père a payé l'_____. C'était une fête _____ !",
         fillBlankSolutions = listOf("invités", "voiture", "garçon", "salade", "poulet", "chocolat", "addition", "magnifique")
     )
 
-    // =========================================================================
-    // 🍽️ كتيّب ص 41 و 42: الوجبات المقررة (Les Repas)
-    // =========================================================================
-    val unit2RepasTitleFr = "Les Repas"
-    val unit2RepasTitleAr = "الوجبات اليومية"
-    val unit2RepasQuestionFr = "Combien de repas y a-t-il par jour ?"
-    val unit2RepasQuestionAr = "كم عدد الوجبات في اليوم؟"
-    val unit2RepasAnswerFr = "Il y a trois repas par jour :"
-    val unit2RepasAnswerAr = "يوجد ثلاث وجبات يومياً :"
+    val unit2RepasList = listOf("[object Object]", "[object Object]", "[object Object]")
 
-    val unit2RepasList = listOf(
-        Pair("1. Le petit déjeuner", "وجبة الإفطار (في الصباح) 🥐"),
-        Pair("2. Le déjeuner", "وجبة الغداء (في منتصف النهار) 🍗"),
-        Pair("3. Le dîner", "وجبة العشاء (في المساء) 🥣")
-    )
-
-    // قائمة جميع الأطعمة والمشروبات الواردة في ص 41 و 42
     val unit2RepasItems = listOf(
-        // --- 1. Le Petit Déjeuner (Je mange) - ص 41 ---
         FoodDrinkItem(
             id = "repas_pd_m1",
             frenchWithArticle = "du pain",
@@ -3876,6 +3692,7 @@ object FrenchCourseData {
             arabic = "خبز",
             itemType = "mange",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "🥖",
             sampleSentenceFr = "Je mange du pain au petit déjeuner.",
             sampleSentenceAr = "أنا آكل خبزاً في وجبة الإفطار.",
@@ -3890,6 +3707,7 @@ object FrenchCourseData {
             arabic = "عسل",
             itemType = "mange",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "🍯",
             sampleSentenceFr = "Je mange du pain avec du miel.",
             sampleSentenceAr = "آكل خبزاً مع عسل نقي.",
@@ -3904,6 +3722,7 @@ object FrenchCourseData {
             arabic = "زبدة",
             itemType = "mange",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "🧈",
             sampleSentenceFr = "Je mets du beurre sur ma tartine.",
             sampleSentenceAr = "أضع زبدة على شريحة الخبز.",
@@ -3918,6 +3737,7 @@ object FrenchCourseData {
             arabic = "كرواسون",
             itemType = "mange",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "🥐",
             sampleSentenceFr = "J'aime manger du croissant chaud.",
             sampleSentenceAr = "أحب أكل الكرواسون الساخن.",
@@ -3932,6 +3752,7 @@ object FrenchCourseData {
             arabic = "مربى",
             itemType = "mange",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "🍓",
             sampleSentenceFr = "Je prends de la confiture de fraises.",
             sampleSentenceAr = "أتناول مربى الفراولة اللذيذة.",
@@ -3946,6 +3767,7 @@ object FrenchCourseData {
             arabic = "شريحة خبز مدهونة بالزبد أو المربى",
             itemType = "mange",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "🍞",
             sampleSentenceFr = "Je mange de la tartine au beurre et à la confiture.",
             sampleSentenceAr = "آكل شريحة خبز مدهونة بالزبد والمربى.",
@@ -3960,6 +3782,7 @@ object FrenchCourseData {
             arabic = "بيض",
             itemType = "mange",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "🥚",
             sampleSentenceFr = "Je mange des œufs au petit déjeuner.",
             sampleSentenceAr = "آكل بيضاً في الإفطار.",
@@ -3974,6 +3797,7 @@ object FrenchCourseData {
             arabic = "فول مدمس",
             itemType = "mange",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "🫘",
             sampleSentenceFr = "Les Égyptiens aiment manger des fèves le matin.",
             sampleSentenceAr = "يحب المصريون أكل الفول في الصباح.",
@@ -3988,13 +3812,12 @@ object FrenchCourseData {
             arabic = "جبن",
             itemType = "mange",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "🧀",
             sampleSentenceFr = "Je mange du pain avec du fromage blanc.",
             sampleSentenceAr = "آكل خبزاً مع جبن أبيض.",
             pageReference = "p. 41"
         ),
-
-        // --- 1. Le Petit Déjeuner (Je bois) - ص 41 ---
         FoodDrinkItem(
             id = "repas_pd_b1",
             frenchWithArticle = "du lait",
@@ -4004,6 +3827,7 @@ object FrenchCourseData {
             arabic = "حليب / لبن",
             itemType = "bois",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "🥛",
             sampleSentenceFr = "Mon petit frère boit du lait chaque matin.",
             sampleSentenceAr = "يشرب أخي الصغير حليباً كل صباح.",
@@ -4018,6 +3842,7 @@ object FrenchCourseData {
             arabic = "عصير",
             itemType = "bois",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "🧃",
             sampleSentenceFr = "Je bois du jus d'orange frais.",
             sampleSentenceAr = "أشرب عصير برتقال طازجاً.",
@@ -4032,6 +3857,7 @@ object FrenchCourseData {
             arabic = "شاي بالحليب",
             itemType = "bois",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "☕",
             sampleSentenceFr = "Mon père préfère boire du thé au lait.",
             sampleSentenceAr = "يفضل والدي شرب الشاي بالحليب.",
@@ -4046,6 +3872,7 @@ object FrenchCourseData {
             arabic = "عصير ليمون / ليمونادة",
             itemType = "bois",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "🍋",
             sampleSentenceFr = "Quand il fait chaud, je bois de la limonade.",
             sampleSentenceAr = "عندما يكون الجو حاراً، أشرب عصير ليمون.",
@@ -4060,6 +3887,7 @@ object FrenchCourseData {
             arabic = "ماء",
             itemType = "bois",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "💧",
             sampleSentenceFr = "Il faut boire beaucoup d'eau.",
             sampleSentenceAr = "يجب شرب الكثير من الماء يومياً.",
@@ -4074,13 +3902,12 @@ object FrenchCourseData {
             arabic = "قهوة",
             itemType = "bois",
             mealType = MealType.PETIT_DEJEUNER,
+            courseCategory = "",
             emoji = "☕",
             sampleSentenceFr = "Ma mère prend du café sans sucre.",
             sampleSentenceAr = "تتناول أمي القهوة بدون سكر.",
             pageReference = "p. 41"
         ),
-
-        // --- 2. Le Déjeuner (Je mange) - ص 41 ---
         FoodDrinkItem(
             id = "repas_dej_1",
             frenchWithArticle = "de la salade",
@@ -4171,8 +3998,6 @@ object FrenchCourseData {
             sampleSentenceAr = "كطبق رئيسي، آكل دجاجاً مع بطاطس مقلية.",
             pageReference = "p. 41"
         ),
-
-        // --- 3. Le Dîner (Je prends) - ص 42 ---
         FoodDrinkItem(
             id = "repas_din_1",
             frenchWithArticle = "du yaourt",
@@ -4182,6 +4007,7 @@ object FrenchCourseData {
             arabic = "زبادي",
             itemType = "mange",
             mealType = MealType.DINER,
+            courseCategory = "",
             emoji = "🥣",
             sampleSentenceFr = "Le soir, je prends du yaourt avant de dormir.",
             sampleSentenceAr = "في المساء، أتناول زبادي قبل النوم.",
@@ -4196,6 +4022,7 @@ object FrenchCourseData {
             arabic = "فواكه",
             itemType = "mange",
             mealType = MealType.DINER,
+            courseCategory = "",
             emoji = "🍇",
             sampleSentenceFr = "Pour le dîner, je prends des fruits frais.",
             sampleSentenceAr = "لوجبة العشاء، أتناول فواكه طازجة.",
@@ -4210,13 +4037,12 @@ object FrenchCourseData {
             arabic = "كيك / جاتوه",
             itemType = "mange",
             mealType = MealType.DINER,
+            courseCategory = "",
             emoji = "🍰",
             sampleSentenceFr = "Au dîner, je prends une part du gâteau.",
             sampleSentenceAr = "في العشاء، أتناول قطعة جاتوه.",
             pageReference = "p. 42"
         ),
-
-        // --- 4. Les Desserts (Je prends) - ص 42 ---
         FoodDrinkItem(
             id = "repas_des_1",
             frenchWithArticle = "du gâteau",
@@ -4279,14 +4105,13 @@ object FrenchCourseData {
         )
     )
 
-    // بنك أسئلة وتدريبات تفاعلية خاصة بصفحتي 41 و 42 (Les Repas)
     val unit2RepasQuizList = listOf(
         RepasQuizItem(
             id = "rq_1",
             questionFr = "Combien de repas y a-t-il par jour ?",
             questionAr = "كم عدد الوجبات المقررة في اليوم الواحد وفقاً لكتاب المعهد؟",
-            options = listOf("Deux repas", "Trois repas", "Quatre repas", "Un seul repas"),
-            correctIndex = 1,
+            options = listOf("Trois repas", "Un seul repas", "Quatre repas", "Deux repas"),
+            correctIndex = 0,
             explanationAr = "نص الكتيّب ص 41: « Il y a trois repas par jour : le petit déjeuner, le déjeuner, le dîner ».",
             tip = "احفظ هذا السؤال بنصه فهو سؤال امتحانات متكرر!"
         ),
@@ -4294,8 +4119,8 @@ object FrenchCourseData {
             id = "rq_2",
             questionFr = "Au petit déjeuner, pour boire je prends :",
             questionAr = "في وجبة الإفطار، للشرب أتناول :",
-            options = listOf("du fromage", "du thé au lait", "de la confiture", "des œufs"),
-            correctIndex = 1,
+            options = listOf("des œufs", "de la confiture", "du thé au lait", "du fromage"),
+            correctIndex = 2,
             explanationAr = "الشاي بالحليب (du thé au lait) من المشروبات (Je bois)، بينما الجبن والمربى والبيض أطعمة تؤكل (Je mange).",
             tip = "انتبه لفعل الجملة: boire = يشرب، manger = يأكل."
         ),
@@ -4303,8 +4128,8 @@ object FrenchCourseData {
             id = "rq_3",
             questionFr = "Comme entrée au déjeuner, nous mangeons :",
             questionAr = "كمقبلات في وجبة الغداء، نأكل :",
-            options = listOf("de la salade", "du poisson", "de la tarte", "des frites"),
-            correctIndex = 0,
+            options = listOf("du poisson", "de la salade", "des frites", "de la tarte"),
+            correctIndex = 1,
             explanationAr = "وفقاً لص 41: كـ entrée مقبلات نأكل (de la salade). والسمك والبطاطس طبق رئيسي (plat principal).",
             tip = "Comme entrée = كمقبلات في بداية الوجبة."
         ),
@@ -4312,8 +4137,8 @@ object FrenchCourseData {
             id = "rq_4",
             questionFr = "Comme plat principal, mon père commande :",
             questionAr = "كطبق رئيسي، يطلب والدي :",
-            options = listOf("de la glace", "du poulet avec du riz", "de la confiture", "du thé"),
-            correctIndex = 1,
+            options = listOf("de la confiture", "de la glace", "du thé", "du poulet avec du riz"),
+            correctIndex = 3,
             explanationAr = "الطبق الرئيسي (plat principal) ص 41 يشمل: du riz, du poulet, du poisson, de la viande, des frites.",
             tip = "plat principal = الطبق الرئيسي الأساسي للغداء."
         ),
@@ -4321,8 +4146,8 @@ object FrenchCourseData {
             id = "rq_5",
             questionFr = "Au dîner, je prends du yaourt, des fruits ou comme :",
             questionAr = "في العشاء، أتناول زبادي وفواكه أو مثل :",
-            options = listOf("le stade", "le petit déjeuner", "la gare", "le train"),
-            correctIndex = 1,
+            options = listOf("le petit déjeuner", "la gare", "le train", "le stade"),
+            correctIndex = 0,
             explanationAr = "نص ص 42: « 3- le dîner: Je prends du yaourt, des fruits, du gâteau. Ou comme le petit déjeuner. »",
             tip = "وجبة العشاء تكون خفيفة أو مثل وجبة الإفطار."
         ),
@@ -4330,8 +4155,8 @@ object FrenchCourseData {
             id = "rq_6",
             questionFr = "Comme dessert, Suzanne adore prendre :",
             questionAr = "كحلوى بعد الأكل، تعشق سوزان تناول :",
-            options = listOf("des fèves", "du beurre", "de la glace", "du pain"),
-            correctIndex = 2,
+            options = listOf("du beurre", "de la glace", "des fèves", "du pain"),
+            correctIndex = 1,
             explanationAr = "الحلويات (Les desserts) المقررة ص 42 هي: du gâteau, de la tarte, de la glace, des fruits.",
             tip = "de la glace = مثلجات / آيس كريم (مفرد مؤنث)."
         ),
@@ -4339,8 +4164,8 @@ object FrenchCourseData {
             id = "rq_7",
             questionFr = "Je bois toujours ..... eau fraîche à midi.",
             questionAr = "أنا أشرب دائماً ..... ماء عذباً ظهراً.",
-            options = listOf("du", "de la", "de l'", "des"),
-            correctIndex = 2,
+            options = listOf("de l'", "des", "de la", "du"),
+            correctIndex = 0,
             explanationAr = "كلمة eau تبدأ بحرف متحرك (e)، فتأخذ أداة التجزئة (de l').",
             tip = "الاسم المفرد الذي يبدأ بحرف متحرك يأخذ دائماً (de l')."
         ),
@@ -4348,8 +4173,8 @@ object FrenchCourseData {
             id = "rq_8",
             questionFr = "Le matin, les Égyptiens mangent souvent ..... fèves.",
             questionAr = "في الصباح، يأكل المصريون غالباً ..... فول.",
-            options = listOf("du", "de la", "des", "de l'"),
-            correctIndex = 2,
+            options = listOf("de la", "de l'", "du", "des"),
+            correctIndex = 3,
             explanationAr = "كلمة fèves جمع تنتهي بـ s، لذا تأخذ أداة التجزئة للجمع (des).",
             tip = "des fèves = الفول (جمع)."
         ),
@@ -4357,8 +4182,8 @@ object FrenchCourseData {
             id = "rq_9",
             questionFr = "Je mange ..... tartine beurrée pour le petit déjeuner.",
             questionAr = "آكل ..... شريحة خبز بالزبدة في الإفطار.",
-            options = listOf("du", "de la", "de l'", "des"),
-            correctIndex = 1,
+            options = listOf("des", "du", "de la", "de l'"),
+            correctIndex = 2,
             explanationAr = "كلمة tartine مفرد مؤنث في الفرنسية، لذا تأخذ أداة التجزئة (de la).",
             tip = "de la tartine = شريحة خبز مدهونة (مؤنث)."
         ),
@@ -4366,11 +4191,10 @@ object FrenchCourseData {
             id = "rq_10",
             questionFr = "Le soir, mon frère prend ..... yaourt nature.",
             questionAr = "في المساء، يتناول أخي ..... زبادي طبيعي.",
-            options = listOf("du", "de l'", "de la", "des"),
-            correctIndex = 0,
+            options = listOf("de l'", "de la", "des", "du"),
+            correctIndex = 3,
             explanationAr = "انتبه جيداً: كلمة yaourt مفرد مذكر في الفرنسية ولا تعامل كحرف متحرك مع التجزئة بل تأخذ (du yaourt).",
             tip = "قاعدة ذهبية: du yaourt (مذكر بأداة du)."
         )
     )
 }
-

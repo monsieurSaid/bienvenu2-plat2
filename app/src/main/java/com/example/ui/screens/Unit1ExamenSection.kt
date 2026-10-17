@@ -1038,6 +1038,11 @@ private fun ExamenChoixQuestion(
     showModel: Boolean,
     onSelect: (Int) -> Unit
 ) {
+    val shuffledIndices = remember(number, prompt, options) { options.indices.shuffled() }
+    val hasAlphaPrefix = remember(number, prompt, options) {
+        options.isNotEmpty() && options.all { it.matches(Regex("^[a-dA-D]\\)\\s+.*")) }
+    }
+
     Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
         Text(
             text = "$number- $prompt",
@@ -1047,9 +1052,15 @@ private fun ExamenChoixQuestion(
         )
 
         Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            options.forEachIndexed { index, optionText ->
-                val isSelected = selectedIndex == index
-                val isCorrect = index == correctIndex
+            shuffledIndices.forEachIndexed { displayPos, origIndex ->
+                val rawOptionText = options[origIndex]
+                val optionText = if (hasAlphaPrefix) {
+                    "${'a' + displayPos}) " + rawOptionText.replace(Regex("^[a-dA-D]\\)\\s+"), "")
+                } else {
+                    rawOptionText
+                }
+                val isSelected = selectedIndex == origIndex
+                val isCorrect = origIndex == correctIndex
 
                 val (bgColor, borderColor, textColor) = when {
                     showModel && isCorrect -> Triple(Emerald100, Emerald500, Emerald700)
@@ -1064,7 +1075,7 @@ private fun ExamenChoixQuestion(
                     border = BorderStroke(if (isSelected || (showModel && isCorrect)) 2.dp else 1.dp, borderColor),
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable { onSelect(index) }
+                        .clickable { onSelect(origIndex) }
                 ) {
                     Row(
                         modifier = Modifier
@@ -1203,6 +1214,8 @@ private fun ExamenOpenQuestion(
     showModel: Boolean,
     onSelect: (Int) -> Unit
 ) {
+    val shuffledIndices = remember(number, question, options) { options.indices.shuffled() }
+
     Surface(
         shape = RoundedCornerShape(12.dp),
         color = Slate50,
@@ -1221,9 +1234,10 @@ private fun ExamenOpenQuestion(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(6.dp)
             ) {
-                options.forEachIndexed { index, option ->
-                    val isSelected = selectedIndex == index
-                    val isCorrect = index == correctIndex
+                shuffledIndices.forEach { origIndex ->
+                    val option = options[origIndex]
+                    val isSelected = selectedIndex == origIndex
+                    val isCorrect = origIndex == correctIndex
 
                     Surface(
                         shape = RoundedCornerShape(8.dp),
@@ -1239,7 +1253,7 @@ private fun ExamenOpenQuestion(
                         ),
                         modifier = Modifier
                             .weight(1f)
-                            .clickable { onSelect(index) }
+                            .clickable { onSelect(origIndex) }
                     ) {
                         Box(modifier = Modifier.padding(vertical = 8.dp), contentAlignment = Alignment.Center) {
                             Text(
@@ -1275,6 +1289,8 @@ private fun ExamenQuiParleItem(
     showModel: Boolean,
     onSelect: (String) -> Unit
 ) {
+    val shuffledOptions = remember(number, sentence, options) { options.shuffled() }
+
     Surface(
         shape = RoundedCornerShape(12.dp),
         color = Slate50,
@@ -1293,7 +1309,7 @@ private fun ExamenQuiParleItem(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(6.dp)
             ) {
-                options.forEach { person ->
+                shuffledOptions.forEach { person ->
                     val isSelected = selectedPerson == person
                     val isCorrect = person == correctPerson
 

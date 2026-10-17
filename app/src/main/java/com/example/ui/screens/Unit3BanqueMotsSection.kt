@@ -773,8 +773,8 @@ private fun getUnit3VocabQuizQuestions(): List<QuizQuestion> = listOf(
     QuizQuestion(
         id = "u3_bm_q1",
         question = "1. Que signifie « un thermomètre » ?",
-        options = listOf("ميزان حرارة 🌡️", "مقص ✂️", "سرنجة 💉", "دواء 💊"),
-        correctIndex = 0,
+        options = listOf("سرنجة 💉", "ميزان حرارة 🌡️", "دواء 💊", "مقص ✂️"),
+        correctIndex = 1,
         pageReference = "p. 62",
         explanation = "un thermomètre = ميزان حرارة (لقياس درجة الحرارة).",
         arabicTranslation = "ما معنى كلمة « un thermomètre » ؟ ➔ ميزان حرارة."
@@ -782,7 +782,7 @@ private fun getUnit3VocabQuizQuestions(): List<QuizQuestion> = listOf(
     QuizQuestion(
         id = "u3_bm_q2",
         question = "2. Le mot « ordonnance » (روشتة) est un nom :",
-        options = listOf("Féminin (مؤنث) ➔ une ordonnance", "Masculin (مذكر)", "Verbe (فعل)", "Adjectif (صفة)"),
+        options = listOf("Féminin (مؤنث) ➔ une ordonnance", "Adjectif (صفة)", "Masculin (مذكر)", "Verbe (فعل)"),
         correctIndex = 0,
         pageReference = "p. 62",
         explanation = "Le mot ordonnance est féminin : « une ordonnance ».",
@@ -791,8 +791,8 @@ private fun getUnit3VocabQuizQuestions(): List<QuizQuestion> = listOf(
     QuizQuestion(
         id = "u3_bm_q3",
         question = "3. « un calmant » signifie en arabe :",
-        options = listOf("مهدىء / مسكن", "تقرير", "رباط طبي", "مستشفى"),
-        correctIndex = 0,
+        options = listOf("تقرير", "مستشفى", "مهدىء / مسكن", "رباط طبي"),
+        correctIndex = 2,
         pageReference = "p. 62",
         explanation = "un calmant = مهدىء أو مسكن للآلام.",
         arabicTranslation = "كلمة « un calmant » تعني باللغة العربية: مهدىء / مسكن."
@@ -800,7 +800,7 @@ private fun getUnit3VocabQuizQuestions(): List<QuizQuestion> = listOf(
     QuizQuestion(
         id = "u3_bm_q4",
         question = "4. Quel est le sens de « le ventre » dans les parties du corps ?",
-        options = listOf("البطن", "الظهر", "الساق", "الرأس"),
+        options = listOf("البطن", "الرأس", "الساق", "الظهر"),
         correctIndex = 0,
         pageReference = "p. 62",
         explanation = "le ventre = البطن (وهو اسم مذكر : au ventre).",
@@ -809,8 +809,8 @@ private fun getUnit3VocabQuizQuestions(): List<QuizQuestion> = listOf(
     QuizQuestion(
         id = "u3_bm_q5",
         question = "5. « des ciseaux » (مقص) est un mot :",
-        options = listOf("Masculin pluriel (مذكر جمع)", "Féminin singulier (مؤنث مفرد)", "Féminin pluriel (مؤنث جمع)"),
-        correctIndex = 0,
+        options = listOf("Féminin pluriel (مؤنث جمع)", "Masculin pluriel (مذكر جمع)", "Féminin singulier (مؤنث مفرد)"),
+        correctIndex = 1,
         pageReference = "p. 62",
         explanation = "des ciseaux est un nom masculin pluriel.",
         arabicTranslation = "كلمة « des ciseaux » (مقص) اسم مذكر جمع."
@@ -818,8 +818,8 @@ private fun getUnit3VocabQuizQuestions(): List<QuizQuestion> = listOf(
     QuizQuestion(
         id = "u3_bm_q6",
         question = "6. Comment dit-on « أشعة » en français ?",
-        options = listOf("une radiographie 🩻", "une piqûre 💉", "une ambulance 🚑", "un accident 🚗"),
-        correctIndex = 0,
+        options = listOf("un accident 🚗", "une piqûre 💉", "une ambulance 🚑", "une radiographie 🩻"),
+        correctIndex = 3,
         pageReference = "p. 62",
         explanation = "أشعة = une radiographie.",
         arabicTranslation = "كيف نقول « أشعة » بالفرنسية؟ ➔ une radiographie."
@@ -827,8 +827,8 @@ private fun getUnit3VocabQuizQuestions(): List<QuizQuestion> = listOf(
     QuizQuestion(
         id = "u3_bm_q7",
         question = "7. Laquelle de ces parties du corps est FÉMININE ?",
-        options = listOf("la jambe (الساق)", "le bras (الذراع)", "le dos (الظهر)", "le genou (الركبة)"),
-        correctIndex = 0,
+        options = listOf("le bras (الذراع)", "la jambe (الساق)", "le genou (الركبة)", "le dos (الظهر)"),
+        correctIndex = 1,
         pageReference = "p. 62",
         explanation = "la jambe est féminin (on dit: à la jambe). Les autres sont masculins (le bras, le dos, le genou).",
         arabicTranslation = "أي من هذه الأعضاء اسم مؤنث؟ ➔ la jambe (الساق)."
@@ -836,8 +836,8 @@ private fun getUnit3VocabQuizQuestions(): List<QuizQuestion> = listOf(
     QuizQuestion(
         id = "u3_bm_q8",
         question = "8. « l'estomac » (المعدة) commence par :",
-        options = listOf("Une voyelle (حرف متحرك) ➔ à l'estomac", "Une consonne (حرف ساكن)", "Un mot invariable"),
-        correctIndex = 0,
+        options = listOf("Un mot invariable", "Une consonne (حرف ساكن)", "Une voyelle (حرف متحرك) ➔ à l'estomac"),
+        correctIndex = 2,
         pageReference = "p. 62",
         explanation = "l'estomac commence par la voyelle 'e' ➔ à l'estomac.",
         arabicTranslation = "المعدة « l'estomac » تبدأ بحرف متحرك 'e' ولذلك تأخذ à l'."

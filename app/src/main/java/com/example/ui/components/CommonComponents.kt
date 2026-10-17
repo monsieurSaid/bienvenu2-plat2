@@ -392,6 +392,23 @@ fun InteractiveQuizCard(
     var hasAwardedPoint by remember(question.id) { mutableStateOf(false) }
     var showTranslation by remember(question.id) { mutableStateOf(false) }
 
+    val shuffledIndices = remember(question.id, question.options) {
+        val isVraiFaux = question.options.size == 2 &&
+                question.options.any { it.contains("Vrai", ignoreCase = true) } &&
+                question.options.any { it.contains("Faux", ignoreCase = true) }
+        if (isVraiFaux) {
+            val vraiIdx = question.options.indexOfFirst { it.contains("Vrai", ignoreCase = true) }
+            val fauxIdx = question.options.indexOfFirst { it.contains("Faux", ignoreCase = true) }
+            if (vraiIdx >= 0 && fauxIdx >= 0) listOf(vraiIdx, fauxIdx) else question.options.indices.toList()
+        } else {
+            question.options.indices.shuffled()
+        }
+    }
+
+    val hasAlphaPrefix = remember(question.id, question.options) {
+        question.options.isNotEmpty() && question.options.all { it.matches(Regex("^[a-dA-D]\\)\\s+.*")) }
+    }
+
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(18.dp),
@@ -452,9 +469,15 @@ fun InteractiveQuizCard(
             Spacer(modifier = Modifier.height(10.dp))
 
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                question.options.forEachIndexed { index, optionText ->
-                    val isSelected = selectedOptionIndex == index
-                    val isCorrect = index == question.correctIndex
+                shuffledIndices.forEachIndexed { displayPos, origIndex ->
+                    val rawOptionText = question.options[origIndex]
+                    val optionText = if (hasAlphaPrefix) {
+                        "${'a' + displayPos}) " + rawOptionText.replace(Regex("^[a-dA-D]\\)\\s+"), "")
+                    } else {
+                        rawOptionText
+                    }
+                    val isSelected = selectedOptionIndex == origIndex
+                    val isCorrect = origIndex == question.correctIndex
                     val isChecked = selectedOptionIndex != null
 
                     val (bgColor, borderColor, textColor) = when {
@@ -473,7 +496,7 @@ fun InteractiveQuizCard(
                             .defaultMinSize(minHeight = 48.dp)
                             .border(1.dp, borderColor, RoundedCornerShape(12.dp))
                             .clickable(enabled = selectedOptionIndex == null) {
-                                selectedOptionIndex = index
+                                selectedOptionIndex = origIndex
                                 if (isCorrect) {
                                     audioHelper.playSuccessChime()
                                     if (!hasAwardedPoint) {
@@ -484,7 +507,7 @@ fun InteractiveQuizCard(
                                     audioHelper.playErrorBuzz()
                                 }
                             }
-                            .testTag("quiz_option_${question.id}_$index")
+                            .testTag("quiz_option_${question.id}_$displayPos")
                     ) {
                         Row(
                             modifier = Modifier

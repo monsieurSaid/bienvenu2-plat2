@@ -332,8 +332,10 @@ private fun SituationsOfficialExercisesMode(
                 // Options (a, b, c)
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     val letters = listOf("a", "b", "c")
-                    situation.options.forEachIndexed { optIndex, option ->
-                        val letter = letters.getOrElse(optIndex) { "${optIndex + 1}" }
+                    val shuffledIndices = remember(situation.id) { situation.options.indices.shuffled() }
+                    shuffledIndices.forEachIndexed { displayPos, optIndex ->
+                        val option = situation.options[optIndex]
+                        val letter = letters.getOrElse(displayPos) { "${displayPos + 1}" }
                         val isSelected = selectedOption == optIndex
                         val isThisCorrect = option.isCorrect
 
@@ -660,7 +662,9 @@ private fun SituationsChatSimulationMode(
         )
 
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            currentSituation.options.forEachIndexed { optIndex, option ->
+            val shuffledIndices = remember(currentSituation.id) { currentSituation.options.indices.shuffled() }
+            shuffledIndices.forEach { optIndex ->
+                val option = currentSituation.options[optIndex]
                 val isSelected = selectedResponseIndex == optIndex
                 val isCorrect = option.isCorrect
 

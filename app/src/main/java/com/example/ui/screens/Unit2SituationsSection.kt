@@ -460,7 +460,9 @@ private fun SituationsQuizView(
 
                     // Options a, b, c
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                        item.options.forEach { opt ->
+                        val shuffledIndices = remember(item.id) { item.options.indices.shuffled() }
+                        shuffledIndices.forEach { optIdx ->
+                            val opt = item.options[optIdx]
                             val isThisSelected = chosenKey == opt.key
                             val isThisTheCorrectAnswer = opt.key == item.correctKey
 

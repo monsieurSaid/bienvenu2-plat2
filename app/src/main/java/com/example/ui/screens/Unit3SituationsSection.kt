@@ -428,7 +428,9 @@ private fun Unit3SituationsQuizView(
 
                     // Options list (a, b, c)
                     Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                        item.options.forEach { opt ->
+                        val shuffledIndices = remember(item.id) { item.options.indices.shuffled() }
+                        shuffledIndices.forEach { optIdx ->
+                            val opt = item.options[optIdx]
                             val isThisSelected = chosenKey == opt.key
                             val isThisCorrect = opt.key == item.correctKey
 

@@ -3680,7 +3680,11 @@ object FrenchCourseData {
         fillBlankSolutions = listOf("invités", "voiture", "garçon", "salade", "poulet", "chocolat", "addition", "magnifique")
     )
 
-    val unit2RepasList = listOf("[object Object]", "[object Object]", "[object Object]")
+    val unit2RepasList = listOf(
+        Pair("1. Le petit déjeuner", "وجبة الإفطار (في الصباح) 🥐"),
+        Pair("2. Le déjeuner", "وجبة الغداء (في منتصف النهار) 🍗"),
+        Pair("3. Le dîner", "وجبة العشاء (في المساء) 🥣")
+    )
 
     val unit2RepasItems = listOf(
         FoodDrinkItem(

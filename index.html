@@ -2418,6 +2418,12 @@ function renderQuizQuestionsList(questions) {
       <span>ترجمة</span>
     </button>
   ` : ''}
+  ${item.activityAr ? `
+    <button type="button" onclick="toggleCardTranslation(this)" class="px-2.5 py-1 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center gap-1.5 transition text-xs font-bold shrink-0" title="ترجمة">
+      <i class="fa-solid fa-language text-indigo-600"></i>
+      <span>ترجمة</span>
+    </button>
+  ` : ''}
   <button onclick="speakText('Pour ${item.activityFr.replace(/['"\\n]/g, ' ')} Je vais ${item.expectedAnswerFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
                       </div>
                       <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" dir="ltr">
@@ -2481,6 +2487,12 @@ function renderQuizQuestionsList(questions) {
   ` : ''}
                         </div>
                         ${item.quoteAr ? `
+    <button type="button" onclick="toggleCardTranslation(this)" class="px-2.5 py-1 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center gap-1.5 transition text-xs font-bold shrink-0" title="ترجمة">
+      <i class="fa-solid fa-language text-indigo-600"></i>
+      <span>ترجمة</span>
+    </button>
+  ` : ''}
+  ${item.quoteAr ? `
     <button type="button" onclick="toggleCardTranslation(this)" class="px-2.5 py-1 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center gap-1.5 transition text-xs font-bold shrink-0" title="ترجمة">
       <i class="fa-solid fa-language text-indigo-600"></i>
       <span>ترجمة</span>
@@ -3196,7 +3208,11 @@ function renderQuizQuestionsList(questions) {
                       <div class="flex items-start justify-between gap-3">
                         <div class="space-y-0.5">
                           <p class="font-french font-black text-slate-900 text-sm sm:text-base" dir="ltr">« ${item.quoteFr} »</p>
-                          <p class="text-xs text-slate-500 font-sans">${item.quoteAr}</p>
+                          ${item.quoteAr ? `
+    <div class="card-translation hidden mt-1.5 p-2 rounded-xl bg-amber-50/90 border border-amber-200/80 text-xs text-slate-700 font-sans leading-relaxed">
+      <span class="font-bold text-amber-900">الترجمة:</span> ${item.quoteAr}
+    </div>
+  ` : ''}
                         </div>
                         <button onclick="speakText('${item.quoteFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
                       </div>
@@ -3249,7 +3265,11 @@ function renderQuizQuestionsList(questions) {
                       <div class="flex items-start justify-between gap-3">
                         <div class="space-y-0.5">
                           <p class="font-french font-black text-slate-900 text-sm sm:text-base" dir="ltr">Pour ${item.activityFr} ➔</p>
-                          <p class="text-xs text-slate-500 font-sans">${item.activityAr}</p>
+                          ${item.activityAr ? `
+    <div class="card-translation hidden mt-1.5 p-2 rounded-xl bg-amber-50/90 border border-amber-200/80 text-xs text-slate-700 font-sans leading-relaxed">
+      <span class="font-bold text-amber-900">الترجمة:</span> ${item.activityAr}
+    </div>
+  ` : ''}
                         </div>
                         <button onclick="speakText('Pour ${item.activityFr.replace(/['"\\n]/g, ' ')} Je vais ${item.expectedAnswerFr.replace(/['"\\n]/g, ' ')}')" class="w-8 h-8 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-volume-high"></i></button>
                       </div>

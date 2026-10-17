@@ -82,11 +82,11 @@
           </div>
           <div class="flex-1 min-w-0">
             <div class="flex items-center justify-between gap-1 mb-1">
-              <span class="text-sm sm:text-base font-black text-emerald-900 group-hover:text-emerald-950">🎁 جرّب مجانًا لمدة 24 ساعة</span>
+              <span class="text-sm sm:text-base font-black text-emerald-900 group-hover:text-emerald-950">🎁 جرّب مجانًا لمدة أسبوع (7 أيام)</span>
               <span class="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-600 text-white flex-shrink-0">بدون كود تفعيل</span>
             </div>
             <p class="text-[11px] sm:text-xs text-emerald-800 font-medium leading-relaxed">
-              فتح تجريبي مجاني شامل لكل الدروس، القواعد، بنوك الأسئلة، والامتحانات فوراً باسم المستخدم فقط.
+              فتح تجريبي مجاني شامل لكل الدروس والقواعد والامتحانات مجاناً لمدة أسبوع كامل باسم المستخدم.
             </p>
           </div>
         </button>
@@ -177,16 +177,16 @@
         <button onclick="showAccessView('welcome')" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-xs transition">
           <i class="fa-solid fa-arrow-right"></i>
         </button>
-        <span class="text-xs font-bold text-emerald-600"><i class="fa-solid fa-clock ml-1"></i> تجربة 24 ساعة مجاناً</span>
+        <span class="text-xs font-bold text-emerald-600"><i class="fa-solid fa-clock ml-1"></i> تجربة أسبوع كامل (7 أيام) مجاناً</span>
       </div>
 
       <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl shadow-inner border border-emerald-100">
         <i class="fa-solid fa-gift"></i>
       </div>
 
-      <h3 class="text-xl font-black text-slate-800 mb-1">بدء التجربة المجانية (24 ساعة)</h3>
+      <h3 class="text-xl font-black text-slate-800 mb-1">بدء التجربة المجانية (7 أيام)</h3>
       <p class="text-xs text-slate-500 mb-5 leading-relaxed">
-        أدخل اسم المستخدم للبدء فوراً وتجربة جميع أقسام المنهج والامتحانات دون الحاجة لكود تفعيل.
+        أدخل اسم المستخدم للبدء فوراً وتجربة جميع أقسام المنهج مجاناً لمدة أسبوع. الميزة متاحة لمرة واحدة فقط لكل جهاز.
       </p>
 
       <form onsubmit="handleTrialSubmit(event)" class="space-y-3.5 text-right">
@@ -431,7 +431,7 @@
               <i class="fa-solid fa-clock"></i>
             </div>
             <div id="adminStatActiveTrials" class="text-2xl font-black text-blue-950 font-mono">...</div>
-            <span class="text-[10px] text-blue-600">خلال 24 ساعة</span>
+            <span class="text-[10px] text-blue-600">خلال 7 أيام</span>
           </div>
 
           <div class="bg-amber-50/70 p-3.5 rounded-2xl border border-amber-100">
@@ -5514,6 +5514,12 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
     // Secure persistent device fingerprinting (hardware/browser bound)
     function getDeviceIdentifier() {
       try {
+        if (typeof window !== 'undefined' && window.AndroidDeviceBridge && typeof window.AndroidDeviceBridge.getHardwareDeviceId === 'function') {
+          const hwId = window.AndroidDeviceBridge.getHardwareDeviceId();
+          if (hwId && hwId.length > 3) return hwId;
+        }
+      } catch (e) {}
+      try {
         let devId = localStorage.getItem('bienvenu2_device_id');
         if (!devId) {
           const arr = new Uint8Array(16);
@@ -5529,6 +5535,61 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
       } catch (e) {
         return 'dev_default_' + navigator.userAgent.slice(0, 16).replace(/[^a-zA-Z0-9]/g, '');
       }
+    }
+
+    // Check if free trial was already used on this hardware/browser device
+    function isDeviceTrialUsed(deviceId) {
+      try {
+        if (typeof window !== 'undefined' && window.AndroidDeviceBridge && typeof window.AndroidDeviceBridge.hasDeviceUsedTrial === 'function') {
+          if (window.AndroidDeviceBridge.hasDeviceUsedTrial()) return true;
+        }
+      } catch (e) {}
+
+      try {
+        if (localStorage.getItem('bienvenu2_device_trial_used') === 'true') return true;
+
+        const currentDev = deviceId || getDeviceIdentifier();
+        const usedDevicesRaw = localStorage.getItem('bienvenu2_used_trial_devices');
+        if (usedDevicesRaw) {
+          const usedList = JSON.parse(usedDevicesRaw);
+          if (Array.isArray(usedList) && (usedList.includes(currentDev) || usedList.includes(getDeviceIdentifier()))) {
+            return true;
+          }
+        }
+
+        const registryRaw = localStorage.getItem('bienvenu2_students_registry');
+        if (registryRaw) {
+          const registry = JSON.parse(registryRaw);
+          if (Array.isArray(registry)) {
+            const hasTrialOnDev = registry.some(s =>
+              s.accessType === 'TRIAL' && (s.bound_device_id === currentDev || s.bound_device_id === getDeviceIdentifier())
+            );
+            if (hasTrialOnDev) return true;
+          }
+        }
+      } catch (e) {}
+
+      return false;
+    }
+
+    // Mark device as having used its one-time free trial
+    function markDeviceTrialUsed(deviceId) {
+      try {
+        if (typeof window !== 'undefined' && window.AndroidDeviceBridge && typeof window.AndroidDeviceBridge.markDeviceTrialUsed === 'function') {
+          window.AndroidDeviceBridge.markDeviceTrialUsed();
+        }
+      } catch (e) {}
+
+      try {
+        localStorage.setItem('bienvenu2_device_trial_used', 'true');
+        let usedList = [];
+        try {
+          usedList = JSON.parse(localStorage.getItem('bienvenu2_used_trial_devices') || '[]');
+        } catch (e) { usedList = []; }
+        const devId = deviceId || getDeviceIdentifier();
+        if (!usedList.includes(devId)) usedList.push(devId);
+        localStorage.setItem('bienvenu2_used_trial_devices', JSON.stringify(usedList));
+      } catch (e) {}
     }
 
     // Server-Authoritative API helper with fast fallback detection
@@ -5667,7 +5728,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
       }
     }
 
-    // 2. Free Trial Enrollment Handler (Server API + Standalone 24h Trial Fallback)
+    // 2. Free Trial Enrollment Handler (Server API + Standalone 7-Day Trial Fallback)
     async function handleTrialSubmit(event) {
       if (event) event.preventDefault();
       const usernameInput = document.getElementById('trialUsernameInput');
@@ -5683,6 +5744,16 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
         return;
       }
 
+      const currentDevId = getDeviceIdentifier();
+
+      // Check if this hardware/browser device has already used the 1-time free trial
+      if (isDeviceTrialUsed(currentDevId)) {
+        playErrorSound();
+        errBox.innerText = 'عذراً، تم استخدام الفترة التجريبية المجانية على هذا الجهاز من قبل. لا يمكنك بدء تجربة مجانية جديدة على نفس الجهاز، ولكن يمكنك تسجيل الدخول باستخدام كود تفعيل مدفوع.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+
       submitBtn.disabled = true;
       try {
         try {
@@ -5690,7 +5761,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
             method: 'POST',
             body: JSON.stringify({
               username: rawUsername,
-              deviceId: getDeviceIdentifier()
+              deviceId: currentDevId
             })
           });
           const data = await resp.json().catch(() => ({}));
@@ -5700,6 +5771,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
             errBox.classList.remove('hidden');
             return;
           }
+          markDeviceTrialUsed(currentDevId);
           currentUser = saveLocalSession(data.user);
           playSuccessSound();
           if (typeof confetti === 'function') confetti({ particleCount: 120, spread: 80 });
@@ -5707,9 +5779,10 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
           showAccessView('none');
           return;
         } catch (serverErr) {
-          // Standalone 24-Hour Free Trial Activation
+          // Standalone 7-Day Free Trial Activation
           const now = new Date();
-          const trialExpiresAt = new Date(now.getTime() + 24 * 60 * 60 * 1000).toISOString();
+          const trialExpiresAt = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString(); // 7 Days (1 week)
+          markDeviceTrialUsed(currentDevId);
           currentUser = saveLocalSession({
             uid: 'std_trial_' + Math.random().toString(36).substring(2, 10),
             username: rawUsername.toLowerCase(),
@@ -5719,7 +5792,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
             accessStatus: 'ACTIVE',
             trialStartedAt: now.toISOString(),
             trialExpiresAt: trialExpiresAt,
-            bound_device_id: getDeviceIdentifier()
+            bound_device_id: currentDevId
           });
           playSuccessSound();
           if (typeof confetti === 'function') confetti({ particleCount: 120, spread: 80 });
@@ -5930,7 +6003,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
       }
       const now = Date.now();
       if (user.accessType === 'TRIAL') {
-        const expTime = user.trialExpiresAt ? new Date(user.trialExpiresAt).getTime() : (now + 86400000);
+        const expTime = user.trialExpiresAt ? new Date(user.trialExpiresAt).getTime() : (now + 7 * 86400000);
         if (user.accessStatus === 'TRIAL_EXPIRED' || now >= expTime) {
           user.accessStatus = 'TRIAL_EXPIRED';
           user.access_status = 'TRIAL_EXPIRED';
@@ -6068,12 +6141,17 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
           return;
         }
 
-        const hrs = Math.floor(diff / (1000 * 60 * 60));
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hrs = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const secs = Math.floor((diff % (1000 * 60)) / 1000);
 
         if (badge) {
-          badge.innerText = `فترة تجريبية ⏳ ${hrs}س :${mins}د :${secs}ث`;
+          if (days > 0) {
+            badge.innerText = `تجربة مجانية ⏳ ${days}يوم ${hrs}س ${mins}د`;
+          } else {
+            badge.innerText = `تجربة مجانية ⏳ ${hrs}س :${mins}د :${secs}ث`;
+          }
           badge.className = 'px-2 py-0.5 rounded-full text-[10px] font-black bg-amber-500 text-slate-900 mr-1 shadow-sm';
         }
       }
@@ -6116,9 +6194,9 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
           statusEl.className = 'font-black px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px]';
           expEl.innerText = currentUser.annualExpiresAt ? new Date(currentUser.annualExpiresAt).toLocaleDateString('ar-EG') : 'ساري لمدة عام';
         } else if (currentUser.accessType === 'TRIAL') {
-          statusEl.innerText = 'فترة تجريبية (24 ساعة) ⏳';
+          statusEl.innerText = 'فترة تجريبية (7 أيام) ⏳';
           statusEl.className = 'font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[11px]';
-          expEl.innerText = currentUser.trialExpiresAt ? new Date(currentUser.trialExpiresAt).toLocaleString('ar-EG') : '24 ساعة';
+          expEl.innerText = currentUser.trialExpiresAt ? new Date(currentUser.trialExpiresAt).toLocaleString('ar-EG') : '7 أيام';
         } else {
           statusEl.innerText = 'غير مفعل';
           expEl.innerText = '-';
@@ -6217,7 +6295,7 @@ window.COURSE_DATA = {"course":{"unit1FullText":"Unité 1 : Invitation. Les vaca
 
       tbody.innerHTML = students.map(s => {
         let typeBadge = '<span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">بدون</span>';
-        if (s.accessType === 'TRIAL') typeBadge = '<span class="px-2 py-0.5 rounded bg-blue-100 text-blue-700 font-bold">تجربة 24س</span>';
+        if (s.accessType === 'TRIAL') typeBadge = '<span class="px-2 py-0.5 rounded bg-blue-100 text-blue-700 font-bold">تجربة 7 أيام</span>';
         if (s.accessType === 'ANNUAL') typeBadge = '<span class="px-2 py-0.5 rounded bg-amber-100 text-amber-700 font-bold">سنوي 365ي</span>';
 
         let statusBadge = '<span class="px-2 py-0.5 rounded bg-slate-100 text-slate-500">غير نشط</span>';

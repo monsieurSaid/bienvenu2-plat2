@@ -783,8 +783,35 @@ fun PronounsOfficial15ExercisesView(
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Column(modifier = Modifier.padding(12.dp)) {
+                        val sentenceAnnotated = androidx.compose.ui.text.buildAnnotatedString {
+                            val fullText = "${currentExercise.number}- ${currentExercise.fullSentenceFr}"
+                            append(fullText)
+                            val parts = if (currentExercise.underlinedPart.contains("...")) {
+                                currentExercise.underlinedPart.split("...").map { it.trim() }.filter { it.isNotEmpty() }
+                            } else {
+                                listOf(currentExercise.underlinedPart.trim())
+                            }
+                            parts.forEach { part ->
+                                var searchIndex = 0
+                                while (searchIndex < fullText.length) {
+                                    val idx = fullText.indexOf(part, searchIndex, ignoreCase = true)
+                                    if (idx == -1) break
+                                    addStyle(
+                                        style = androidx.compose.ui.text.SpanStyle(
+                                            color = Color(currentExercise.category.badgeColorHex),
+                                            fontWeight = FontWeight.Black,
+                                            textDecoration = TextDecoration.Underline
+                                        ),
+                                        start = idx,
+                                        end = idx + part.length
+                                    )
+                                    searchIndex = idx + part.length
+                                }
+                            }
+                        }
+
                         Text(
-                            text = "${currentExercise.number}- ${currentExercise.fullSentenceFr}",
+                            text = sentenceAnnotated,
                             fontSize = 17.sp,
                             fontWeight = FontWeight.Black,
                             fontFamily = FontFamily.Serif,
@@ -841,8 +868,9 @@ fun PronounsOfficial15ExercisesView(
                 ) {
                     currentExercise.options.forEach { option ->
                         val isChosen = userSelectedAnswer == option
-                        val isCorrect = option == currentExercise.targetPronoun ||
-                                option == currentExercise.transformedSentenceFr
+                        val isCorrect = option.trim().equals(currentExercise.targetPronoun.trim(), ignoreCase = true) ||
+                                option.trim().equals(currentExercise.transformedSentenceFr.trim(), ignoreCase = true) ||
+                                option.trim().replace(".", "").equals(currentExercise.transformedSentenceFr.trim().replace(".", ""), ignoreCase = true)
 
                         Button(
                             onClick = {
